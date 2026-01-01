@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Stethoscope, Heart, Syringe, Microscope, Pill, Scissors, Activity } from "lucide-react";
+import { WellnessLab } from "@/components/WellnessLab";
+import { PersonalizedHealthChecklist } from "@/components/PersonalizedHealthChecklist";
 
 export default function Services() {
   const services = [
@@ -60,7 +62,7 @@ export default function Services() {
               <Stethoscope className="w-8 h-8" />
               <h1 className="text-2xl font-bold">Direct Care Indy</h1>
             </Link>
-            <div className="hidden md:flex gap-6">
+            <div className="hidden md:flex gap-6 items-center">
               <Link href="/" className="hover:text-secondary transition-colors">
                 Home
               </Link>
@@ -70,8 +72,23 @@ export default function Services() {
               <Link href="/services" className="hover:text-secondary transition-colors">
                 Services
               </Link>
+              <Link href="/seniors" className="hover:text-secondary transition-colors">
+                Seniors (Medicare)
+              </Link>
               <Link href="/partnerships" className="hover:text-secondary transition-colors">
                 Partnerships
+              </Link>
+              <Link href="/employers" className="hover:text-secondary transition-colors">
+                Employers
+              </Link>
+              <Link href="/faq" className="hover:text-secondary transition-colors">
+                FAQ
+              </Link>
+              <Link
+                href="/join"
+                className="bg-secondary hover:bg-opacity-90 text-white px-6 py-2 rounded-lg font-semibold transition-all"
+              >
+                Join Now
               </Link>
             </div>
           </div>
@@ -95,14 +112,14 @@ export default function Services() {
             {services.map((service, idx) => {
               const Icon = service.icon;
               return (
-                <div key={idx} className="bg-white p-6 rounded-lg shadow-lg">
+                <div key={idx} className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
                   <div className="bg-secondary text-white rounded-full w-14 h-14 flex items-center justify-center mb-4">
                     <Icon className="w-7 h-7" />
                   </div>
                   <h3 className="text-xl font-bold text-primary mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-gray-700">{service.description}</p>
+                  <p className="text-gray-300">{service.description}</p>
                 </div>
               );
             })}
@@ -110,8 +127,38 @@ export default function Services() {
         </div>
       </section>
 
+      {/* Wellness Lab Section */}
+      <section className="py-16 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold text-primary mb-4">Personal Wellness Lab</h3>
+              <p className="text-xl text-gray-300">
+                Calculate your BMI, ideal weight, and metabolic health metrics
+              </p>
+            </div>
+            <WellnessLab />
+          </div>
+        </div>
+      </section>
+
+      {/* Personalized Health Recommendations */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold text-primary mb-4">Personalized Health Recommendations</h3>
+              <p className="text-xl text-gray-300">
+                Get evidence-based screening recommendations based on your age and sex
+              </p>
+            </div>
+            <PersonalizedHealthChecklist />
+          </div>
+        </div>
+      </section>
+
       {/* Differentiators Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-900">
         <div className="container mx-auto px-4">
           <h3 className="text-3xl font-bold text-primary mb-8 text-center">
             Our Game-Changing Differentiators

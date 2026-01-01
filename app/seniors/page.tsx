@@ -1,11 +1,20 @@
+"use client";
+
+import { useEffect } from "react";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Stethoscope, ShieldCheck, Award, DollarSign } from "lucide-react";
 import { MedicareDpcFaq } from "@/components/MedicareDpcFaq";
 import { HsaStatusTracker } from "@/components/HsaStatusTracker";
 import { SeniorSavingsCalculator } from "@/components/SeniorSavingsCalculator";
+import { PersonalizedHealthChecklist } from "@/components/PersonalizedHealthChecklist";
+import { setUserPersona } from "@/lib/persona";
 import PricingTiers from "@/components/PricingTiers";
 
 export default function Seniors() {
+  useEffect(() => {
+    setUserPersona('senior');
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -144,8 +153,23 @@ export default function Seniors() {
         </div>
       </section>
 
-      {/* Medicare + DPC FAQ */}
+      {/* Personalized Health Recommendations */}
       <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold text-primary mb-4">Personalized Health Recommendations</h3>
+              <p className="text-xl text-gray-600 dark:text-gray-300">
+                Get evidence-based screening recommendations based on your age and sex
+              </p>
+            </div>
+            <PersonalizedHealthChecklist />
+          </div>
+        </div>
+      </section>
+
+      {/* Medicare + DPC FAQ */}
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <MedicareDpcFaq />
         </div>

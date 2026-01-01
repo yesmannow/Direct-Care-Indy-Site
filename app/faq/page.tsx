@@ -326,7 +326,7 @@ export default function FAQ() {
               <Stethoscope className="w-8 h-8" />
               <h1 className="text-2xl font-bold">Direct Care Indy</h1>
             </Link>
-            <div className="hidden md:flex gap-6">
+            <div className="hidden md:flex gap-6 items-center">
               <Link href="/" className="hover:text-secondary transition-colors">
                 Home
               </Link>
@@ -336,11 +336,23 @@ export default function FAQ() {
               <Link href="/services" className="hover:text-secondary transition-colors">
                 Services
               </Link>
+              <Link href="/seniors" className="hover:text-secondary transition-colors">
+                Seniors (Medicare)
+              </Link>
               <Link href="/partnerships" className="hover:text-secondary transition-colors">
                 Partnerships
               </Link>
+              <Link href="/employers" className="hover:text-secondary transition-colors">
+                Employers
+              </Link>
               <Link href="/faq" className="text-secondary font-semibold">
                 FAQ
+              </Link>
+              <Link
+                href="/join"
+                className="bg-secondary hover:bg-opacity-90 text-white px-6 py-2 rounded-lg font-semibold transition-all"
+              >
+                Join Now
               </Link>
             </div>
           </div>

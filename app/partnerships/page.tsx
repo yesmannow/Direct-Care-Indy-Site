@@ -71,6 +71,9 @@ export default function Partnerships() {
               <Link href="/services" className="hover:text-secondary transition-colors">
                 Services
               </Link>
+              <Link href="/seniors" className="hover:text-secondary transition-colors">
+                Seniors (Medicare)
+              </Link>
               <Link href="/partnerships" className="hover:text-secondary transition-colors">
                 Partnerships
               </Link>

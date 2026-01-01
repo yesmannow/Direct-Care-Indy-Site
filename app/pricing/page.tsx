@@ -5,6 +5,7 @@ import ComparisonTable from "@/components/ComparisonTable";
 import PortalPreview from "@/components/PortalPreview";
 import { IncludedMatrix } from "@/components/IncludedMatrix";
 import { ValueBanner } from "@/components/ValueBanner";
+import { MarketCostComparison } from "@/components/MarketCostComparison";
 
 export default function Pricing() {
 
@@ -68,14 +69,23 @@ export default function Pricing() {
       </section>
 
       {/* Value Banner */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-900">
         <div className="container mx-auto px-4">
           <ValueBanner />
         </div>
       </section>
 
+      {/* Market Cost Comparison */}
+      <section className="py-16 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <MarketCostComparison />
+          </div>
+        </div>
+      </section>
+
       {/* 90/10 Comparison */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <ComparisonTable />
