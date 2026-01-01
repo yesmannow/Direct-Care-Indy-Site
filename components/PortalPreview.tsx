@@ -23,7 +23,7 @@ export default function PortalPreview() {
         <h3 className="text-3xl font-bold text-primary mb-2">
           Your Patient Dashboard Preview
         </h3>
-        <p className="text-gray-600 dark:text-gray-300">
+        <p className="text-gray-800 dark:text-gray-300">
           Experience the transparency and convenience of Direct Care Indy
         </p>
       </div>

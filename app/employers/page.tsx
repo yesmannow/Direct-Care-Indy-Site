@@ -27,6 +27,9 @@ export default function Employers() {
               <Link href="/" className="hover:text-secondary transition-colors">
                 Home
               </Link>
+              <Link href="/providers" className="hover:text-secondary transition-colors">
+                Our Team
+              </Link>
               <Link href="/pricing" className="hover:text-secondary transition-colors">
                 Pricing
               </Link>

@@ -99,11 +99,23 @@ export default async function ProviderPage({ params }: ProviderPageProps) {
                 <Link href="/" className="hover:text-secondary transition-colors">
                   Home
                 </Link>
-                <Link href="/providers" className="hover:text-secondary transition-colors">
-                  Team
+                <Link href="/providers" className="text-secondary font-semibold">
+                  Our Team
                 </Link>
                 <Link href="/pricing" className="hover:text-secondary transition-colors">
                   Pricing
+                </Link>
+                <Link href="/services" className="hover:text-secondary transition-colors">
+                  Services
+                </Link>
+                <Link href="/seniors" className="hover:text-secondary transition-colors">
+                  Seniors (Medicare)
+                </Link>
+                <Link href="/partnerships" className="hover:text-secondary transition-colors">
+                  Partnerships
+                </Link>
+                <Link href="/faq" className="hover:text-secondary transition-colors">
+                  FAQ
                 </Link>
                 <Link href="/join" className="bg-secondary hover:bg-opacity-90 text-white px-6 py-2 rounded-lg font-semibold transition-all min-h-[44px] min-w-[44px] flex items-center justify-center">
                   Join Now

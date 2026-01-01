@@ -35,6 +35,9 @@ export default function Home() {
               <Link href="/" className="hover:text-secondary transition-colors text-link">
                 Home
               </Link>
+              <Link href="/providers" className="hover:text-secondary transition-colors text-link">
+                Our Team
+              </Link>
               <Link href="/pricing" className="hover:text-secondary transition-colors text-link">
                 Pricing
               </Link>

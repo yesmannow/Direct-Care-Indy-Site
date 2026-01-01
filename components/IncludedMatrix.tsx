@@ -21,10 +21,10 @@ export function IncludedMatrix() {
     <div className="max-w-4xl mx-auto py-12 px-4">
       <div className="text-center mb-10">
         <h2 className="text-3xl font-bold text-[#1B2B3A] dark:text-gray-100">The 90/10 Split</h2>
-        <p className="text-gray-500 dark:text-gray-400">Know exactly where your membership ends and your insurance begins.</p>
+        <p className="text-gray-700 dark:text-gray-400">Know exactly where your membership ends and your insurance begins.</p>
       </div>
       <div className="grid grid-cols-3 gap-4 border-t border-gray-100 dark:border-gray-700 pt-6">
-        <div className="text-sm font-bold uppercase text-gray-400 dark:text-gray-500">Medical Service</div>
+        <div className="text-sm font-bold uppercase text-gray-700 dark:text-gray-500">Medical Service</div>
         <div className="text-sm font-bold uppercase text-teal-600 dark:text-teal-400 text-center">DPC (The 90%)</div>
         <div className="text-sm font-bold uppercase text-[#1B2B3A] dark:text-gray-300 text-center">Insurance (The 10%)</div>
 

@@ -52,7 +52,7 @@ export default function IndyBreathEasy() {
           <h3 className="text-xl font-black text-slate-900 flex items-center gap-2 uppercase tracking-tight">
             <Wind className={status.color} /> Indy Breath-Easy Index
           </h3>
-          <p className="text-sm text-slate-500 font-medium">Real-time Respiratory Tracking for NW Indy</p>
+          <p className="text-sm text-slate-700 font-medium">Real-time Respiratory Tracking for NW Indy</p>
         </div>
         <div className={`px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest border ${status.color} border-current`}>
           {status.label}
@@ -85,7 +85,7 @@ export default function IndyBreathEasy() {
         </div>
       ) : (
         <div className="text-center">
-          <p className="text-xs text-slate-500 italic">"Conditions look stable. A perfect day for preventative wellness." — Dr. James Pike</p>
+          <p className="text-xs text-slate-700 italic">"Conditions look stable. A perfect day for preventative wellness." — Dr. James Pike</p>
         </div>
       )}
     </div>

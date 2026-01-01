@@ -65,6 +65,9 @@ export default function Partnerships() {
               <Link href="/" className="hover:text-secondary transition-colors">
                 Home
               </Link>
+              <Link href="/providers" className="hover:text-secondary transition-colors">
+                Our Team
+              </Link>
               <Link href="/pricing" className="hover:text-secondary transition-colors">
                 Pricing
               </Link>
@@ -163,11 +166,11 @@ export default function Partnerships() {
             <h3 className="text-3xl font-bold text-primary mb-4 text-center">
               Not Ready for Full Memberships?
             </h3>
-            <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-center text-gray-800 mb-8 max-w-2xl mx-auto">
               Start with a single service to see the difference direct care makes for your business.
             </p>
             <OccHealthPrices />
-            <p className="text-center text-gray-600 mt-6 italic">
+            <p className="text-center text-gray-800 mt-6 italic">
               Start with a single service, or protect your whole crew with a full membership to eliminate insurance headaches forever.
             </p>
           </div>
@@ -252,7 +255,7 @@ export default function Partnerships() {
             <h3 className="text-3xl font-bold text-primary mb-4 text-center">
               Quick Quote Calculator
             </h3>
-            <p className="text-center text-gray-600 mb-8">
+            <p className="text-center text-gray-800 mb-8">
               See your potential savings instantly with our small business healthcare calculator
             </p>
 
@@ -269,7 +272,7 @@ export default function Partnerships() {
                   onChange={(e) => setQuoteEmployees(Number(e.target.value))}
                   className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-secondary"
                 />
-                <div className="flex justify-between text-sm text-gray-600 mt-2">
+                <div className="flex justify-between text-sm text-gray-800 mt-2">
                   <span>1 employee</span>
                   <span>50 employees</span>
                 </div>
@@ -328,7 +331,7 @@ export default function Partnerships() {
               </div>
 
               <div className="mt-6 text-center">
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-gray-800 mb-4">
                   * Calculations based on average costs. DPC can be combined with catastrophic coverage for complete protection.
                 </p>
                 <PersonaButton

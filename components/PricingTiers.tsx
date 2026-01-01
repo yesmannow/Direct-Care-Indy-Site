@@ -5,8 +5,18 @@ import Link from "next/link";
 import { Check, Users } from "lucide-react";
 import { HsaBadge } from "./HsaBadge";
 
+interface Tier {
+  name: string;
+  ageRange: string;
+  price: number;
+  features: string[];
+  color: string;
+  popular?: boolean;
+  note?: string;
+}
+
 export default function PricingTiers() {
-  const tiers = [
+  const tiers: Tier[] = [
     {
       name: "Young Adult",
       ageRange: "19-44 years",
@@ -84,10 +94,10 @@ export default function PricingTiers() {
               <div className="text-center mb-6">
                 <div className="flex items-baseline justify-center gap-1">
                   <span className="text-5xl font-bold text-primary">${tier.price}</span>
-                  <span className="text-gray-600">/month</span>
+                  <span className="text-gray-800">/month</span>
                 </div>
-                {(tier as any).note && (
-                  <p className="text-xs text-gray-500 mt-1 italic">{(tier as any).note}</p>
+                {tier.note && (
+                  <p className="text-xs text-gray-800 mt-1 italic">{tier.note}</p>
                 )}
                 <div className="flex justify-center mt-3">
                   <HsaBadge />
@@ -104,7 +114,7 @@ export default function PricingTiers() {
                 {tier.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-2">
                     <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 text-sm">{feature}</span>
+                    <span className="text-gray-900 text-sm">{feature}</span>
                   </li>
                 ))}
               </ul>

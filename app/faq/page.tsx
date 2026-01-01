@@ -65,7 +65,7 @@ export default function FAQ() {
                   <li>Use remaining HSA funds for other qualified medical expenses</li>
                 </ul>
               </div>
-              <p className="text-sm text-gray-600 italic">
+              <p className="text-sm text-gray-800 italic">
                 Consult with your tax advisor to ensure your specific HSA setup qualifies.
               </p>
             </div>
@@ -122,7 +122,7 @@ export default function FAQ() {
                   <li>Cancer treatments and chemotherapy</li>
                 </ul>
               </div>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-800">
                 For the 10%, we recommend pairing your DPC membership with a catastrophic health insurance plan or health sharing ministry.
               </p>
             </div>
@@ -166,7 +166,7 @@ export default function FAQ() {
                 </ul>
               </div>
 
-              <p className="text-sm text-gray-600 italic">
+              <p className="text-sm text-gray-800 italic">
                 Remember: Direct Care Indy is designed for 90% of your healthcare needs.
                 The ER is always the right choice for true emergencies—that&apos;s the 10% we don&apos;t cover.
               </p>
@@ -234,7 +234,7 @@ export default function FAQ() {
                   <li>Available on iOS and Android</li>
                 </ul>
               </div>
-              <p className="text-sm text-gray-600 italic">
+              <p className="text-sm text-gray-800 italic">
                 This is one of the biggest advantages of Direct Care—direct access to your doctor without phone trees or long hold times.
               </p>
             </div>
@@ -329,6 +329,9 @@ export default function FAQ() {
             <div className="hidden md:flex gap-6 items-center">
               <Link href="/" className="hover:text-secondary transition-colors">
                 Home
+              </Link>
+              <Link href="/providers" className="hover:text-secondary transition-colors">
+                Our Team
               </Link>
               <Link href="/pricing" className="hover:text-secondary transition-colors">
                 Pricing

@@ -76,8 +76,8 @@ export function TheWraparoundGuide() {
           <h2 className="text-4xl font-bold text-[#1B2B3A] mb-4">
             The 90/10 Stack: Your Step-by-Step Guide
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Think of it like car maintenance: You need a great mechanic (DPC) for the 90% 
+          <p className="text-xl text-gray-800 max-w-2xl mx-auto">
+            Think of it like car maintenance: You need a great mechanic (DPC) for the 90%
             and auto insurance (catastrophic coverage) for the 10%.
           </p>
         </div>
@@ -86,7 +86,7 @@ export function TheWraparoundGuide() {
           {steps.map((step, idx) => {
             const Icon = step.icon;
             const colors = colorClasses[step.color as keyof typeof colorClasses];
-            
+
             return (
               <div
                 key={step.number}
@@ -99,7 +99,7 @@ export function TheWraparoundGuide() {
                       <Icon className="w-8 h-8" />
                     </div>
                     <div className="text-center">
-                      <span className="text-2xl font-bold text-gray-400">
+                      <span className="text-2xl font-bold text-gray-700">
                         Step {step.number}
                       </span>
                     </div>
@@ -110,7 +110,7 @@ export function TheWraparoundGuide() {
                     <h3 className={`text-2xl font-bold ${colors.text} mb-1`}>
                       {step.title}
                     </h3>
-                    <p className="text-sm font-semibold text-gray-600 mb-3 italic">
+                    <p className="text-sm font-semibold text-gray-800 mb-3 italic">
                       {step.subtitle}
                     </p>
                     <p className="text-gray-700 mb-4">{step.description}</p>
@@ -119,7 +119,7 @@ export function TheWraparoundGuide() {
                       {step.details.map((detail, detailIdx) => (
                         <div
                           key={detailIdx}
-                          className="flex items-center gap-2 text-sm text-gray-600"
+                          className="flex items-center gap-2 text-sm text-gray-800"
                         >
                           <CheckCircle2 className={`w-4 h-4 ${colors.icon.replace('bg-', 'text-')}`} />
                           <span>{detail}</span>
