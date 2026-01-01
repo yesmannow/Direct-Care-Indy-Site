@@ -7,9 +7,9 @@ import { NEIGHBORHOODS, BUSINESS_INFO } from "@/lib/constants";
 import WholesaleLabSearch from "@/components/WholesaleLabSearch";
 
 interface NeighborhoodPageProps {
-  params: {
+  params: Promise<{
     neighborhood: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -23,8 +23,9 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: NeighborhoodPageProps): Promise<Metadata> {
-  const neighborhood = params.neighborhood.toLowerCase();
-  const neighborhoodData = NEIGHBORHOODS[neighborhood as keyof typeof NEIGHBORHOODS];
+  const { neighborhood } = await params;
+  const neighborhoodKey = neighborhood.toLowerCase();
+  const neighborhoodData = NEIGHBORHOODS[neighborhoodKey as keyof typeof NEIGHBORHOODS];
 
   if (!neighborhoodData) {
     return {
@@ -44,9 +45,10 @@ export async function generateMetadata({ params }: NeighborhoodPageProps): Promi
   };
 }
 
-export default function NeighborhoodPage({ params }: NeighborhoodPageProps) {
-  const neighborhood = params.neighborhood.toLowerCase();
-  const neighborhoodData = NEIGHBORHOODS[neighborhood as keyof typeof NEIGHBORHOODS];
+export default async function NeighborhoodPage({ params }: NeighborhoodPageProps) {
+  const { neighborhood } = await params;
+  const neighborhoodKey = neighborhood.toLowerCase();
+  const neighborhoodData = NEIGHBORHOODS[neighborhoodKey as keyof typeof NEIGHBORHOODS];
 
   if (!neighborhoodData) {
     return (
@@ -63,7 +65,7 @@ export default function NeighborhoodPage({ params }: NeighborhoodPageProps) {
 
   // Persona-specific benefits
   const getPersonaBenefits = () => {
-    switch (neighborhood) {
+    switch (neighborhoodKey) {
       case 'carmel':
         return [
           {

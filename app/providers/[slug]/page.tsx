@@ -10,9 +10,9 @@ import IndyBreathEasy from "@/components/IndyBreathEasy";
 import { SharedFooter } from "@/components/SharedFooter";
 
 interface ProviderPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -26,7 +26,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: ProviderPageProps): Promise<Metadata> {
-  const provider = getProviderBySlug(params.slug);
+  const { slug } = await params;
+  const provider = getProviderBySlug(slug);
 
   if (!provider) {
     return {
@@ -57,8 +58,9 @@ export async function generateMetadata({ params }: ProviderPageProps): Promise<M
   };
 }
 
-export default function ProviderPage({ params }: ProviderPageProps) {
-  const provider = getProviderBySlug(params.slug);
+export default async function ProviderPage({ params }: ProviderPageProps) {
+  const { slug } = await params;
+  const provider = getProviderBySlug(slug);
   const medicalDirector = getMedicalDirector();
   const isPA = provider?.role === "Lead PA";
   const isPhysician = provider?.role === "Medical Director";
