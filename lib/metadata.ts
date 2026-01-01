@@ -64,14 +64,15 @@ export const baseMetadata: Metadata = {
 
 export const partnershipMetadata: Metadata = {
   title: "Health Benefits for Indianapolis Trades | HVAC, Landscaping, Auto",
-  description: "Save $4,700+ per employee with Direct Primary Care for small businesses. Perfect for HVAC, landscaping, auto shops, and construction trades in Indianapolis.",
+  description: "Save $4,700+ per employee with Direct Primary Care for small businesses in Indianapolis, IN 46268. Perfect for HVAC, landscaping, auto shops, and construction trades.",
   keywords: [
     "small business health benefits Indianapolis",
     "HVAC contractor healthcare",
     "landscaping company health insurance",
     "auto shop employee benefits",
     "construction trade healthcare",
-    "affordable employee benefits Indiana"
+    "affordable employee benefits Indiana",
+    "Indianapolis 46268 healthcare"
   ],
   openGraph: {
     title: "Health Benefits for Indianapolis Trades | Save $4,700/Employee",

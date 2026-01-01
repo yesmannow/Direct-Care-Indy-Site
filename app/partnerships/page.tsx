@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Stethoscope, Users, TrendingDown, UserCheck, Award, Wrench, Truck } from "lucide-react";
 import { PersonaButton } from "@/components/PersonaButton";
+import { OccHealthPrices } from "@/components/OccHealthPrices";
 
 export default function Partnerships() {
   const [formData, setFormData] = useState({
@@ -152,8 +153,26 @@ export default function Partnerships() {
         </div>
       </section>
 
-      {/* Cost Breakdown */}
+      {/* Occupational Health Pricing */}
       <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold text-primary mb-4 text-center">
+              Not Ready for Full Memberships?
+            </h3>
+            <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+              Start with a single service to see the difference direct care makes for your business.
+            </p>
+            <OccHealthPrices />
+            <p className="text-center text-gray-600 mt-6 italic">
+              Start with a single service, or protect your whole crew with a full membership to eliminate insurance headaches forever.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Cost Breakdown */}
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-3xl font-bold text-primary mb-8 text-center">
@@ -522,7 +541,8 @@ export default function Partnerships() {
             </div>
           </div>
           <div className="border-t border-gray-600 pt-6 text-center text-gray-300">
-            <p>James D. Pike, D.O. | Direct Primary Care Physician</p>
+            <p>James D. Pike, D.O., FCCP, FACP</p>
+            <p className="text-sm opacity-90">Board Certified in Pulmonary and Internal Medicine</p>
             <p className="mt-2">© {new Date().getFullYear()} Direct Care Indy. All rights reserved.</p>
           </div>
         </div>

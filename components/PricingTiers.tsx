@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Check, Users } from "lucide-react";
+import { HsaBadge } from "./HsaBadge";
 
 export default function PricingTiers() {
   const tiers = [
@@ -88,6 +89,9 @@ export default function PricingTiers() {
                 {tier.note && (
                   <p className="text-xs text-gray-500 mt-1 italic">{tier.note}</p>
                 )}
+                <div className="flex justify-center mt-3">
+                  <HsaBadge />
+                </div>
               </div>
 
               <ul className="space-y-3 mb-6">
