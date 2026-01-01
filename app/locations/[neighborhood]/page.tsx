@@ -13,14 +13,13 @@ interface NeighborhoodPageProps {
 }
 
 export async function generateStaticParams() {
-  try {
-    return Object.keys(NEIGHBORHOODS).map((neighborhood) => ({
-      neighborhood,
-    }));
-  } catch (error) {
-    console.error('Failed to generate static params for locations:', error);
-    return []; // Return empty array on error
-  }
+  // Must return an array of objects with the exact param names
+  return [
+    { neighborhood: 'carmel' },
+    { neighborhood: 'zionsville' },
+    { neighborhood: 'fishers' },
+    { neighborhood: 'geist' }
+  ];
 }
 
 export async function generateMetadata({ params }: NeighborhoodPageProps): Promise<Metadata> {

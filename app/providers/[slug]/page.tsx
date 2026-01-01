@@ -16,14 +16,13 @@ interface ProviderPageProps {
 }
 
 export async function generateStaticParams() {
-  try {
-    return PROVIDERS.map((provider) => ({
-      slug: provider.slug,
-    }));
-  } catch (error) {
-    console.error('Failed to generate static params for providers:', error);
-    return []; // Return empty array on error
-  }
+  // Must return an array of objects with the exact param names
+  return [
+    { slug: 'james-pike' },
+    { slug: 'karina-white' },
+    { slug: 'maddie-klinger' },
+    { slug: 'chase-keirn' }
+  ];
 }
 
 export async function generateMetadata({ params }: ProviderPageProps): Promise<Metadata> {
