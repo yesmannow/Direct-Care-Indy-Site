@@ -3,6 +3,8 @@ import { Phone, Mail, MapPin, Stethoscope } from "lucide-react";
 import PricingTiers from "@/components/PricingTiers";
 import ComparisonTable from "@/components/ComparisonTable";
 import PortalPreview from "@/components/PortalPreview";
+import { IncludedMatrix } from "@/components/IncludedMatrix";
+import { ValueBanner } from "@/components/ValueBanner";
 
 export default function Pricing() {
 
@@ -62,12 +64,26 @@ export default function Pricing() {
         </div>
       </section>
 
+      {/* Value Banner */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <ValueBanner />
+        </div>
+      </section>
+
       {/* 90/10 Comparison */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <ComparisonTable />
           </div>
+        </div>
+      </section>
+
+      {/* Included Matrix */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <IncludedMatrix />
         </div>
       </section>
 
@@ -155,7 +171,8 @@ export default function Pricing() {
             </div>
           </div>
           <div className="border-t border-gray-600 pt-6 text-center text-gray-300">
-            <p>James D. Pike, D.O. | Direct Primary Care Physician</p>
+            <p>James D. Pike, D.O., FCCP, FACP</p>
+            <p className="text-sm opacity-90">Board Certified in Pulmonary and Internal Medicine</p>
             <p className="mt-2">© {new Date().getFullYear()} Direct Care Indy. All rights reserved.</p>
           </div>
         </div>
