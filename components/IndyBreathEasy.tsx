@@ -11,7 +11,7 @@ export default function IndyBreathEasy() {
     // Indianapolis Coordinates for Pike Medical (46268 area)
     const lat = 39.89;
     const lon = -86.21;
-    const API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_KEY;
+    const API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
 
     if (!API_KEY) {
       console.warn("OpenWeather API key not configured");
