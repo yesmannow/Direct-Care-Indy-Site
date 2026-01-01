@@ -14,16 +14,7 @@ export default function WholesalePrices() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const priceList: PriceItem[] = [
-    // Medications
-    { name: "Amoxicillin", category: "medication", price: 3.0, retailPrice: 25 },
-    { name: "Azithromycin (Z-Pack)", category: "medication", price: 5.0, retailPrice: 40 },
-    { name: "Lisinopril", category: "medication", price: 3.5, retailPrice: 20 },
-    { name: "Metformin", category: "medication", price: 4.0, retailPrice: 30 },
-    { name: "Atorvastatin", category: "medication", price: 5.0, retailPrice: 35 },
-    { name: "Omeprazole", category: "medication", price: 3.0, retailPrice: 25 },
-    { name: "Albuterol Inhaler", category: "medication", price: 8.0, retailPrice: 60 },
-    
-    // Labs
+    // Labs only - medications removed for HSA compliance (IRS Notice 2026-5)
     { name: "Lipid Panel", category: "lab", price: 5.0, retailPrice: 150 },
     { name: "A1C Test", category: "lab", price: 8.0, retailPrice: 120 },
     { name: "Comprehensive Metabolic Panel", category: "lab", price: 7.0, retailPrice: 180 },
@@ -31,6 +22,8 @@ export default function WholesalePrices() {
     { name: "Thyroid Panel (TSH)", category: "lab", price: 9.0, retailPrice: 140 },
     { name: "Vitamin D Test", category: "lab", price: 12.0, retailPrice: 160 },
     { name: "Urinalysis", category: "lab", price: 4.0, retailPrice: 80 },
+    { name: "Basic Metabolic Panel", category: "lab", price: 6.0, retailPrice: 130 },
+    { name: "Hemoglobin A1C", category: "lab", price: 8.0, retailPrice: 125 },
   ];
 
   const filteredItems = priceList.filter((item) =>
@@ -40,11 +33,11 @@ export default function WholesalePrices() {
   return (
     <div className="bg-white rounded-lg shadow-lg p-8">
       <h4 className="text-2xl font-bold text-primary mb-6 text-center">
-        Wholesale Pharmacy & Lab Pricing
+        Wholesale Lab Pricing
       </h4>
 
       <p className="text-center text-gray-700 mb-6 max-w-2xl mx-auto">
-        As a Direct Care Indy member, you get access to medications and lab work
+        As a Direct Care Indy member, you get access to lab work
         at true wholesale prices—no insurance markups or hidden fees.
       </p>
 
@@ -54,7 +47,7 @@ export default function WholesalePrices() {
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
           <input
             type="text"
-            placeholder="Search medications or lab tests..."
+            placeholder="Search lab tests..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:border-secondary focus:outline-none"

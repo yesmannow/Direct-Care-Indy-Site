@@ -2,10 +2,22 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, Stethoscope, Clock, DollarSign, Award } from "lucide-react";
 import { NinetyTenSwitcher } from "@/components/NinetyTenSwitcher";
 import WholesalePrices from "@/components/WholesalePrices";
+import PortalPreview from "@/components/PortalPreview";
+import { SavingsPersonas } from "@/components/SavingsPersonas";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { CatastrophicPartners } from "@/components/CatastrophicPartners";
+import { TheWraparoundGuide } from "@/components/TheWraparoundGuide";
+import { FaqSchema } from "@/components/FaqSchema";
+import { OrganizationSchema, PhysicianSchema, ServiceSchema } from "@/components/StructuredData";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <FaqSchema />
+      <OrganizationSchema />
+      <PhysicianSchema />
+      <ServiceSchema />
+      <div className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="bg-primary text-white shadow-md">
         <div className="container mx-auto px-4 py-4">
@@ -15,21 +27,22 @@ export default function Home() {
               <h1 className="text-2xl font-bold">Direct Care Indy</h1>
             </div>
             <div className="hidden md:flex gap-6 items-center">
-              <Link href="/" className="hover:text-secondary transition-colors">
+              <Link href="/" className="hover:text-secondary transition-colors text-link">
                 Home
               </Link>
-              <Link href="/pricing" className="hover:text-secondary transition-colors">
+              <Link href="/pricing" className="hover:text-secondary transition-colors text-link">
                 Pricing
               </Link>
-              <Link href="/services" className="hover:text-secondary transition-colors">
+              <Link href="/services" className="hover:text-secondary transition-colors text-link">
                 Services
               </Link>
-              <Link href="/partnerships" className="hover:text-secondary transition-colors">
+              <Link href="/partnerships" className="hover:text-secondary transition-colors text-link">
                 Partnerships
               </Link>
-              <Link href="/faq" className="hover:text-secondary transition-colors">
+              <Link href="/faq" className="hover:text-secondary transition-colors text-link">
                 FAQ
               </Link>
+              <ThemeToggle />
               <Link
                 href="/join"
                 className="bg-secondary hover:bg-opacity-90 text-white px-6 py-2 rounded-lg font-semibold transition-all"
@@ -190,6 +203,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Patient Portal Preview */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <PortalPreview />
+          </div>
+        </div>
+      </section>
+
+      {/* Savings Personas Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h3 className="text-3xl font-bold text-primary mb-4 text-center">
+              Real People, Real Savings
+            </h3>
+            <p className="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
+              See how Direct Care Indy transforms healthcare for Indianapolis families and small businesses
+            </p>
+            <SavingsPersonas />
+          </div>
+        </div>
+      </section>
+
+      {/* The Wraparound Guide */}
+      <TheWraparoundGuide />
+
+      {/* Catastrophic Partners Directory */}
+      <CatastrophicPartners />
+
       {/* Call to Action */}
       <section className="py-16 bg-secondary text-white">
         <div className="container mx-auto px-4 text-center">
@@ -272,5 +315,6 @@ export default function Home() {
         </div>
       </footer>
     </div>
+    </>
   );
 }

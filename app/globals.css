@@ -7,6 +7,13 @@
   --secondary: #8A9A8A;
 }
 
+.dark {
+  --background: #1B2B3A;
+  --foreground: #E5E7EB;
+  --primary: #1B2B3A;
+  --secondary: #14B8A6;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -19,3 +26,18 @@ body {
   color: var(--foreground);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
+
+/* Accessibility: Ensure interactive elements meet WCAG 2.2 touch target minimums */
+/* Apply to specific interactive classes to avoid breaking existing layouts */
+.btn, .nav-link, .form-control {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* Text links can be smaller as they have sufficient context */
+a.text-link {
+  min-width: auto;
+  min-height: auto;
+}
+
+
