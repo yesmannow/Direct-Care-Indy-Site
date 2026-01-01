@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Stethoscope, Clock, DollarSign, Award } from "lucide-react";
-import ModelSwitcher from "@/components/ModelSwitcher";
+import { NinetyTenSwitcher } from "@/components/NinetyTenSwitcher";
 import WholesalePrices from "@/components/WholesalePrices";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
               <Stethoscope className="w-8 h-8" />
               <h1 className="text-2xl font-bold">Direct Care Indy</h1>
             </div>
-            <div className="hidden md:flex gap-6">
+            <div className="hidden md:flex gap-6 items-center">
               <Link href="/" className="hover:text-secondary transition-colors">
                 Home
               </Link>
@@ -26,6 +26,15 @@ export default function Home() {
               </Link>
               <Link href="/partnerships" className="hover:text-secondary transition-colors">
                 Partnerships
+              </Link>
+              <Link href="/faq" className="hover:text-secondary transition-colors">
+                FAQ
+              </Link>
+              <Link
+                href="/join"
+                className="bg-secondary hover:bg-opacity-90 text-white px-6 py-2 rounded-lg font-semibold transition-all"
+              >
+                Join Now
               </Link>
             </div>
           </div>
@@ -116,9 +125,15 @@ export default function Home() {
       {/* 90/10 Model Switcher */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <ModelSwitcher />
+          <div className="max-w-5xl mx-auto mb-12 text-center">
+            <h3 className="text-3xl font-bold text-primary mb-4">
+              Understanding the 90/10 Healthcare Model
+            </h3>
+            <p className="text-xl text-gray-600">
+              Your membership covers 90% of your healthcare needs. For the 10% (catastrophic events), you still need insurance.
+            </p>
           </div>
+          <NinetyTenSwitcher />
         </div>
       </section>
 

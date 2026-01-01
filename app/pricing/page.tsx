@@ -1,64 +1,10 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Stethoscope, Check } from "lucide-react";
-import SavingsCalculator from "@/components/SavingsCalculator";
+import { Phone, Mail, MapPin, Stethoscope } from "lucide-react";
+import PricingTiers from "@/components/PricingTiers";
+import ComparisonTable from "@/components/ComparisonTable";
+import PortalPreview from "@/components/PortalPreview";
 
 export default function Pricing() {
-  const pricingTiers = [
-    {
-      name: "Child",
-      ageRange: "0-18 years",
-      price: 30,
-      features: [
-        "Unlimited sick visits",
-        "Well-child checkups",
-        "Minor procedures",
-        "Direct communication with Dr. Pike",
-        "No copays or deductibles",
-      ],
-    },
-    {
-      name: "Young Adult",
-      ageRange: "19-44 years",
-      price: 69,
-      features: [
-        "Unlimited sick visits",
-        "Annual wellness exams",
-        "Chronic disease management",
-        "Minor procedures",
-        "Direct communication with Dr. Pike",
-        "Wholesale pharmacy & labs",
-      ],
-    },
-    {
-      name: "Adult",
-      ageRange: "45-64 years",
-      price: 89,
-      popular: true,
-      features: [
-        "Unlimited sick visits",
-        "Comprehensive wellness exams",
-        "Chronic disease management",
-        "Minor procedures",
-        "Direct communication with Dr. Pike",
-        "Wholesale pharmacy & labs",
-        "Enhanced preventive care",
-      ],
-    },
-    {
-      name: "Senior",
-      ageRange: "65+ years",
-      price: 109,
-      features: [
-        "Unlimited sick visits",
-        "Medicare coordination",
-        "Chronic disease management",
-        "Minor procedures",
-        "Direct communication with Dr. Pike",
-        "Wholesale pharmacy & labs",
-        "Specialized senior care",
-      ],
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -70,7 +16,7 @@ export default function Pricing() {
               <Stethoscope className="w-8 h-8" />
               <h1 className="text-2xl font-bold">Direct Care Indy</h1>
             </Link>
-            <div className="hidden md:flex gap-6">
+            <div className="hidden md:flex gap-6 items-center">
               <Link href="/" className="hover:text-secondary transition-colors">
                 Home
               </Link>
@@ -82,6 +28,15 @@ export default function Pricing() {
               </Link>
               <Link href="/partnerships" className="hover:text-secondary transition-colors">
                 Partnerships
+              </Link>
+              <Link href="/faq" className="hover:text-secondary transition-colors">
+                FAQ
+              </Link>
+              <Link
+                href="/join"
+                className="bg-secondary hover:bg-opacity-90 text-white px-6 py-2 rounded-lg font-semibold transition-all"
+              >
+                Join Now
               </Link>
             </div>
           </div>
@@ -101,55 +56,26 @@ export default function Pricing() {
       {/* Pricing Tiers */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-12">
-            {pricingTiers.map((tier) => (
-              <div
-                key={tier.name}
-                className={`bg-white rounded-lg shadow-lg p-6 ${
-                  tier.popular ? "ring-2 ring-secondary" : ""
-                }`}
-              >
-                {tier.popular && (
-                  <div className="bg-secondary text-white text-sm font-semibold px-3 py-1 rounded-full inline-block mb-4">
-                    Most Popular
-                  </div>
-                )}
-                <h3 className="text-2xl font-bold text-primary mb-2">{tier.name}</h3>
-                <p className="text-gray-600 mb-4">{tier.ageRange}</p>
-                <div className="mb-6">
-                  <span className="text-5xl font-bold text-primary">${tier.price}</span>
-                  <span className="text-gray-600">/month</span>
-                </div>
-                <ul className="space-y-3 mb-6">
-                  {tier.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <Check className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          {/* Household Cap */}
-          <div className="bg-secondary text-white rounded-lg p-8 max-w-3xl mx-auto text-center">
-            <h3 className="text-2xl font-bold mb-4">Household Cap: $250/month</h3>
-            <p className="text-lg">
-              No matter how large your family, you&apos;ll never pay more than $250 per month for complete coverage.
-            </p>
+          <div className="max-w-7xl mx-auto">
+            <PricingTiers />
           </div>
         </div>
       </section>
 
-      {/* Savings Calculator */}
+      {/* 90/10 Comparison */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold text-primary mb-8 text-center">
-              Calculate Your Annual Savings
-            </h3>
-            <SavingsCalculator />
+          <div className="max-w-5xl mx-auto">
+            <ComparisonTable />
+          </div>
+        </div>
+      </section>
+
+      {/* Portal Preview */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            <PortalPreview />
           </div>
         </div>
       </section>
