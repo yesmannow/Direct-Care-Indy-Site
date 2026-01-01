@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Check, ShieldCheck, AlertCircle } from 'lucide-react';
 
 const coverage = [

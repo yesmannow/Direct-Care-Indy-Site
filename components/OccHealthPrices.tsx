@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { ClipboardCheck, ArrowRight } from 'lucide-react';
 
 const occHealthPrices = [
