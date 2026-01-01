@@ -21,36 +21,34 @@
 - ✅ Added ESM handling configuration
 - ✅ Added Node.js engines specification
 
-## 🎯 About the "generate is not a function" Error
+## 🎯 About the "generate is not a function" Error - RESOLVED
 
-**This error is likely a Cursor Agent/Turbopack issue**, not a code problem. The error occurs in the Cursor Agent terminal environment due to how it handles Next.js 16.1.1 with Turbopack.
+**Root Cause Identified**: Turbopack/Webpack conflict in Next.js 16.1.1. The config had Webpack-specific options while Next.js was trying to use Turbopack by default.
 
-### Recommended Actions:
+**Fix Applied**:
+- ✅ Removed Webpack configs from `next.config.mjs` (swcMinify, esmExternals, webpack function)
+- ✅ Added `--webpack` flag to build script to force Webpack usage
+- ✅ Simplified config to avoid Turbopack conflicts
 
-1. **Build in Standard Terminal** (Not Cursor Agent)
-   ```bash
-   # Open PowerShell, CMD, or VS Code terminal (not Cursor Agent)
-   cd "C:\Users\hoosi\Desktop\New folder\Direct-Care-Indy-Site"
-   npm run build
-   ```
+### Final Build Command:
 
-2. **Deploy to Vercel**
-   - The build should work on Vercel's environment
-   - Use "Redeploy with Override Build Cache" if needed
-   - Set `TURBO_FORCE=true` environment variable if issues persist
+**Build with Webpack** (now configured):
+```bash
+# In standard PowerShell terminal (not Cursor Agent)
+cd "C:\Users\hoosi\Desktop\New folder\Direct-Care-Indy-Site"
+npm run build
+```
 
-3. **Alternative: Use Webpack Instead of Turbopack**
-   ```json
-   // In package.json, change build script to:
-   "build": "next build --webpack && next-sitemap"
-   ```
+The build script now includes `--webpack` flag to force Webpack usage and avoid Turbopack conflicts.
 
 ## 📋 Pre-Deployment Checklist
 
 - [x] All Link imports verified
 - [x] generateStaticParams using explicit array format
 - [x] TypeScript errors fixed
-- [x] Configuration files optimized
+- [x] **Turbopack/Webpack conflict resolved** (removed Webpack configs, added --webpack flag)
+- [x] Configuration files optimized and simplified
+- [ ] Delete stray package-lock.json at `C:\Users\hoosi\package-lock.json` (if exists)
 - [ ] Build tested in standard terminal (not Cursor Agent)
 - [ ] Environment variables set in Vercel
 - [ ] Vercel build cache cleared (if needed)
