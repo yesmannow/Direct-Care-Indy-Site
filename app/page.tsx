@@ -14,6 +14,7 @@ import { OrganizationSchema, PhysicianSchema, ServiceSchema } from "@/components
 import { StickySavingsBar } from "@/components/StickySavingsBar";
 import { ScrollTransition } from "@/components/ScrollTransition";
 import { DynamicCTA } from "@/components/DynamicHeader";
+import MobileNav from "@/components/MobileNav";
 
 export default function Home() {
   return (
@@ -61,6 +62,7 @@ export default function Home() {
               </Link>
               <DynamicCTA />
             </div>
+            <MobileNav />
           </div>
         </div>
       </nav>
