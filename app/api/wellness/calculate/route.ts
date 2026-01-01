@@ -37,5 +37,5 @@ export async function POST(req: Request) {
   } catch (error) {
     console.error('Wellness calculation error:', error);
     return NextResponse.json({ error: 'Calculation failed' }, { status: 500 });
+  }
 }
-
