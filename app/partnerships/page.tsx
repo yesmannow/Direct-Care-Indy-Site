@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Stethoscope, Users, TrendingDown, UserCheck, Award, Wrench, Truck } from "lucide-react";
+import { PersonaButton } from "@/components/PersonaButton";
 
 export default function Partnerships() {
   const [formData, setFormData] = useState({
@@ -303,12 +304,15 @@ export default function Partnerships() {
                 <p className="text-sm text-gray-600 mb-4">
                   * Calculations based on average costs. DPC can be combined with catastrophic coverage for complete protection.
                 </p>
-                <a
+                <PersonaButton
+                  persona="small_business_owner"
+                  action="click_custom_quote"
                   href="#inquiry-form"
                   className="inline-block bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all"
+                  metadata={{ employees: quoteEmployees }}
                 >
                   Get Your Custom Quote
-                </a>
+                </PersonaButton>
               </div>
             </div>
           </div>

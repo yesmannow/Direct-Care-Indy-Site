@@ -8,11 +8,15 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { CatastrophicPartners } from "@/components/CatastrophicPartners";
 import { TheWraparoundGuide } from "@/components/TheWraparoundGuide";
 import { FaqSchema } from "@/components/FaqSchema";
+import { OrganizationSchema, PhysicianSchema, ServiceSchema } from "@/components/StructuredData";
 
 export default function Home() {
   return (
     <>
       <FaqSchema />
+      <OrganizationSchema />
+      <PhysicianSchema />
+      <ServiceSchema />
       <div className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="bg-primary text-white shadow-md">

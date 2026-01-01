@@ -1,5 +1,7 @@
 "use client";
 
+import { PersonaButton } from "./PersonaButton";
+
 export function SavingsPersonas() {
   const personas = [
     {
@@ -7,18 +9,21 @@ export function SavingsPersonas() {
       pain: "Skips bloodwork due to surprise $200 lab bills.",
       gain: "Gets same-day care for $69/mo. Lab work is wholesale ($5).",
       savings: "$2,400/yr",
+      personaType: "self_employed_trades" as const,
     },
     {
       title: "High-Deductible Family",
       pain: "Pays $150 every time a kid has a fever.",
       gain: "Unlimited visits for a $250 family cap. No co-pays.",
       savings: "$4,560/yr",
+      personaType: "high_deductible_family" as const,
     },
     {
       title: "The Small Biz Owner",
       pain: "Insurance premiums spiking 15% every year.",
       gain: "Switched to DPC + Wraparound. Premiums stabilized.",
       savings: "$4,700/employee",
+      personaType: "small_business_owner" as const,
     },
   ];
 
@@ -35,7 +40,16 @@ export function SavingsPersonas() {
             <p className="text-sm text-gray-600 font-medium">Solution: {p.gain}</p>
             <div className="pt-4 border-t border-gray-200">
               <span className="text-xs uppercase text-gray-400">Est. Annual Savings</span>
-              <p className="text-2xl font-bold text-teal-600">{p.savings}</p>
+              <p className="text-2xl font-bold text-teal-600 mb-4">{p.savings}</p>
+              <PersonaButton
+                persona={p.personaType}
+                action="view_pricing_from_persona"
+                href="/pricing"
+                className="w-full bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg font-semibold transition-all text-center block"
+                metadata={{ personaCard: p.title, savings: p.savings }}
+              >
+                See My Savings
+              </PersonaButton>
             </div>
           </div>
         </div>
