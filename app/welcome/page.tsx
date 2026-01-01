@@ -16,6 +16,9 @@ export default function Welcome() {
               <Link href="/" className="hover:text-secondary transition-colors">
                 Home
               </Link>
+              <Link href="/providers" className="hover:text-secondary transition-colors">
+                Our Team
+              </Link>
               <Link href="/pricing" className="hover:text-secondary transition-colors">
                 Pricing
               </Link>
@@ -27,6 +30,9 @@ export default function Welcome() {
               </Link>
               <Link href="/faq" className="hover:text-secondary transition-colors">
                 FAQ
+              </Link>
+              <Link href="/blog/indiana-medigap-birthday-rule-2026" className="hover:text-secondary transition-colors">
+                Blog
               </Link>
             </div>
           </div>

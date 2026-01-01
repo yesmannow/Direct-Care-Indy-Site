@@ -18,6 +18,9 @@ export default function BirthdayRuleBlog() {
               <Link href="/" className="hover:text-secondary transition-colors">
                 Home
               </Link>
+              <Link href="/providers" className="hover:text-secondary transition-colors">
+                Our Team
+              </Link>
               <Link href="/pricing" className="hover:text-secondary transition-colors">
                 Pricing
               </Link>
@@ -30,8 +33,14 @@ export default function BirthdayRuleBlog() {
               <Link href="/partnerships" className="hover:text-secondary transition-colors">
                 Partnerships
               </Link>
+              <Link href="/employers" className="hover:text-secondary transition-colors">
+                Employers
+              </Link>
               <Link href="/faq" className="hover:text-secondary transition-colors">
                 FAQ
+              </Link>
+              <Link href="/blog/indiana-medigap-birthday-rule-2026" className="text-secondary font-semibold">
+                Blog
               </Link>
               <Link
                 href="/join"

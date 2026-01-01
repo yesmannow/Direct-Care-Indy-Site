@@ -19,6 +19,9 @@ export default function Wraparound() {
               <Link href="/" className="hover:text-secondary transition-colors text-link">
                 Home
               </Link>
+              <Link href="/providers" className="hover:text-secondary transition-colors text-link">
+                Our Team
+              </Link>
               <Link href="/pricing" className="hover:text-secondary transition-colors text-link">
                 Pricing
               </Link>
@@ -30,6 +33,9 @@ export default function Wraparound() {
               </Link>
               <Link href="/faq" className="hover:text-secondary transition-colors text-link">
                 FAQ
+              </Link>
+              <Link href="/blog/indiana-medigap-birthday-rule-2026" className="hover:text-secondary transition-colors text-link">
+                Blog
               </Link>
               <Link
                 href="/join"

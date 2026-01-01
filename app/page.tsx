@@ -56,6 +56,9 @@ export default function Home() {
               <Link href="/faq" className="hover:text-secondary transition-colors text-link">
                 FAQ
               </Link>
+              <Link href="/blog/indiana-medigap-birthday-rule-2026" className="hover:text-secondary transition-colors text-link">
+                Blog
+              </Link>
               <DynamicCTA />
             </div>
           </div>

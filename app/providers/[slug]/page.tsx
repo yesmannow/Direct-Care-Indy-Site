@@ -117,6 +117,9 @@ export default async function ProviderPage({ params }: ProviderPageProps) {
                 <Link href="/faq" className="hover:text-secondary transition-colors">
                   FAQ
                 </Link>
+                <Link href="/blog/indiana-medigap-birthday-rule-2026" className="hover:text-secondary transition-colors">
+                  Blog
+                </Link>
                 <Link href="/join" className="bg-secondary hover:bg-opacity-90 text-white px-6 py-2 rounded-lg font-semibold transition-all min-h-[44px] min-w-[44px] flex items-center justify-center">
                   Join Now
                 </Link>
