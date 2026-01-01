@@ -67,20 +67,39 @@ export function PhysicianSchema() {
     "medicalSpecialty": [
       "Internal Medicine",
       "Pulmonary Medicine",
-      "Primary Care"
+      "Primary Care",
+      "Complex Care",
+      "Critical Care Medicine"
     ],
     "memberOf": [
       {
         "@type": "Organization",
-        "name": "American College of Chest Physicians"
+        "name": "American College of Chest Physicians",
+        "role": "Fellow (FCCP)"
       },
       {
         "@type": "Organization",
-        "name": "American College of Physicians"
+        "name": "American College of Physicians",
+        "role": "Fellow (FACP)"
       }
     ],
     "alumniOf": "Osteopathic Medical School",
-    "description": "Board-certified physician specializing in Internal Medicine and Pulmonary Medicine, providing Direct Primary Care services in Indianapolis."
+    "description": "Board-certified physician specializing in Internal Medicine and Pulmonary Medicine, providing Direct Primary Care services in Indianapolis. Expert in complex care management, particularly for seniors (65+) with respiratory conditions, COPD, and chronic lung disease. HSA-eligible Direct Primary Care physician serving Medicare-eligible patients.",
+    "knowsAbout": [
+      "Pulmonary Medicine",
+      "Internal Medicine",
+      "Complex Care Management",
+      "Chronic Obstructive Pulmonary Disease (COPD)",
+      "Respiratory Medicine",
+      "Senior Healthcare",
+      "Medicare Coordination",
+      "HSA-Eligible Healthcare"
+    ],
+    "areaServed": {
+      "@type": "City",
+      "name": "Indianapolis",
+      "addressRegion": "IN"
+    }
   };
 
   return (

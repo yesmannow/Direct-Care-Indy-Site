@@ -28,6 +28,9 @@ export default function Pricing() {
               <Link href="/services" className="hover:text-secondary transition-colors">
                 Services
               </Link>
+              <Link href="/seniors" className="hover:text-secondary transition-colors">
+                Seniors (Medicare)
+              </Link>
               <Link href="/partnerships" className="hover:text-secondary transition-colors">
                 Partnerships
               </Link>
@@ -142,8 +145,28 @@ export default function Pricing() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/seniors" className="text-gray-300 hover:text-white transition-colors">
+                    Seniors (Medicare)
+                  </Link>
+                </li>
+                <li>
                   <Link href="/partnerships" className="text-gray-300 hover:text-white transition-colors">
                     Partnerships
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-xl font-semibold mb-4">Resources</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/blog/indiana-medigap-birthday-rule-2026" className="text-gray-300 hover:text-white transition-colors">
+                    2026 Indiana Birthday Rule Guide
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/faq" className="text-gray-300 hover:text-white transition-colors">
+                    FAQ
                   </Link>
                 </li>
               </ul>

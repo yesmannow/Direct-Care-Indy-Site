@@ -74,7 +74,7 @@ export default function PricingTiers() {
                 ⭐ Most Popular
               </div>
             )}
-            
+
             <div className="p-6">
               <div className={`bg-gradient-to-r ${tier.color} text-white rounded-xl p-4 mb-4 text-center`}>
                 <h3 className="text-2xl font-bold mb-1">{tier.name}</h3>
@@ -92,6 +92,12 @@ export default function PricingTiers() {
                 <div className="flex justify-center mt-3">
                   <HsaBadge />
                 </div>
+                {tier.name === "Senior" && (
+                  <div className="mt-2 inline-flex items-center gap-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-3 py-1 rounded-full text-xs font-semibold border border-green-300 dark:border-green-700">
+                    <span>✓</span>
+                    <span>Fully HSA-Eligible per 2026 Guidelines</span>
+                  </div>
+                )}
               </div>
 
               <ul className="space-y-3 mb-6">

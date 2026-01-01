@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Stethoscope, ChevronDown, ChevronUp, AlertTriangle } from "lucide-react";
+import { MedicareDpcFaq } from "@/components/MedicareDpcFaq";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -400,6 +401,13 @@ export default function FAQ() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Medicare + DPC FAQ Section - Answer-First for AI Overviews */}
+      <section className="py-16 bg-white dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+          <MedicareDpcFaq />
         </div>
       </section>
 

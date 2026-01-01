@@ -10,6 +10,9 @@ export const baseMetadata: Metadata = {
   keywords: [
     "Direct Primary Care Indianapolis",
     "HSA eligible DPC 2026",
+    "HSA eligible doctor Indianapolis",
+    "DPC for Medicare patients Indy",
+    "Pulmonary specialist Direct Primary Care",
     "healthcare for self-employed Indiana",
     "small business health benefits Indy",
     "DPC near me Indianapolis",
@@ -19,7 +22,10 @@ export const baseMetadata: Metadata = {
     "no insurance doctor Indianapolis",
     "healthcare missing middle",
     "HVAC healthcare benefits",
-    "contractor health insurance alternative"
+    "contractor health insurance alternative",
+    "complex care Indianapolis",
+    "Medicare and Direct Primary Care",
+    "HSA eligible healthcare Indianapolis"
   ],
   authors: [{ name: "Dr. James D. Pike, D.O." }],
   creator: "Direct Care Indy",
