@@ -121,7 +121,7 @@ export function TheWraparoundGuide() {
                           key={detailIdx}
                           className="flex items-center gap-2 text-sm text-gray-600"
                         >
-                          <CheckCircle2 className={`w-4 h-4 ${colors.text.replace('text-', 'text-')}`} />
+                          <CheckCircle2 className={`w-4 h-4 ${colors.icon.replace('bg-', 'text-')}`} />
                           <span>{detail}</span>
                         </div>
                       ))}

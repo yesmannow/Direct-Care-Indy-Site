@@ -17,7 +17,7 @@ export function HsaStatusTracker() {
               <Info className="w-4 h-4 text-gray-400" />
             </TooltipTrigger>
             <TooltipContent className="max-w-xs bg-gray-900 border-gray-800 text-xs">
-              Notice 2026-5: DPC fees &lt;$150/mo (indiv) or $300/mo (family) are HSA-compatible medical expenses.
+              Notice 2026-5: DPC fees {'<'}$150/mo (indiv) or $300/mo (family) are HSA-compatible medical expenses.
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
