@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import { Phone, Mail, MapPin, Stethoscope, CheckCircle2, TrendingDown, Clock, DollarSign, Heart, Briefcase } from "lucide-react";
+import { Phone, Mail, MapPin, CheckCircle2, TrendingDown, Clock, DollarSign, Heart, Briefcase, Stethoscope } from "lucide-react";
 import { LocalBusinessSchema } from "@/components/StructuredData";
 import { SharedFooter } from "@/components/SharedFooter";
 import { NEIGHBORHOODS, BUSINESS_INFO } from "@/lib/constants";
 import WholesaleLabSearch from "@/components/WholesaleLabSearch";
+import { Navigation } from "@/components/Navigation";
 
 interface NeighborhoodPageProps {
   params: Promise<{
@@ -168,30 +169,7 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
       <LocalBusinessSchema neighborhood={neighborhoodData.name} zipCode={neighborhoodData.zipCode} />
       <div className="min-h-screen bg-background">
         {/* Navigation */}
-        <nav className="bg-primary text-white shadow-md">
-          <div className="container mx-auto px-4 py-4">
-            <div className="flex items-center justify-between">
-              <Link href="/" className="flex items-center gap-2">
-                <Stethoscope className="w-8 h-8" />
-                <h1 className="text-2xl font-bold">Direct Care Indy</h1>
-              </Link>
-              <div className="hidden md:flex gap-6 items-center">
-                <Link href="/" className="hover:text-secondary transition-colors">
-                  Home
-                </Link>
-                <Link href="/pricing" className="hover:text-secondary transition-colors">
-                  Pricing
-                </Link>
-                <Link href="/services" className="hover:text-secondary transition-colors">
-                  Services
-                </Link>
-                <Link href="/join" className="bg-secondary hover:bg-opacity-90 text-white px-6 py-2 rounded-lg font-semibold transition-all">
-                  Join Now
-                </Link>
-              </div>
-            </div>
-          </div>
-        </nav>
+        <Navigation />
 
         {/* Hero */}
         <section className="bg-gradient-to-br from-teal-600 to-teal-800 text-white py-20">

@@ -14,6 +14,7 @@ import { OrganizationSchema, PhysicianSchema, ServiceSchema } from "@/components
 import { StickySavingsBar } from "@/components/StickySavingsBar";
 import { ScrollTransition } from "@/components/ScrollTransition";
 import { DynamicCTA } from "@/components/DynamicHeader";
+import { Navigation } from "@/components/Navigation";
 
 export default function Home() {
   return (
@@ -24,46 +25,7 @@ export default function Home() {
       <ServiceSchema />
       <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="bg-primary text-white shadow-md">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Stethoscope className="w-8 h-8" />
-              <h1 className="text-2xl font-bold">Direct Care Indy</h1>
-            </div>
-            <div className="hidden md:flex gap-6 items-center">
-              <Link href="/" className="hover:text-secondary transition-colors text-link">
-                Home
-              </Link>
-              <Link href="/providers" className="hover:text-secondary transition-colors text-link">
-                Our Team
-              </Link>
-              <Link href="/pricing" className="hover:text-secondary transition-colors text-link">
-                Pricing
-              </Link>
-              <Link href="/services" className="hover:text-secondary transition-colors text-link">
-                Services
-              </Link>
-              <Link href="/seniors" className="hover:text-secondary transition-colors text-link">
-                Seniors (Medicare)
-              </Link>
-              <Link href="/partnerships" className="hover:text-secondary transition-colors text-link">
-                Partnerships
-              </Link>
-              <Link href="/employers" className="hover:text-secondary transition-colors text-link">
-                Employers
-              </Link>
-              <Link href="/faq" className="hover:text-secondary transition-colors text-link">
-                FAQ
-              </Link>
-              <Link href="/blog/indiana-medigap-birthday-rule-2026" className="hover:text-secondary transition-colors text-link">
-                Blog
-              </Link>
-              <DynamicCTA />
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navigation showDynamicCTA={true} />
 
       {/* Hero Section */}
       <section className="bg-primary text-white py-20">

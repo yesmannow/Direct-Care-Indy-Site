@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Stethoscope, CheckCircle2, Mail, Smartphone, Calendar, Download } from "lucide-react";
+import { CheckCircle2, Mail, Smartphone, Calendar, Download } from "lucide-react";
 import { SharedFooter } from "@/components/SharedFooter";
 import { useEffect, useState } from "react";
+import { Navigation } from "@/components/Navigation";
 
 export default function JoinSuccess() {
   const [mounted, setMounted] = useState(false);
@@ -43,27 +44,7 @@ export default function JoinSuccess() {
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="bg-primary text-white shadow-md">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2">
-              <Stethoscope className="w-8 h-8" />
-              <h1 className="text-2xl font-bold">Direct Care Indy</h1>
-            </Link>
-            <div className="hidden md:flex gap-6">
-              <Link href="/" className="hover:text-secondary transition-colors">
-                Home
-              </Link>
-              <Link href="/pricing" className="hover:text-secondary transition-colors">
-                Pricing
-              </Link>
-              <Link href="/services" className="hover:text-secondary transition-colors">
-                Services
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Success Hero */}
       <section className="bg-gradient-to-br from-teal-600 to-teal-800 text-white py-16">
