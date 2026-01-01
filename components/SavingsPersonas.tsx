@@ -1,0 +1,45 @@
+"use client";
+
+export function SavingsPersonas() {
+  const personas = [
+    {
+      title: "The HVAC Contractor",
+      pain: "Skips bloodwork due to surprise $200 lab bills.",
+      gain: "Gets same-day care for $69/mo. Lab work is wholesale ($5).",
+      savings: "$2,400/yr",
+    },
+    {
+      title: "High-Deductible Family",
+      pain: "Pays $150 every time a kid has a fever.",
+      gain: "Unlimited visits for a $250 family cap. No co-pays.",
+      savings: "$4,560/yr",
+    },
+    {
+      title: "The Small Biz Owner",
+      pain: "Insurance premiums spiking 15% every year.",
+      gain: "Switched to DPC + Wraparound. Premiums stabilized.",
+      savings: "$4,700/employee",
+    },
+  ];
+
+  return (
+    <div className="grid md:grid-cols-3 gap-6 py-12">
+      {personas.map((p) => (
+        <div
+          key={p.title}
+          className="bg-[#F8FAFC] p-8 rounded-3xl border border-gray-100 hover:shadow-xl transition-all"
+        >
+          <h4 className="font-bold text-[#1B2B3A] text-xl mb-4">{p.title}</h4>
+          <div className="space-y-4">
+            <p className="text-sm text-red-500 font-medium italic">&quot; {p.pain} &quot;</p>
+            <p className="text-sm text-gray-600 font-medium">Solution: {p.gain}</p>
+            <div className="pt-4 border-t border-gray-200">
+              <span className="text-xs uppercase text-gray-400">Est. Annual Savings</span>
+              <p className="text-2xl font-bold text-teal-600">{p.savings}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
