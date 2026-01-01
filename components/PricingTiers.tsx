@@ -7,20 +7,6 @@ import { Check, Users } from "lucide-react";
 export default function PricingTiers() {
   const tiers = [
     {
-      name: "Pediatrics",
-      ageRange: "0-18 years",
-      price: 30,
-      note: "with adult membership",
-      features: [
-        "Unlimited sick visits",
-        "Well-child checkups",
-        "Minor procedures",
-        "Direct communication with Dr. Pike",
-        "No copays or deductibles",
-      ],
-      color: "from-blue-500 to-blue-600",
-    },
-    {
       name: "Young Adult",
       ageRange: "19-44 years",
       price: 69,
@@ -70,7 +56,7 @@ export default function PricingTiers() {
   return (
     <div>
       {/* Pricing Cards */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto">
         {tiers.map((tier, index) => (
           <motion.div
             key={tier.name}
