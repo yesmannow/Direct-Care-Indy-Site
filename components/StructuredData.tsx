@@ -155,3 +155,200 @@ export function ServiceSchema() {
     />
   );
 }
+
+export function LocalBusinessSchema({ neighborhood, zipCode }: { neighborhood?: string; zipCode?: string }) {
+  const businessData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://directcareindy.com",
+    "name": "Direct Care Indy",
+    "image": "https://directcareindy.com/og-image.jpg",
+    "description": neighborhood
+      ? `Direct Primary Care serving ${neighborhood} families. Specialist-level primary care with unlimited visits, wholesale lab pricing, and direct physician access.`
+      : "Direct Primary Care practice in Indianapolis providing affordable, transparent healthcare with no insurance hassles.",
+    "url": "https://directcareindy.com",
+    "telephone": "+1-317-956-6288",
+    "email": "info@directcareindy.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "7911 N. Michigan Rd.",
+      "addressLocality": "Indianapolis",
+      "addressRegion": "IN",
+      "postalCode": "46268",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "39.9186",
+      "longitude": "-86.1836"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "priceRange": "$69-$250",
+    "areaServed": neighborhood
+      ? [
+          {
+            "@type": "City",
+            "name": neighborhood,
+            "addressRegion": "IN",
+            ...(zipCode && { "postalCode": zipCode })
+          },
+          {
+            "@type": "City",
+            "name": "Indianapolis",
+            "addressRegion": "IN"
+          }
+        ]
+      : {
+          "@type": "City",
+          "name": "Indianapolis",
+          "addressRegion": "IN"
+        },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Direct Primary Care Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Primary Care Visits",
+            "description": "Unlimited primary care visits with no copays"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Wholesale Lab Testing",
+            "description": "Lab tests at wholesale prices (90% savings)"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Chronic Disease Management",
+            "description": "Comprehensive management of diabetes, hypertension, and other chronic conditions"
+          }
+        }
+      ]
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(businessData) }}
+    />
+  );
+}
+
+export function ProfilePageSchema({
+  name,
+  credentials,
+  role,
+  bio,
+  specialties,
+  image,
+  url,
+  slug,
+}: {
+  name: string;
+  credentials: string;
+  role: string;
+  bio: string;
+  specialties?: string[];
+  image: string;
+  url: string;
+  slug?: string;
+}) {
+  const isPhysician = role === "Medical Director";
+  const providerType = isPhysician ? "Physician" : "PhysicianAssistant";
+
+  // Map specialties to schema.org MedicalSpecialty format
+  // Specifically highlight Pulmonology for Dr. Pike and Chase Keirn for "Lung Specialist Indy" SEO
+  const mapSpecialties = (specialties?: string[]): string[] => {
+    if (!specialties) return [];
+
+    return specialties.map(spec => {
+      // Map to schema.org MedicalSpecialty values
+      const specLower = spec.toLowerCase();
+      if (specLower.includes("pulmonary") || specLower.includes("pulmonology") || specLower.includes("respiratory")) {
+        return "Pulmonology";
+      }
+      if (specLower.includes("internal medicine")) {
+        return "InternalMedicine";
+      }
+      if (specLower.includes("critical care")) {
+        return "CriticalCareMedicine";
+      }
+      if (specLower.includes("primary care") || specLower.includes("family medicine")) {
+        return "PrimaryCare";
+      }
+      if (specLower.includes("preventive")) {
+        return "PreventiveMedicine";
+      }
+      return spec; // Return original if no mapping found
+    });
+  };
+
+  const medicalSpecialties = mapSpecialties(specialties);
+  const hasPulmonology = medicalSpecialties.some(s => s === "Pulmonology");
+
+  const profileData = {
+    "@context": "https://schema.org",
+    "@type": providerType,
+    "name": `${name} ${credentials}`,
+    "jobTitle": role,
+    "worksFor": {
+      "@type": "MedicalBusiness",
+      "name": "Direct Care Indy"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "7911 N. Michigan Rd.",
+      "addressLocality": "Indianapolis",
+      "addressRegion": "IN",
+      "postalCode": "46268",
+      "addressCountry": "US"
+    },
+    "description": bio,
+    "image": image.startsWith("http") ? image : `https://directcareindy.com${image}`,
+    "url": url,
+    "areaServed": {
+      "@type": "City",
+      "name": "Indianapolis",
+      "addressRegion": "IN"
+    },
+    ...(medicalSpecialties.length > 0 && {
+      "medicalSpecialty": hasPulmonology
+        ? ["Pulmonology", ...medicalSpecialties.filter(s => s !== "Pulmonology")]
+        : medicalSpecialties
+    }),
+    // Add additional keywords for lung specialist searches
+    ...(hasPulmonology && {
+      "knowsAbout": [
+        "Pulmonology",
+        "Lung Specialist",
+        "Respiratory Medicine",
+        "COPD",
+        "Lung Nodules",
+        "Pulmonary Conditions"
+      ]
+    })
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(profileData) }}
+    />
+  );
+}

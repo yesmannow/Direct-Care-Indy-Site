@@ -6,6 +6,7 @@ import PortalPreview from "@/components/PortalPreview";
 import { IncludedMatrix } from "@/components/IncludedMatrix";
 import { ValueBanner } from "@/components/ValueBanner";
 import { MarketCostComparison } from "@/components/MarketCostComparison";
+import WholesaleLabSearch from "@/components/WholesaleLabSearch";
 
 export default function Pricing() {
 
@@ -105,6 +106,15 @@ export default function Pricing() {
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <PortalPreview />
+          </div>
+        </div>
+      </section>
+
+      {/* Wholesale Lab Directory */}
+      <section className="py-16 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <WholesaleLabSearch />
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, Stethoscope, Heart, Syringe, Microscope, Pill, Scissors, Activity } from "lucide-react";
 import { WellnessLab } from "@/components/WellnessLab";
 import { PersonalizedHealthChecklist } from "@/components/PersonalizedHealthChecklist";
+import WholesaleLabSearch from "@/components/WholesaleLabSearch";
 
 export default function Services() {
   const services = [
@@ -157,8 +158,23 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Differentiators Section */}
+      {/* Wholesale Diagnostics Section */}
       <section className="py-16 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto mb-8">
+            <h3 className="text-3xl font-bold text-primary mb-4 text-center">
+              Wholesale Diagnostics
+            </h3>
+            <p className="text-gray-300 text-center text-lg mb-8">
+              Search our complete directory of lab tests. See exactly how much you&apos;ll save compared to Indianapolis hospital rates.
+            </p>
+            <WholesaleLabSearch />
+          </div>
+        </div>
+      </section>
+
+      {/* Differentiators Section */}
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <h3 className="text-3xl font-bold text-primary mb-8 text-center">
             Our Game-Changing Differentiators
