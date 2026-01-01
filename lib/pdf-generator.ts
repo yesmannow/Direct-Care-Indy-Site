@@ -1,4 +1,6 @@
-import { jsPDF } from 'jspdf';
+import 'server-only';
+// Use default import to avoid ESM minification issues
+import jsPDF from 'jspdf';
 import { BUSINESS_INFO } from './constants';
 
 interface HSACertificateData {
@@ -19,7 +21,7 @@ export function generateHSACertificate(data: HSACertificateData = {}) {
   const tealColor = [20, 184, 166]; // #14B8A6
 
   // Header
-  doc.setFillColor(...primaryColor);
+  doc.setFillColor(primaryColor[0], primaryColor[1], primaryColor[2]);
   doc.rect(0, 0, pageWidth, 50, 'F');
 
   doc.setTextColor(255, 255, 255);
@@ -122,7 +124,7 @@ export function generateHSACertificate(data: HSACertificateData = {}) {
 
   eligibilityText.forEach(line => {
     if (line.startsWith('✓')) {
-      doc.setTextColor(...tealColor);
+      doc.setTextColor(tealColor[0], tealColor[1], tealColor[2]);
     } else {
       doc.setTextColor(0, 0, 0);
     }

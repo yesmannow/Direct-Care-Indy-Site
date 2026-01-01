@@ -32,7 +32,7 @@ export function Accordion({
   const value = isControlled ? controlledValue : internalValue;
   const onValueChange = isControlled ? controlledOnValueChange : setInternalValue;
 
-  const handleValueChange = (itemValue: string) => {
+  const handleValueChange = (itemValue: string | null) => {
     if (value === itemValue && collapsible) {
       onValueChange?.(null);
     } else {

@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link';
 import { ClipboardCheck, ArrowRight } from 'lucide-react';
 
 interface OccHealthPriceItem {

@@ -12,6 +12,17 @@ interface NeighborhoodPageProps {
   };
 }
 
+export async function generateStaticParams() {
+  try {
+    return Object.keys(NEIGHBORHOODS).map((neighborhood) => ({
+      neighborhood,
+    }));
+  } catch (error) {
+    console.error('Failed to generate static params for locations:', error);
+    return []; // Return empty array on error
+  }
+}
+
 export async function generateMetadata({ params }: NeighborhoodPageProps): Promise<Metadata> {
   const neighborhood = params.neighborhood.toLowerCase();
   const neighborhoodData = NEIGHBORHOODS[neighborhood as keyof typeof NEIGHBORHOODS];

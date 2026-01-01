@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { generateHSACertificate } from '@/lib/pdf-generator';
+
+// Force dynamic rendering to avoid build-time issues with jsPDF
+export const dynamic = 'force-dynamic';
 
 export async function GET(req: NextRequest) {
+  // Dynamic import to avoid build-time issues
+  const { generateHSACertificate } = await import('@/lib/pdf-generator');
   try {
     const searchParams = req.nextUrl.searchParams;
     const memberName = searchParams.get('memberName') || undefined;

@@ -86,8 +86,8 @@ export default function PricingTiers() {
                   <span className="text-5xl font-bold text-primary">${tier.price}</span>
                   <span className="text-gray-600">/month</span>
                 </div>
-                {tier.note && (
-                  <p className="text-xs text-gray-500 mt-1 italic">{tier.note}</p>
+                {(tier as any).note && (
+                  <p className="text-xs text-gray-500 mt-1 italic">{(tier as any).note}</p>
                 )}
                 <div className="flex justify-center mt-3">
                   <HsaBadge />
