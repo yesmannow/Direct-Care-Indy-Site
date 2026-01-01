@@ -1,5 +1,3 @@
-import 'server-only'; // Ensure this only runs on the server
-
 export interface ScreeningItem {
   Type: string;
   Title: string;
