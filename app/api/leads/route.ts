@@ -1,8 +1,6 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 interface LeadData {
   name: string;
   email: string;
@@ -39,6 +37,8 @@ export async function POST(req: Request) {
       : `🩺 New Patient: ${name} (${goal || healthGoal || persona || 'General Interest'})`;
 
     // Use the Resend SDK to send email
+    // Initialize Resend inside the function to avoid build-time errors
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { data, error } = await resend.emails.send({
       from: 'Direct Care Indy <onboarding@resend.dev>', // Required for unverified domains (sandbox)
       to: [process.env.NOTIFICATION_EMAIL || 'hoosierdarling@gmail.com'],
