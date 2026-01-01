@@ -15,6 +15,7 @@ export default function Partnerships() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [quoteEmployees, setQuoteEmployees] = useState(5);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,7 +59,7 @@ export default function Partnerships() {
               <Stethoscope className="w-8 h-8" />
               <h1 className="text-2xl font-bold">Direct Care Indy</h1>
             </Link>
-            <div className="hidden md:flex gap-6">
+            <div className="hidden md:flex gap-6 items-center">
               <Link href="/" className="hover:text-secondary transition-colors">
                 Home
               </Link>
@@ -70,6 +71,15 @@ export default function Partnerships() {
               </Link>
               <Link href="/partnerships" className="hover:text-secondary transition-colors">
                 Partnerships
+              </Link>
+              <Link href="/faq" className="hover:text-secondary transition-colors">
+                FAQ
+              </Link>
+              <Link
+                href="/join"
+                className="bg-secondary hover:bg-opacity-90 text-white px-6 py-2 rounded-lg font-semibold transition-all"
+              >
+                Join Now
               </Link>
             </div>
           </div>
@@ -207,8 +217,106 @@ export default function Partnerships() {
         </div>
       </section>
 
-      {/* Inquiry Form */}
+      {/* Quick Quote Tool */}
       <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h3 className="text-3xl font-bold text-primary mb-4 text-center">
+              Quick Quote Calculator
+            </h3>
+            <p className="text-center text-gray-600 mb-8">
+              See your potential savings instantly with our small business healthcare calculator
+            </p>
+            
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <div className="mb-8">
+                <label className="block text-lg font-semibold text-primary mb-4">
+                  Number of Employees: {quoteEmployees}
+                </label>
+                <input
+                  type="range"
+                  min="1"
+                  max="50"
+                  value={quoteEmployees}
+                  onChange={(e) => setQuoteEmployees(Number(e.target.value))}
+                  className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-secondary"
+                />
+                <div className="flex justify-between text-sm text-gray-600 mt-2">
+                  <span>1 employee</span>
+                  <span>50 employees</span>
+                </div>
+              </div>
+
+              {/* Cost Calculations */}
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-red-50 border-2 border-red-200 p-5 rounded-lg">
+                  <h4 className="font-bold text-red-900 mb-3">Traditional Insurance</h4>
+                  <div className="space-y-2 text-gray-700">
+                    <div className="flex justify-between text-sm">
+                      <span>Per employee/month:</span>
+                      <span className="font-semibold">$500</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span>Total monthly:</span>
+                      <span className="font-semibold">${(quoteEmployees * 500).toLocaleString()}</span>
+                    </div>
+                    <div className="flex justify-between border-t border-red-300 pt-2 font-bold text-red-900">
+                      <span>Annual Cost:</span>
+                      <span>${(quoteEmployees * 6000).toLocaleString()}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-green-50 border-2 border-green-200 p-5 rounded-lg">
+                  <h4 className="font-bold text-green-900 mb-3">DPC Partnership</h4>
+                  <div className="space-y-2 text-gray-700">
+                    <div className="flex justify-between text-sm">
+                      <span>Per employee/month:</span>
+                      <span className="font-semibold">$89</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span>Total monthly:</span>
+                      <span className="font-semibold">${(quoteEmployees * 89).toLocaleString()}</span>
+                    </div>
+                    <div className="flex justify-between border-t border-green-300 pt-2 font-bold text-green-900">
+                      <span>Annual Cost:</span>
+                      <span>${(quoteEmployees * 1068).toLocaleString()}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Savings Summary */}
+              <div className="bg-gradient-to-r from-secondary to-primary text-white rounded-lg p-6 text-center">
+                <p className="text-lg mb-2">Your Fixed Monthly Investment</p>
+                <p className="text-5xl font-bold mb-4">${(quoteEmployees * 89).toLocaleString()}/mo</p>
+                <div className="border-t border-white/30 pt-4">
+                  <p className="text-lg mb-1">Projected Annual Savings vs. Traditional Insurance</p>
+                  <p className="text-4xl font-bold">${(quoteEmployees * 4700).toLocaleString()}</p>
+                  <p className="text-sm mt-2 opacity-90">
+                    That&apos;s ${Math.round((quoteEmployees * 4700) / 12).toLocaleString()} saved per month for your business
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-6 text-center">
+                <p className="text-sm text-gray-600 mb-4">
+                  * Calculations based on average costs. DPC can be combined with catastrophic coverage for complete protection.
+                </p>
+                <a
+                  href="#inquiry-form"
+                  className="inline-block bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all"
+                >
+                  Get Your Custom Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Inquiry Form */}
+      <section id="inquiry-form" className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-8">
             <h3 className="text-3xl font-bold text-primary mb-6 text-center">
