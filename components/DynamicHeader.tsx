@@ -8,47 +8,11 @@ interface DynamicHeaderProps {
   children: React.ReactNode;
 }
 
+/**
+ * DynamicHeader component - now a simple no-op wrapper.
+ * The DynamicCTA component below provides persona-aware CTA functionality.
+ */
 export function DynamicHeader({ children }: DynamicHeaderProps) {
-  const [persona, setPersona] = useState<UserPersona>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    setPersona(getUserPersona());
-  }, []);
-
-  if (!mounted) {
-    return <>{children}</>;
-  }
-
-  // Replace the CTA button based on persona
-  const getCTALink = () => {
-    switch (persona) {
-      case 'senior':
-        return {
-          href: '/seniors',
-          text: 'View Medicare Savings Guide'
-        };
-      case 'employer':
-        return {
-          href: '/employers',
-          text: 'Calculate Business Savings'
-        };
-      default:
-        return {
-          href: '/join',
-          text: 'Join Now'
-        };
-    }
-  };
-
-  const cta = getCTALink();
-
-  // Clone children and replace the CTA
-  const modifiedChildren = typeof children === 'object' && children !== null
-    ? JSON.parse(JSON.stringify(children))
-    : children;
-
   return <>{children}</>;
 }
 
