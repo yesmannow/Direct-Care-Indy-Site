@@ -282,7 +282,9 @@ export default function Services() {
             </div>
           </div>
           <div className="border-t border-gray-600 pt-6 text-center text-gray-300">
-            <p>James D. Pike, D.O. | Direct Primary Care Physician</p>
+            <p className="font-semibold mb-2">Notice: Direct Care Indy is not insurance.</p>
+            <p>James D. Pike, D.O., FCCP, FACP | Direct Primary Care Physician</p>
+            <p className="text-sm opacity-90 mt-1">Board Certified in Pulmonary and Internal Medicine</p>
             <p className="mt-2">© {new Date().getFullYear()} Direct Care Indy. All rights reserved.</p>
           </div>
         </div>

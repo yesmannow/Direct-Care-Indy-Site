@@ -9,6 +9,8 @@ import { CatastrophicPartners } from "@/components/CatastrophicPartners";
 import { TheWraparoundGuide } from "@/components/TheWraparoundGuide";
 import { FaqSchema } from "@/components/FaqSchema";
 import { OrganizationSchema, PhysicianSchema, ServiceSchema } from "@/components/StructuredData";
+import { StickySavingsBar } from "@/components/StickySavingsBar";
+import { ScrollTransition } from "@/components/ScrollTransition";
 
 export default function Home() {
   return (
@@ -87,68 +89,79 @@ export default function Home() {
       </section>
 
       {/* About the Doctor Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
               <h3 className="text-3xl font-bold text-primary mb-4">
-                About Dr. James D. Pike
+                Expert Care from Dr. James D. Pike
               </h3>
-              <div className="flex items-center justify-center gap-2 text-secondary font-semibold">
+              <div className="flex items-center justify-center gap-2 text-secondary font-semibold mb-2">
                 <Award className="w-5 h-5" />
                 <span>D.O., FCCP, FACP</span>
               </div>
+              <p className="text-lg text-gray-600 dark:text-gray-300">
+                Board Certified in Internal Medicine & Pulmonary Medicine
+              </p>
             </div>
-            <div className="bg-gray-50 p-8 rounded-lg border-l-4 border-secondary">
-              <p className="text-lg text-gray-700 mb-4">
-                Dr. Pike is a board-certified physician specializing in Internal
-                Medicine and Pulmonary Medicine. His extensive training and
-                experience allow him to provide comprehensive primary care with
-                the expertise to handle complex medical conditions.
+            <div className="bg-gray-50 dark:bg-gray-800/50 p-8 rounded-lg border-l-4 border-secondary backdrop-blur-sm">
+              <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
+                Dr. Pike is a board-certified physician with specialized training in <strong className="text-primary">Internal Medicine</strong> and <strong className="text-primary">Pulmonary Medicine</strong>. His extensive training and experience allow him to provide comprehensive primary care with the expertise to handle complex medical conditions that typically require specialist referrals.
               </p>
               <div className="grid md:grid-cols-2 gap-4 mt-6">
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3 bg-white dark:bg-gray-700/50 p-4 rounded-lg">
                   <div className="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
                     ✓
                   </div>
                   <div>
                     <strong className="text-primary">FCCP:</strong> Fellow of
                     the American College of Chest Physicians
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Pulmonary & Critical Care Expertise</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3 bg-white dark:bg-gray-700/50 p-4 rounded-lg">
                   <div className="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
                     ✓
                   </div>
                   <div>
                     <strong className="text-primary">FACP:</strong> Fellow of
                     the American College of Physicians
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Internal Medicine Excellence</p>
                   </div>
                 </div>
               </div>
-              <p className="text-lg text-gray-700 mt-6 italic text-center">
-                &quot;Complex care capability with Primary Care
-                convenience.&quot;
-              </p>
+              <div className="mt-6 bg-primary/10 dark:bg-primary/20 rounded-lg p-4 border border-primary/20">
+                <p className="text-lg text-gray-700 dark:text-gray-300 italic text-center font-medium">
+                  &quot;Complex care capability with Primary Care convenience.&quot;
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 text-center mt-2">
+                  Located at 7911 N. Michigan Rd., Indianapolis, IN 46268
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* 90/10 Model Switcher */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto mb-12 text-center">
-            <h3 className="text-3xl font-bold text-primary mb-4">
-              Understanding the 90/10 Healthcare Model
-            </h3>
-            <p className="text-xl text-gray-600">
-              Your membership covers 90% of your healthcare needs. For the 10% (catastrophic events), you still need insurance.
-            </p>
+      <ScrollTransition id="ninety-ten-model">
+        <section className="py-16 bg-background scroll-smooth">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto mb-12 text-center">
+              <h3 className="text-3xl font-bold text-primary mb-4">
+                Understanding the 90/10 Healthcare Model
+              </h3>
+              <p className="text-xl text-gray-600 dark:text-gray-300 mb-4">
+                Your membership covers 90% of your healthcare needs. For the 10% (catastrophic events), you still need insurance.
+              </p>
+              <p className="text-lg text-gray-500 dark:text-gray-400 italic">
+                Think of it like auto insurance vs. your mechanic: Insurance is for when you total the car (the 10%); we&apos;re the mechanic for your oil changes (the 90%).
+              </p>
+            </div>
+            <NinetyTenSwitcher />
           </div>
-          <NinetyTenSwitcher />
-        </div>
-      </section>
+        </section>
+      </ScrollTransition>
 
       {/* Key Benefits Section */}
       <section className="py-16 bg-white">
@@ -195,13 +208,15 @@ export default function Home() {
       </section>
 
       {/* Wholesale Prices Section */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <WholesalePrices />
+      <ScrollTransition id="wholesale-prices">
+        <section className="py-16 bg-background scroll-smooth">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <WholesalePrices />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollTransition>
 
       {/* Patient Portal Preview */}
       <section className="py-16 bg-white">
@@ -309,11 +324,16 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-gray-600 pt-6 text-center text-gray-300">
-            <p>James D. Pike, D.O. | Direct Primary Care Physician</p>
+            <p className="font-semibold mb-2">Notice: Direct Care Indy is not insurance.</p>
+            <p>James D. Pike, D.O., FCCP, FACP | Direct Primary Care Physician</p>
+            <p className="text-sm opacity-90 mt-1">Board Certified in Pulmonary and Internal Medicine</p>
             <p className="mt-2">© {new Date().getFullYear()} Direct Care Indy. All rights reserved.</p>
           </div>
         </div>
       </footer>
+
+      {/* Sticky Savings Bar */}
+      <StickySavingsBar />
     </div>
     </>
   );

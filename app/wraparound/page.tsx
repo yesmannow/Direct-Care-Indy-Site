@@ -1,13 +1,10 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Stethoscope } from "lucide-react";
-import PricingTiers from "@/components/PricingTiers";
-import ComparisonTable from "@/components/ComparisonTable";
-import PortalPreview from "@/components/PortalPreview";
-import { IncludedMatrix } from "@/components/IncludedMatrix";
-import { ValueBanner } from "@/components/ValueBanner";
+import { CatastrophicPartners } from "@/components/CatastrophicPartners";
+import { TheWraparoundGuide } from "@/components/TheWraparoundGuide";
+import { HsaStatusTracker } from "@/components/HsaStatusTracker";
 
-export default function Pricing() {
-
+export default function Wraparound() {
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -19,19 +16,19 @@ export default function Pricing() {
               <h1 className="text-2xl font-bold">Direct Care Indy</h1>
             </Link>
             <div className="hidden md:flex gap-6 items-center">
-              <Link href="/" className="hover:text-secondary transition-colors">
+              <Link href="/" className="hover:text-secondary transition-colors text-link">
                 Home
               </Link>
-              <Link href="/pricing" className="hover:text-secondary transition-colors">
+              <Link href="/pricing" className="hover:text-secondary transition-colors text-link">
                 Pricing
               </Link>
-              <Link href="/services" className="hover:text-secondary transition-colors">
+              <Link href="/services" className="hover:text-secondary transition-colors text-link">
                 Services
               </Link>
-              <Link href="/partnerships" className="hover:text-secondary transition-colors">
+              <Link href="/partnerships" className="hover:text-secondary transition-colors text-link">
                 Partnerships
               </Link>
-              <Link href="/faq" className="hover:text-secondary transition-colors">
+              <Link href="/faq" className="hover:text-secondary transition-colors text-link">
                 FAQ
               </Link>
               <Link
@@ -45,71 +42,70 @@ export default function Pricing() {
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="bg-primary text-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
-          <p className="text-xl max-w-2xl mx-auto">
-            One flat monthly fee. No hidden costs. No copays. No deductibles.
-          </p>
-        </div>
-      </section>
-
-      {/* Pricing Tiers */}
-      <section className="py-16">
+      {/* Hero Section */}
+      <section className="bg-primary text-white py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <PricingTiers />
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-5xl font-bold mb-6">
+              Complete Your Healthcare Stack
+            </h2>
+            <p className="text-2xl mb-4">
+              Direct Care Indy handles the 90%. Choose a catastrophic wraparound for the 10%.
+            </p>
+            <p className="text-xl">
+              The &quot;DPC Stack&quot;: Affordable primary care + catastrophic protection = Complete coverage at 60% lower cost.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Value Banner */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <ValueBanner />
-        </div>
-      </section>
-
-      {/* 90/10 Comparison */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <ComparisonTable />
-          </div>
-        </div>
-      </section>
-
-      {/* Included Matrix */}
+      {/* HSA Status Tracker */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <IncludedMatrix />
+          <div className="max-w-2xl mx-auto">
+            <HsaStatusTracker />
+          </div>
         </div>
       </section>
 
-      {/* Portal Preview */}
+      {/* The Wraparound Guide */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <TheWraparoundGuide />
+        </div>
+      </section>
+
+      {/* Catastrophic Partners Directory */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <PortalPreview />
-          </div>
+          <CatastrophicPartners />
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-primary text-white">
+      <section className="py-16 bg-secondary text-white">
         <div className="container mx-auto px-4 text-center">
-          <h3 className="text-3xl font-bold mb-6">Ready to Get Started?</h3>
+          <h3 className="text-3xl font-bold mb-6">
+            Ready to Build Your Complete Healthcare Stack?
+          </h3>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Join the Direct Care Indy family and experience healthcare without the hassles.
+            Start with Direct Care Indy for your routine care, then add a catastrophic wraparound for complete protection.
           </p>
-          <a
-            href="tel:+13179566288"
-            className="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all inline-flex items-center gap-2"
-          >
-            <Phone className="w-5 h-5" />
-            (317) 956-6288
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/pricing"
+              className="bg-white text-secondary hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all inline-block"
+            >
+              View Pricing
+            </Link>
+            <a
+              href="tel:+13179566288"
+              className="bg-primary text-white hover:bg-opacity-90 px-8 py-4 rounded-lg font-semibold text-lg transition-all inline-flex items-center justify-center gap-2"
+            >
+              <Phone className="w-5 h-5" />
+              (317) 956-6288
+            </a>
+          </div>
         </div>
       </section>
 
@@ -146,6 +142,11 @@ export default function Pricing() {
                     Partnerships
                   </Link>
                 </li>
+                <li>
+                  <Link href="/wraparound" className="text-gray-300 hover:text-white transition-colors">
+                    Wraparound Guide
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
@@ -172,8 +173,8 @@ export default function Pricing() {
           </div>
           <div className="border-t border-gray-600 pt-6 text-center text-gray-300">
             <p className="font-semibold mb-2">Notice: Direct Care Indy is not insurance.</p>
-            <p>James D. Pike, D.O., FCCP, FACP</p>
-            <p className="text-sm opacity-90">Board Certified in Pulmonary and Internal Medicine</p>
+            <p>James D. Pike, D.O., FCCP, FACP | Direct Primary Care Physician</p>
+            <p className="text-sm opacity-90 mt-2">Board Certified in Pulmonary and Internal Medicine</p>
             <p className="mt-2">© {new Date().getFullYear()} Direct Care Indy. All rights reserved.</p>
           </div>
         </div>
@@ -181,3 +182,4 @@ export default function Pricing() {
     </div>
   );
 }
+

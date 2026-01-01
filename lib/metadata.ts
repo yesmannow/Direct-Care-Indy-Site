@@ -72,11 +72,15 @@ export const partnershipMetadata: Metadata = {
     "auto shop employee benefits",
     "construction trade healthcare",
     "affordable employee benefits Indiana",
-    "Indianapolis 46268 healthcare"
+    "Indianapolis 46268 healthcare",
+    "Indianapolis 46268",
+    "healthcare 46268",
+    "DPC Indianapolis 46268",
+    "direct primary care 46268"
   ],
   openGraph: {
     title: "Health Benefits for Indianapolis Trades | Save $4,700/Employee",
-    description: "Direct Primary Care partnerships for small businesses. Perfect for trades and contractors in Indianapolis.",
+    description: "Direct Primary Care partnerships for small businesses in Indianapolis, IN 46268. Perfect for trades and contractors.",
     url: "https://directcareindy.com/partnerships"
   }
 };

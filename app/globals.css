@@ -14,6 +14,15 @@
   --secondary: #14B8A6;
 }
 
+/* Ensure high contrast for accessibility (WCAG 2.2 AA) */
+.dark .text-primary {
+  color: #E5E7EB;
+}
+
+.dark .bg-primary {
+  background-color: #1B2B3A;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -38,6 +47,36 @@ body {
 a.text-link {
   min-width: auto;
   min-height: auto;
+}
+
+/* Enhanced dark mode contrast for better readability */
+.dark {
+  color-scheme: dark;
+}
+
+/* Ensure proper contrast ratios for WCAG 2.2 AA compliance */
+.dark .text-gray-600 {
+  color: #D1D5DB;
+}
+
+.dark .text-gray-700 {
+  color: #E5E7EB;
+}
+
+/* Glassmorphism support */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.backdrop-blur-lg {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 

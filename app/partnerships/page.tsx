@@ -226,12 +226,17 @@ export default function Partnerships() {
                 </ul>
               </div>
             </div>
-            <div className="mt-8 p-6 bg-secondary text-white rounded-lg text-center">
-              <p className="text-lg mb-2">Potential Annual Savings Per Employee</p>
-              <p className="text-5xl font-bold">$4,700+</p>
+            <div className="mt-8 p-6 bg-gradient-to-r from-secondary to-primary text-white rounded-lg text-center shadow-xl border-2 border-white/20">
+              <p className="text-lg mb-2 font-semibold">Potential Annual Savings Per Employee</p>
+              <p className="text-5xl font-bold mb-2">$4,700+</p>
               <p className="text-sm mt-2 opacity-90">
                 * Plus reduced productivity loss from faster care access
               </p>
+              <div className="mt-4 pt-4 border-t border-white/20">
+                <p className="text-xs opacity-75">
+                  Perfect for HVAC, Landscape, Auto Repair, and Construction businesses
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -247,7 +252,7 @@ export default function Partnerships() {
             <p className="text-center text-gray-600 mb-8">
               See your potential savings instantly with our small business healthcare calculator
             </p>
-            
+
             <div className="bg-white rounded-lg shadow-lg p-8">
               <div className="mb-8">
                 <label className="block text-lg font-semibold text-primary mb-4">
@@ -541,6 +546,7 @@ export default function Partnerships() {
             </div>
           </div>
           <div className="border-t border-gray-600 pt-6 text-center text-gray-300">
+            <p className="font-semibold mb-2">Notice: Direct Care Indy is not insurance.</p>
             <p>James D. Pike, D.O., FCCP, FACP</p>
             <p className="text-sm opacity-90">Board Certified in Pulmonary and Internal Medicine</p>
             <p className="mt-2">© {new Date().getFullYear()} Direct Care Indy. All rights reserved.</p>

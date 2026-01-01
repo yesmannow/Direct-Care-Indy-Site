@@ -58,10 +58,10 @@ export function TooltipContent({ children, className = "" }: TooltipContentProps
 
   return (
     <div
-      className={`absolute z-50 px-3 py-2 text-sm text-white bg-gray-900 rounded-md shadow-lg -top-2 left-full ml-2 w-64 ${className}`}
+      className={`absolute z-50 px-3 py-2 text-sm text-white bg-gray-900 dark:bg-gray-800 rounded-md shadow-lg border border-gray-700 -top-2 left-full ml-2 w-64 ${className}`}
     >
       {children}
-      <div className="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-gray-900 rotate-45" />
+      <div className="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-800 rotate-45" />
     </div>
   );
 }

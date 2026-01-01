@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calculator } from "lucide-react";
 
 export default function SavingsCalculator() {
@@ -23,6 +23,12 @@ export default function SavingsCalculator() {
   const dpcStackTotal = dpcTotal + catastrophicPremium;
 
   const annualSavings = traditionalAnnual - dpcStackTotal;
+
+  // Update sticky savings bar when savings change
+  useEffect(() => {
+    const event = new CustomEvent('savingsUpdate', { detail: { savings: annualSavings } });
+    window.dispatchEvent(event);
+  }, [annualSavings]);
 
   return (
     <div className="bg-white rounded-lg shadow-lg p-8">

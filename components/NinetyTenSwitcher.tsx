@@ -27,18 +27,18 @@ export function NinetyTenSwitcher() {
   return (
     <div className="max-w-2xl mx-auto p-8 bg-white rounded-3xl shadow-xl border border-gray-100">
       <div className="flex bg-[#F0F0F0] p-1 rounded-full mb-8 relative">
-        <motion.div 
+        <motion.div
           className={`absolute h-full rounded-full ${content[view].color} opacity-10`}
           layoutId="activeGlow"
           animate={{ x: view === 'dpc' ? 0 : '100%' }}
         />
-        <button 
+        <button
           onClick={() => setView('dpc')}
           className={`flex-1 py-3 px-6 rounded-full transition-all z-10 font-medium ${view === 'dpc' ? 'text-[#8A9A8A] shadow-sm bg-white' : 'text-gray-500'}`}
         >
           90% Routine Care
         </button>
-        <button 
+        <button
           onClick={() => setView('insurance')}
           className={`flex-1 py-3 px-6 rounded-full transition-all z-10 font-medium ${view === 'insurance' ? 'text-[#2C3E50] shadow-sm bg-white' : 'text-gray-500'}`}
         >
@@ -73,9 +73,14 @@ export function NinetyTenSwitcher() {
           </ul>
         </motion.div>
       </AnimatePresence>
-      <p className="mt-8 text-sm text-center text-gray-400 italic font-light">
-        The Mechanic Analogy: Insurance is for when you total the car; we are the mechanic for your oil changes.
-      </p>
+      <div className="mt-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border-l-4 border-blue-500">
+        <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">
+          🚗 The Auto Insurance Analogy
+        </p>
+        <p className="text-sm text-gray-700 dark:text-gray-300 italic">
+          Insurance is for when you <strong>total the car</strong> (the 10% catastrophic events). We are the <strong>mechanic for your oil changes</strong> (the 90% routine care). You need both, but they serve different purposes.
+        </p>
+      </div>
     </div>
   )
 }

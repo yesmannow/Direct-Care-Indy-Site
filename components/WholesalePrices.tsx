@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Search, Pill, FlaskConical } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface PriceItem {
   name: string;
@@ -15,12 +16,13 @@ export default function WholesalePrices() {
 
   const priceList: PriceItem[] = [
     // Labs only - medications removed for HSA compliance (IRS Notice 2026-5)
+    // Pricing per requirements: Lipid Panel $5, A1C $8, CMP $9, Vitamin D $18
     { name: "Lipid Panel", category: "lab", price: 5.0, retailPrice: 150 },
     { name: "A1C Test", category: "lab", price: 8.0, retailPrice: 120 },
-    { name: "Comprehensive Metabolic Panel", category: "lab", price: 7.0, retailPrice: 180 },
+    { name: "Comprehensive Metabolic Panel (CMP)", category: "lab", price: 9.0, retailPrice: 180 },
+    { name: "Vitamin D Test", category: "lab", price: 18.0, retailPrice: 160 },
     { name: "Complete Blood Count (CBC)", category: "lab", price: 6.0, retailPrice: 100 },
     { name: "Thyroid Panel (TSH)", category: "lab", price: 9.0, retailPrice: 140 },
-    { name: "Vitamin D Test", category: "lab", price: 12.0, retailPrice: 160 },
     { name: "Urinalysis", category: "lab", price: 4.0, retailPrice: 80 },
     { name: "Basic Metabolic Panel", category: "lab", price: 6.0, retailPrice: 130 },
     { name: "Hemoglobin A1C", category: "lab", price: 8.0, retailPrice: 125 },
@@ -100,8 +102,20 @@ export default function WholesalePrices() {
                   <td className="px-4 py-3 text-right text-gray-500 line-through">
                     ${item.retailPrice.toFixed(2)}
                   </td>
-                  <td className="px-4 py-3 text-right font-bold text-green-600">
-                    ${item.price.toFixed(2)}
+                  <td className="px-4 py-3 text-right">
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger>
+                          <span className="font-bold text-green-600 dark:text-green-400 cursor-help underline decoration-dotted hover:decoration-solid transition-all">
+                            ${item.price.toFixed(2)}
+                          </span>
+                        </TooltipTrigger>
+                        <TooltipContent className="max-w-xs bg-gray-900 dark:bg-gray-800 border-gray-800 text-xs">
+                          <p className="font-semibold mb-1">Negotiated Wholesale Rate</p>
+                          <p>Members pay what we pay—no markups, no insurance overhead. This is the actual cost we negotiate with our lab partners.</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
                   </td>
                   <td className="px-4 py-3 text-right">
                     <span className="text-green-600 font-semibold">

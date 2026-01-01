@@ -85,7 +85,7 @@ export default function Welcome() {
                     </ol>
                   </div>
                   <p className="text-sm text-gray-600 italic">
-                    💡 Tip: This is your direct line to Dr. Pike. Use it for quick questions, appointment requests, 
+                    💡 Tip: This is your direct line to Dr. Pike. Use it for quick questions, appointment requests,
                     or urgent concerns. Response times are typically under 1 hour during business hours.
                   </p>
                 </div>
@@ -113,7 +113,7 @@ export default function Welcome() {
                     </ul>
                   </div>
                   <p className="text-sm text-gray-600 italic">
-                    💡 Tip: Have your medication bottles handy when filling out the form. 
+                    💡 Tip: Have your medication bottles handy when filling out the form.
                     Don&apos;t worry if you can&apos;t remember everything—we&apos;ll review it together at your first visit.
                   </p>
                 </div>
@@ -280,7 +280,9 @@ export default function Welcome() {
             </div>
           </div>
           <div className="border-t border-gray-600 pt-6 text-center text-gray-300">
-            <p>James D. Pike, D.O. | Direct Primary Care Physician</p>
+            <p className="font-semibold mb-2">Notice: Direct Care Indy is not insurance.</p>
+            <p>James D. Pike, D.O., FCCP, FACP | Direct Primary Care Physician</p>
+            <p className="text-sm opacity-90 mt-1">Board Certified in Pulmonary and Internal Medicine</p>
             <p className="mt-2">© {new Date().getFullYear()} Direct Care Indy. All rights reserved.</p>
           </div>
         </div>

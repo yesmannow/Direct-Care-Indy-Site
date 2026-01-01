@@ -142,7 +142,7 @@ export default function FAQ() {
                   </div>
                 </div>
               </div>
-              
+
               <p className="font-semibold">When to go to the ER or call 911:</p>
               <ul className="list-disc list-inside space-y-1 text-gray-700">
                 <li>Chest pain or pressure</li>
@@ -166,7 +166,7 @@ export default function FAQ() {
               </div>
 
               <p className="text-sm text-gray-600 italic">
-                Remember: Direct Care Indy is designed for 90% of your healthcare needs. 
+                Remember: Direct Care Indy is designed for 90% of your healthcare needs.
                 The ER is always the right choice for true emergencies—that&apos;s the 10% we don&apos;t cover.
               </p>
             </div>
@@ -369,7 +369,7 @@ export default function FAQ() {
                   {category.questions.map((faq, index) => {
                     const globalIndex = categoryIndex * 100 + index;
                     const isOpen = openIndex === globalIndex;
-                    
+
                     return (
                       <div
                         key={index}
@@ -486,7 +486,9 @@ export default function FAQ() {
             </div>
           </div>
           <div className="border-t border-gray-600 pt-6 text-center text-gray-300">
-            <p>James D. Pike, D.O. | Direct Primary Care Physician</p>
+            <p className="font-semibold mb-2">Notice: Direct Care Indy is not insurance.</p>
+            <p>James D. Pike, D.O., FCCP, FACP | Direct Primary Care Physician</p>
+            <p className="text-sm opacity-90 mt-1">Board Certified in Pulmonary and Internal Medicine</p>
             <p className="mt-2">© {new Date().getFullYear()} Direct Care Indy. All rights reserved.</p>
           </div>
         </div>

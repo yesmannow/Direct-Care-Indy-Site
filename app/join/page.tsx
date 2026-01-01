@@ -23,7 +23,7 @@ const step1Schema = z.object({
   email: z.string().email("Valid email is required"),
   phone: z.string().min(10, "Valid phone number is required"),
   address: z.string().min(5, "Indianapolis address is required"),
-  city: z.string().refine((city) => city.toLowerCase().includes("indianapolis") || city.toLowerCase().includes("indy"), 
+  city: z.string().refine((city) => city.toLowerCase().includes("indianapolis") || city.toLowerCase().includes("indy"),
     "Service is currently available in Indianapolis only"),
   zipCode: z.string().regex(/^46\d{3}$/, "Must be an Indianapolis ZIP code (46xxx)"),
 });
@@ -93,13 +93,13 @@ export default function Join() {
     if (formData.planType === "individual") {
       const dob = formData.dateOfBirth ? new Date(formData.dateOfBirth) : new Date();
       const age = new Date().getFullYear() - dob.getFullYear();
-      
+
       if (age < 19) return 30;
       if (age < 45) return 69;
       if (age < 65) return 89;
       return 109;
     }
-    
+
     // For family, cap at $250
     return 250;
   };
@@ -437,11 +437,11 @@ export default function Join() {
                 {/* Membership Agreement Summary */}
                 <div className="bg-gray-50 border-2 border-gray-200 rounded-lg p-6 space-y-4">
                   <h4 className="font-bold text-lg text-primary">Membership Agreement Summary</h4>
-                  
+
                   <div>
                     <h5 className="font-semibold text-gray-900 mb-2">Billing</h5>
                     <p className="text-gray-700">
-                      Your membership fee will be automatically billed on the 1st or 15th of each month via autopay. 
+                      Your membership fee will be automatically billed on the 1st or 15th of each month via autopay.
                       You can select your preferred billing date below.
                     </p>
                   </div>
@@ -449,7 +449,7 @@ export default function Join() {
                   <div>
                     <h5 className="font-semibold text-gray-900 mb-2">Cancellation Policy</h5>
                     <p className="text-gray-700">
-                      You may cancel your membership at any time with 30-day written notice. 
+                      You may cancel your membership at any time with 30-day written notice.
                       There are no long-term contracts or lock-in periods.
                     </p>
                   </div>
@@ -457,7 +457,7 @@ export default function Join() {
                   <div>
                     <h5 className="font-semibold text-gray-900 mb-2">HSA Compliance</h5>
                     <p className="text-gray-700">
-                      As of January 1, 2026, Direct Primary Care memberships are HSA-eligible. 
+                      As of January 1, 2026, Direct Primary Care memberships are HSA-eligible.
                       You can use your Health Savings Account to pay for your membership fees.
                     </p>
                   </div>
@@ -465,7 +465,7 @@ export default function Join() {
                   <div>
                     <h5 className="font-semibold text-gray-900 mb-2">Coverage Details</h5>
                     <p className="text-gray-700">
-                      Your membership covers approximately 90% of your healthcare needs. 
+                      Your membership covers approximately 90% of your healthcare needs.
                       For life-threatening emergencies, you should still call 911 or go to the nearest emergency room.
                     </p>
                   </div>
@@ -598,7 +598,9 @@ export default function Join() {
             </div>
           </div>
           <div className="border-t border-gray-600 pt-6 text-center text-gray-300">
-            <p>James D. Pike, D.O. | Direct Primary Care Physician</p>
+            <p className="font-semibold mb-2">Notice: Direct Care Indy is not insurance.</p>
+            <p>James D. Pike, D.O., FCCP, FACP | Direct Primary Care Physician</p>
+            <p className="text-sm opacity-90 mt-1">Board Certified in Pulmonary and Internal Medicine</p>
             <p className="mt-2">© {new Date().getFullYear()} Direct Care Indy. All rights reserved.</p>
           </div>
         </div>
