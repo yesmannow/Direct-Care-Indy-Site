@@ -1,3 +1,5 @@
+import { SITE_ASSETS } from "@/lib/images";
+
 export function OrganizationSchema() {
   const organizationData = {
     "@context": "https://schema.org",
@@ -100,7 +102,7 @@ export function PhysicianSchema() {
       "name": "Indianapolis",
       "addressRegion": "IN"
     },
-    "image": "https://directcareindy.com/images/providers/james-pike.webp"
+    "image": `https://directcareindy.com${SITE_ASSETS.providers.jamesPike}`
   };
 
   return (

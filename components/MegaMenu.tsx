@@ -12,9 +12,10 @@ import {
   Heart,
   BookOpen,
 } from "lucide-react";
-import { CompactEmployerCalculator } from "@/components/CompactEmployerCalculator";
-import { CompactLabSearch } from "@/components/CompactLabSearch";
+import { EmployerSavingsCalculator } from "@/components/EmployerSavingsCalculator";
+import WholesaleLabSearch from "@/components/WholesaleLabSearch";
 import { SITE_ASSETS } from "@/lib/images";
+import Image from "next/image";
 
 // Mobile Menu Item Component
 function MobileMenuItem({
@@ -175,7 +176,7 @@ export function MegaMenu() {
           ],
         },
       ],
-      embeddedTool: <CompactEmployerCalculator variant="compact" />,
+      embeddedTool: <EmployerSavingsCalculator variant="compact" />,
       gradient: "from-blue-500/10 via-teal-500/10 to-cyan-500/10",
     },
     "expertise": {
@@ -203,7 +204,7 @@ export function MegaMenu() {
           ],
         },
       ],
-      embeddedTool: <CompactLabSearch />,
+      embeddedTool: <WholesaleLabSearch variant="compact" />,
       gradient: "from-purple-500/10 via-pink-500/10 to-rose-500/10",
     },
     "resources": {
@@ -312,11 +313,16 @@ export function MegaMenu() {
                             }}
                             onMouseLeave={() => setActiveMenu(null)}
                           >
-                            {/* Background Watermark */}
-                            <div
-                              className="absolute inset-0 opacity-[0.03] pointer-events-none"
-                              style={{ backgroundImage: `url(${SITE_ASSETS.ui.megaMenu})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-                            />
+                            {/* Background Watermark - 3% opacity as specified */}
+                            <div className="absolute inset-0 opacity-[0.03] pointer-events-none overflow-hidden">
+                              <Image
+                                src={SITE_ASSETS.ui.megaMenu}
+                                alt=""
+                                fill
+                                className="object-cover"
+                                priority={false}
+                              />
+                            </div>
 
                             <div className="relative z-10">
                               {/* Header Section */}

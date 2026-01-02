@@ -5,7 +5,12 @@ import { motion, useSpring, useTransform } from "framer-motion";
 import { Calculator, TrendingDown, Users, AlertCircle, DollarSign, ShieldCheck, TrendingUp } from "lucide-react";
 import { calculateEmployerSavings, type PlanType } from "@/lib/calculators/employerRoi";
 
-export function EmployerSavingsCalculator() {
+interface EmployerSavingsCalculatorProps {
+  variant?: 'full' | 'compact';
+}
+
+export function EmployerSavingsCalculator({ variant = 'full' }: EmployerSavingsCalculatorProps) {
+  const isCompact = variant === 'compact';
   const [employeeCount, setEmployeeCount] = useState(5);
   const [currentPlanType, setCurrentPlanType] = useState<PlanType>("Traditional PPO");
 
@@ -21,6 +26,40 @@ export function EmployerSavingsCalculator() {
   useEffect(() => {
     spring.set(roi.annualSavings);
   }, [roi.annualSavings, spring]);
+
+  // Compact version for mega menu
+  if (isCompact) {
+    return (
+      <div className="p-4 space-y-3 bg-transparent border-0 relative">
+        <h4 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-tight">
+          Est. Annual Savings
+        </h4>
+        <motion.div
+          className="text-3xl font-black text-teal-600 dark:text-teal-400 tracking-tighter"
+          key={roi.annualSavings}
+        >
+          ${displayValue.toLocaleString()}+
+        </motion.div>
+        <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
+          <ShieldCheck className="w-3 h-3 text-green-500" />
+          <span>HSA Compliant 2026</span>
+        </div>
+        <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
+          <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+            Employees: {employeeCount}
+          </label>
+          <input
+            type="range"
+            min="1"
+            max="50"
+            value={employeeCount}
+            onChange={(e) => setEmployeeCount(Number(e.target.value))}
+            className="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-teal-500"
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <motion.div

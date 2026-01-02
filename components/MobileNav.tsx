@@ -57,11 +57,11 @@ export default function MobileNav() {
 
   return (
     <>
-      {/* Mobile Menu Button - Positioned to align with MegaMenu header */}
+      {/* Mobile Menu Button - Touch-optimized 44px target */}
       <button
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-4 right-4 z-[60] p-2 rounded-lg bg-white/80 dark:bg-gray-900/80 backdrop-blur-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors shadow-lg border border-gray-200 dark:border-gray-700"
+        className="lg:hidden fixed top-4 right-4 z-[60] interactive-element rounded-lg bg-card/80 backdrop-blur-md text-foreground hover:bg-muted transition-colors shadow-lg border border-border"
         aria-controls="mobile-menu"
         aria-expanded={isOpen}
         aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -90,13 +90,13 @@ export default function MobileNav() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-900 shadow-2xl z-50 lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 h-full w-80 bg-card shadow-2xl z-50 lg:hidden overflow-y-auto border-l border-border"
             >
-              {/* Close Button */}
-              <div className="flex justify-end p-4 border-b border-gray-200 dark:border-gray-700">
+              {/* Close Button - Touch-optimized */}
+              <div className="flex justify-end p-4 border-b border-border">
                 <button
                   onClick={closeMenu}
-                  className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  className="interactive-element rounded-lg text-foreground hover:bg-muted transition-colors"
                   aria-label="Close navigation menu"
                 >
                   <X className="w-6 h-6" />
@@ -111,7 +111,7 @@ export default function MobileNav() {
                       <Link
                         href={link.href}
                         onClick={closeMenu}
-                        className="block px-4 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary dark:hover:text-teal-400 transition-colors font-medium"
+                        className="block px-4 py-3 rounded-lg text-foreground hover:bg-muted hover:text-secondary transition-colors font-medium interactive-element"
                       >
                         {link.label}
                       </Link>
@@ -120,7 +120,7 @@ export default function MobileNav() {
                 </ul>
 
                 {/* Dynamic CTA */}
-                <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <div className="mt-6 pt-6 border-t border-border">
                   <DynamicCTA />
                 </div>
               </nav>

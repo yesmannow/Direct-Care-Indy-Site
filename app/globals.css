@@ -68,9 +68,19 @@
 }
 
 @layer utilities {
-  /* Fixes the 'Filter' look by adding distinct borders and shadows */
+  /* Layered Surface Model - Replaces flat bg-primary with depth */
   .section-card {
     @apply bg-card text-card-foreground border border-border shadow-sm rounded-3xl p-8;
+  }
+
+  /* Elevated surface for top sections - removes "filter" look */
+  .elevated-section {
+    @apply bg-card text-card-foreground border-b border-border shadow-md;
+  }
+
+  /* High-contrast section for CTAs - uses semantic secondary */
+  .cta-section {
+    @apply bg-secondary text-secondary-foreground border border-secondary/20 shadow-lg;
   }
 
   /* Ensures text is readable over any background image */
@@ -78,7 +88,7 @@
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
 
-  /* Enforces 44px touch targets for buttons */
+  /* Enforces 44px touch targets for buttons - WCAG 2.2 compliant */
   .interactive-element {
     @apply min-h-[44px] min-w-[44px] inline-flex items-center justify-center transition-all;
   }
