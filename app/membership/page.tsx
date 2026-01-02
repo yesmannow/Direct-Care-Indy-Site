@@ -31,8 +31,13 @@ export default function MembershipPage() {
               {pricingTiers.map((tier) => (
                 <div
                   key={tier.id}
-                  className="bg-card rounded-2xl shadow-lg border border-border p-8 text-center hover:shadow-xl transition-shadow"
+                  className={`relative bg-card rounded-2xl shadow-lg border border-border p-8 text-center transition-transform duration-200 hover:-translate-y-1 hover:shadow-2xl will-change-transform ${tier.id === 'family' ? 'ring-2 ring-secondary/40' : ''}`}
                 >
+                  {tier.id === 'family' && (
+                    <div className="absolute -top-3 right-4 bg-secondary text-secondary-foreground px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                      Most Popular
+                    </div>
+                  )}
                   <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
                   <div className="text-4xl font-black text-secondary mb-2">
                     ${tier.price}
@@ -51,7 +56,7 @@ export default function MembershipPage() {
 
                   <Link
                     href="/join"
-                    className="bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-secondary/90 transition-colors inline-block w-full"
+                    className="bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-semibold inline-block w-full transition-transform duration-200 hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
                   >
                     Join Now
                   </Link>
@@ -63,13 +68,13 @@ export default function MembershipPage() {
       </section>
 
       {/* Value Props */}
-      <section className="py-16 bg-muted/50">
-        <div className="container mx-auto px-4">
+      <section className="section-padding bg-muted/30">
+        <div className="content-container">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Why Choose Pike Medical?</h2>
+            <h2 className="heading-2 text-center mb-12">Why Choose Pike Medical?</h2>
             <div className="grid md:grid-cols-2 gap-8">
               {valueProps.map((prop) => (
-                <div key={prop.id} className="bg-card rounded-xl p-6 border border-border">
+                <div key={prop.id} className="section-card">
                   <h3 className="text-xl font-semibold mb-3">{prop.title}</h3>
                   <p className="text-muted-foreground">{prop.description}</p>
                 </div>
@@ -79,34 +84,59 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      {/* Tier Display */}
-      <section className="mb-16">
-        <TierDisplay />
-      </section>
-
       {/* Utilization Philosophy */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-bold mb-4">Our Utilization Philosophy</h2>
-        <p>
-          We believe in providing unlimited access to care without restrictive gatekeeping.
-          Our model is built on trust and appropriate utilization. We monitor usage patterns
-          to ensure sustainable care for all members.
-        </p>
+      <section className="section-padding">
+        <div className="content-container">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="heading-2 mb-6">Our Utilization Philosophy</h2>
+            <p className="body-large text-muted-foreground">
+              We believe in providing unlimited access to care without restrictive gatekeeping.
+              Our model is built on trust and appropriate utilization. We monitor usage patterns
+              to ensure sustainable care for all members.
+            </p>
+          </div>
+        </div>
       </section>
 
-      {/* Pharmacy & Labs */}
-      <section>
-        <h2 className="text-2xl font-bold mb-4">Transparent Pricing</h2>
-        <p>
-          Access wholesale prices for medications and lab work. No markups, no hidden fees.
-          We pass the savings directly to you.
-        </p>
-        <ul className="mt-4 list-disc pl-5 space-y-2">
-          <li>Antibiotics: $3-8</li>
-          <li>Chronic medications: $5-15/month</li>
-          <li>Basic labs: $5-12</li>
-          <li>Advanced labs: at cost + 10% processing fee</li>
-        </ul>
+      {/* Transparent Pricing */}
+      <section className="section-padding bg-muted/30">
+        <div className="content-container">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="heading-2 mb-6">Transparent Pricing</h2>
+            <p className="body-large text-muted-foreground mb-8">
+              Access wholesale prices for medications and lab work. No markups, no hidden fees.
+              We pass the savings directly to you.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="section-card">
+                <h3 className="font-semibold mb-4">Medication Pricing</h3>
+                <ul className="space-y-2">
+                  <li className="flex justify-between">
+                    <span>Antibiotics</span>
+                    <span className="font-semibold text-secondary">$3-8</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Chronic medications</span>
+                    <span className="font-semibold text-secondary">$5-15/month</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="section-card">
+                <h3 className="font-semibold mb-4">Lab Work Pricing</h3>
+                <ul className="space-y-2">
+                  <li className="flex justify-between">
+                    <span>Basic labs</span>
+                    <span className="font-semibold text-secondary">$5-12</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Advanced labs</span>
+                    <span className="font-semibold text-secondary">at cost + 10% processing fee</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Savings Table */}

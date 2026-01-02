@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock, DollarSign, Award } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, DollarSign, CheckCircle2, ArrowRight, Star } from "lucide-react";
 import { NinetyTenSwitcher } from "@/components/NinetyTenSwitcher";
-import WholesalePrices from "@/components/WholesalePrices";
 import PortalPreview from "@/components/PortalPreview";
 import { SavingsPersonas } from "@/components/SavingsPersonas";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -13,14 +12,9 @@ import { FaqSchema } from "@/components/FaqSchema";
 import { OrganizationSchema, PhysicianSchema, ServiceSchema } from "@/components/StructuredData";
 import { StickySavingsBar } from "@/components/StickySavingsBar";
 import { ScrollTransition } from "@/components/ScrollTransition";
-import { ValueProps } from "@/components/home/ValueProps";
-import { WhoItsFor } from "@/components/home/WhoItsFor";
-import { getCTAById } from "@/lib/content/dpc";
 import { Testimonials } from "@/components/Testimonials";
 
 export default function Home() {
-  const primaryCTA = getCTAById('join-now');
-
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -28,47 +22,68 @@ export default function Home() {
         <div className="content-container-narrow">
           <h1 className="heading-1 mb-6">Healthcare Without the Hassle</h1>
           <p className="body-large mb-8">
-            90% of your healthcare covered for one flat monthly fee
+            90% of your healthcare covered for one flat monthly fee. No copays, no deductibles, no surprise bills.
           </p>
-          {primaryCTA && (
-            <Link href={primaryCTA.href} className="bg-secondary text-secondary-foreground px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform interactive-element">
-              {primaryCTA.text}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/membership"
+              className="bg-secondary text-secondary-foreground px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform interactive-element"
+            >
+              View Plans & Pricing
             </Link>
-          )}
+            <Link
+              href="#how-it-works"
+              className="bg-card text-card-foreground border border-border px-8 py-4 rounded-full font-semibold text-lg hover:bg-card/90 transition-colors interactive-element"
+            >
+              How It Works
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Value Props */}
-      <section className="section-padding">
+      {/* Key Benefits */}
+      <section className="section-padding bg-muted/30">
         <div className="content-container">
-          <h2 className="heading-2 text-center mb-12">Why Choose Direct Primary Care?</h2>
-          <ValueProps />
-        </div>
-      </section>
+          <div className="max-w-6xl mx-auto">
+            <h2 className="heading-2 text-center mb-12">Why Choose Direct Primary Care?</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="section-card text-center">
+                <div className="bg-secondary text-secondary-foreground p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <DollarSign className="w-8 h-8" />
+                </div>
+                <h3 className="font-semibold mb-3">No Surprise Bills</h3>
+                <p className="text-muted-foreground text-sm">
+                  One flat fee covers all primary care. No copays, deductibles, or hidden fees.
+                </p>
+              </div>
 
-      {/* Who It's For */}
-      <section className="section-padding bg-muted">
-        <div className="content-container-narrow">
-          <WhoItsFor />
-        </div>
-      </section>
+              <div className="section-card text-center">
+                <div className="bg-secondary text-secondary-foreground p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <Clock className="w-8 h-8" />
+                </div>
+                <h3 className="font-semibold mb-3">Same-Day Access</h3>
+                <p className="text-muted-foreground text-sm">
+                  Get appointments when you need them. No waiting weeks to see your doctor.
+                </p>
+              </div>
 
-      {/* How It Works Teaser */}
-      <section className="section-padding">
-        <div className="content-container-narrow text-center">
-          <h2 className="heading-2 mb-6">How It Works</h2>
-          <p className="body-large max-w-2xl mx-auto mb-8">
-            Our 90/10 model means we handle 90% of your healthcare needs directly, while insurance covers the remaining 10%.
-          </p>
-          <p className="body-small">
-            This is not insurance. This is direct primary care.
-          </p>
+              <div className="section-card text-center">
+                <div className="bg-secondary text-secondary-foreground p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <Phone className="w-8 h-8" />
+                </div>
+                <h3 className="font-semibold mb-3">Direct Communication</h3>
+                <p className="text-muted-foreground text-sm">
+                  Text, call, or email your provider directly. Your doctor is always accessible.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* 90/10 Model Switcher */}
-      <ScrollTransition id="ninety-ten-model">
-        <section className="py-16 bg-background scroll-smooth">
+      <ScrollTransition id="how-it-works">
+        <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto mb-12 text-center">
               <h3 className="text-3xl font-bold text-foreground mb-4">
@@ -86,75 +101,24 @@ export default function Home() {
         </section>
       </ScrollTransition>
 
-      {/* Key Benefits Section */}
-      <section className="py-16 bg-background border-b border-border">
-        <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-foreground mb-12 text-center">
-            The 90/10 Model: Healthcare Simplified
-          </h3>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="section-card">
-              <div className="bg-secondary text-secondary-foreground rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                <Clock className="w-6 h-6" />
-              </div>
-              <h4 className="text-xl font-semibold text-foreground mb-3">
-                Same-Day Access
-              </h4>
-              <p className="text-card-foreground">
-                Get appointments when you need them. No more waiting weeks to see your doctor.
-              </p>
-            </div>
-            <div className="section-card">
-              <div className="bg-secondary text-secondary-foreground rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                <DollarSign className="w-6 h-6" />
-              </div>
-              <h4 className="text-xl font-semibold text-foreground mb-3">
-                Transparent Pricing
-              </h4>
-              <p className="text-card-foreground">
-                One flat monthly fee covers 90% of your healthcare needs. No surprise bills.
-              </p>
-            </div>
-            <div className="section-card">
-              <div className="bg-secondary text-secondary-foreground rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                <Phone className="w-6 h-6" />
-              </div>
-              <h4 className="text-xl font-semibold text-foreground mb-3">
-                Direct Communication
-              </h4>
-              <p className="text-card-foreground">
-                Text, call, or email Dr. Pike directly. Your doctor is always accessible.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Wholesale Prices Section */}
-      <ScrollTransition id="wholesale-prices">
-        <section className="py-16 bg-background scroll-smooth">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              <WholesalePrices />
-            </div>
-          </div>
-        </section>
-      </ScrollTransition>
-
-      {/* Patient Portal Preview */}
-      <section className="py-16 bg-background border-b border-border">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <PortalPreview />
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
+      {/* Savings Calculator */}
       <section className="section-padding bg-muted/30">
         <div className="content-container">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="heading-2 mb-4">See Your Potential Savings</h2>
+            <p className="body-large text-muted-foreground mb-8">
+              Calculate how much you could save with Direct Primary Care.
+            </p>
+            <SavingsPersonas />
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="section-padding">
+        <div className="content-container">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="heading-2 mb-4">What Our Members Say</h2>
+            <h2 className="heading-2 mb-4">What Members Are Saying</h2>
             <p className="body-large text-muted-foreground">
               Real stories from real Indianapolis families who&apos;ve switched to Direct Primary Care.
             </p>
@@ -163,14 +127,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Wraparound Guide */}
-      <TheWraparoundGuide />
-
-      {/* Catastrophic Partners Directory */}
-      <CatastrophicPartners />
-
       {/* Call to Action */}
-      <section className="py-16 bg-secondary text-secondary-foreground border-b border-border">
+      <section className="py-16 bg-secondary text-secondary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h3 className="text-3xl font-bold mb-6">
             Ready to Experience Healthcare the Way It Should Be?
@@ -179,10 +137,10 @@ export default function Home() {
             Join hundreds of Indianapolis families who have ditched the insurance hassles for simple, affordable direct care.
           </p>
           <Link
-            href="/pricing"
+            href="/membership"
             className="bg-card text-card-foreground hover:bg-card/90 border border-border px-8 py-4 rounded-lg font-semibold text-lg transition-all inline-block interactive-element"
           >
-            See Our Pricing
+            View Membership Plans
           </Link>
         </div>
       </section>
@@ -206,38 +164,23 @@ export default function Home() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Link href="/membership" className="text-muted-foreground hover:text-foreground transition-colors">
                     Pricing
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Link href="/services-included" className="text-muted-foreground hover:text-foreground transition-colors">
                     Services
                   </Link>
                 </li>
                 <li>
                   <Link href="/seniors" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Seniors (Medicare)
+                    Seniors
                   </Link>
                 </li>
                 <li>
-                  <Link href="/partnerships" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Partnerships
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-xl font-semibold mb-4">Resources</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/blog/indiana-medigap-birthday-rule-2026" className="text-muted-foreground hover:text-foreground transition-colors">
-                    2026 Indiana Birthday Rule Guide
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/faq" className="text-muted-foreground hover:text-foreground transition-colors">
-                    FAQ
+                  <Link href="/for-employers" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Employers
                   </Link>
                 </li>
               </ul>
