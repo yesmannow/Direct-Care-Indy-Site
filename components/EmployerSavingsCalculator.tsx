@@ -18,14 +18,22 @@ export function EmployerSavingsCalculator({ variant = 'full' }: EmployerSavingsC
 
   // Animated counter for total savings
   const spring = useSpring(roi.annualSavings, { stiffness: 50, damping: 30 });
-  const displayValue = useTransform(spring, (current) =>
-    Math.round(current)
-  );
+  const displayValue = useTransform(spring, (current) => Math.round(current));
+  const [displayNumber, setDisplayNumber] = useState(Math.round(roi.annualSavings));
 
-  // Update spring when savings change
+  // Update spring when savings change and subscribe to MotionValue for safe rendering
   useEffect(() => {
     spring.set(roi.annualSavings);
   }, [roi.annualSavings, spring]);
+
+  useEffect(() => {
+    const unsubscribe = displayValue.on("change", (v) => {
+      if (typeof v === "number" && !Number.isNaN(v)) {
+        setDisplayNumber(Math.round(v));
+      }
+    });
+    return () => unsubscribe();
+  }, [displayValue]);
 
   // Compact version for mega menu
   if (isCompact) {
@@ -38,7 +46,7 @@ export function EmployerSavingsCalculator({ variant = 'full' }: EmployerSavingsC
           className="text-3xl font-black text-teal-600 dark:text-teal-400 tracking-tighter"
           key={roi.annualSavings}
         >
-          ${displayValue.toLocaleString()}+
+          ${displayNumber.toLocaleString()}+
         </motion.div>
         <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
           <ShieldCheck className="w-3 h-3 text-green-500" />
@@ -181,11 +189,8 @@ export function EmployerSavingsCalculator({ variant = 'full' }: EmployerSavingsC
             <DollarSign className="w-6 h-6 text-primary" />
             <h4 className="text-lg font-bold text-primary">Total Annual ROI</h4>
           </div>
-          <motion.p
-            className="text-5xl font-bold text-primary"
-            key={roi.annualSavings}
-          >
-            ${displayValue.toLocaleString()}
+          <motion.p className="text-5xl font-bold text-primary" key={roi.annualSavings}>
+            ${displayNumber.toLocaleString()}
           </motion.p>
           <p className="text-sm text-gray-300 mt-2">
             {roi.roiPercentage}% reduction in total healthcare spend

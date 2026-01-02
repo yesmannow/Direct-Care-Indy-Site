@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Clock, DollarSign, CheckCircle2, ArrowRight, Star } from "lucide-react";
 import { NinetyTenSwitcher } from "@/components/NinetyTenSwitcher";
 import PortalPreview from "@/components/PortalPreview";
@@ -10,7 +11,6 @@ import { CatastrophicPartners } from "@/components/CatastrophicPartners";
 import { TheWraparoundGuide } from "@/components/TheWraparoundGuide";
 import { FaqSchema } from "@/components/FaqSchema";
 import { OrganizationSchema, PhysicianSchema, ServiceSchema } from "@/components/StructuredData";
-import { StickySavingsBar } from "@/components/StickySavingsBar";
 import { ScrollTransition } from "@/components/ScrollTransition";
 import { Testimonials } from "@/components/Testimonials";
 
@@ -77,6 +77,17 @@ export default function Home() {
                 </p>
               </div>
             </div>
+            <div className="grid md:grid-cols-3 gap-4 mt-10">
+              <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-border">
+                <Image src="/images/clinical/round-table.webp" alt="Round table care model" fill className="object-cover" />
+              </div>
+              <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-border">
+                <Image src="/images/clinical/medical-laboratory.webp" alt="Wholesale lab and pharmacy savings" fill className="object-cover" />
+              </div>
+              <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-border">
+                <Image src="/images/marketing/senior-wellness.webp" alt="Senior wellness and prevention" fill className="object-cover" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -96,7 +107,22 @@ export default function Home() {
                 Think of it like auto insurance vs. your mechanic: Insurance is for when you total the car (the 10%); we&apos;re the mechanic for your oil changes (the 90%).
               </p>
             </div>
-            <NinetyTenSwitcher />
+            <div className="max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <NinetyTenSwitcher />
+                </div>
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-border bg-card">
+                  <Image
+                    src="/images/clinical/ninety-ten-model.svg"
+                    alt="The 90/10 model visualized"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </ScrollTransition>
@@ -145,79 +171,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer with Local SEO */}
-      <footer className="bg-card text-card-foreground py-12 border-t border-border">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            <div>
-              <h4 className="text-xl font-semibold mb-4">Direct Care Indy</h4>
-              <p className="text-muted-foreground">
-                Direct Primary Care for Indianapolis families
-              </p>
-            </div>
-            <div>
-              <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/membership" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Pricing
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services-included" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/seniors" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Seniors
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/for-employers" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Employers
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-xl font-semibold mb-4">Contact Us</h4>
-              <div className="space-y-3 text-muted-foreground">
-                <div className="flex items-start gap-2">
-                  <MapPin className="w-5 h-5 shrink-0 mt-1" />
-                  <span>7911 N. Michigan Rd.<br />Indianapolis, IN 46268</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Phone className="w-5 h-5 shrink-0" />
-                  <a href="tel:+13179566288" className="hover:text-foreground transition-colors">
-                    (317) 956-6288
-                  </a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-5 h-5 shrink-0" />
-                  <a href="mailto:info@directcareindy.com" className="hover:text-foreground transition-colors">
-                    info@directcareindy.com
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-border pt-6 text-center text-muted-foreground">
-            <p className="font-semibold mb-2">Notice: Direct Care Indy is not insurance.</p>
-            <p>James D. Pike, D.O., FCCP, FACP | Direct Primary Care Physician</p>
-            <p className="text-sm opacity-90 mt-1">Board Certified in Pulmonary and Internal Medicine</p>
-            <p className="mt-2"> {new Date().getFullYear()} Direct Care Indy. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-
-      {/* Sticky Savings Bar */}
-      <StickySavingsBar />
+      
     </div>
   );
 }

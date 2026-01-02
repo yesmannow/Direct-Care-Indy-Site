@@ -57,7 +57,7 @@ export default function MobileNav() {
       <button
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-4 right-4 z-60 interactive-element rounded-lg bg-card/80 backdrop-blur-md text-foreground hover:bg-muted transition-colors shadow-lg border border-border"
+        className="md:hidden fixed top-4 right-4 z-60 interactive-element rounded-lg bg-card/80 backdrop-blur-md text-foreground hover:bg-muted transition-colors shadow-lg border border-border"
         aria-controls="mobile-menu"
         aria-expanded={isOpen}
         aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -73,7 +73,7 @@ export default function MobileNav() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+              className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
               onClick={closeMenu}
               aria-hidden="true"
             />
@@ -86,7 +86,7 @@ export default function MobileNav() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-80 bg-card shadow-2xl z-50 lg:hidden overflow-y-auto border-l border-border"
+              className="fixed top-0 right-0 h-full w-80 bg-card shadow-2xl z-50 md:hidden overflow-y-auto border-l border-border"
             >
               {/* Close Button - Touch-optimized */}
               <div className="flex justify-end p-4 border-b border-border">

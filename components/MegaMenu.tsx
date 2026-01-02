@@ -105,6 +105,31 @@ export function MegaMenu() {
             <Link href="/seniors" className="text-foreground hover:text-secondary transition-colors font-medium">
               Seniors
             </Link>
+            <div className="relative group">
+              <button className="flex items-center gap-1 text-foreground hover:text-secondary transition-colors font-medium">
+                About Us
+                <ChevronDown className="w-4 h-4" />
+              </button>
+              <div className="absolute right-0 mt-2 w-56 bg-card border border-border rounded-xl shadow-xl opacity-0 pointer-events-none translate-y-2 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all">
+                <ul className="py-2">
+                  <li>
+                    <Link href="/providers" className="block px-4 py-2 text-sm text-foreground hover:bg-muted rounded-md">
+                      Our Team
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/faq" className="block px-4 py-2 text-sm text-foreground hover:bg-muted rounded-md">
+                      FAQ
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/blog/indiana-medigap-birthday-rule-2026" className="block px-4 py-2 text-sm text-foreground hover:bg-muted rounded-md">
+                      Blog
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
             <Link href="/join" className="bg-secondary text-secondary-foreground px-6 py-2 rounded-full font-semibold hover:bg-secondary/90 transition-colors interactive-element">
               Join
             </Link>
