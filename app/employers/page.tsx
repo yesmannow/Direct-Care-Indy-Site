@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Stethoscope, Shield, TrendingDown, Users, Briefcase } from "lucide-react";
+import { Phone, Mail, MapPin, Shield, TrendingDown, Users, Briefcase } from "lucide-react";
 import { setUserPersona } from "@/lib/persona";
 import { EmployerSavingsCalculator } from "@/components/EmployerSavingsCalculator";
 import { OccHealthIntake } from "@/components/OccHealthIntake";
@@ -15,52 +15,6 @@ export default function Employers() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="bg-primary text-white shadow-md">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2">
-              <Stethoscope className="w-8 h-8" />
-              <h1 className="text-2xl font-bold">Direct Care Indy</h1>
-            </Link>
-            <div className="hidden md:flex gap-6 items-center">
-              <Link href="/" className="hover:text-secondary transition-colors">
-                Home
-              </Link>
-              <Link href="/providers" className="hover:text-secondary transition-colors">
-                Our Team
-              </Link>
-              <Link href="/pricing" className="hover:text-secondary transition-colors">
-                Pricing
-              </Link>
-              <Link href="/services" className="hover:text-secondary transition-colors">
-                Services
-              </Link>
-              <Link href="/seniors" className="hover:text-secondary transition-colors">
-                Seniors (Medicare)
-              </Link>
-              <Link href="/partnerships" className="hover:text-secondary transition-colors">
-                Partnerships
-              </Link>
-              <Link href="/employers" className="text-secondary font-semibold">
-                Employers
-              </Link>
-              <Link href="/faq" className="hover:text-secondary transition-colors">
-                FAQ
-              </Link>
-              <Link href="/blog/indiana-medigap-birthday-rule-2026" className="hover:text-secondary transition-colors">
-                Blog
-              </Link>
-              <Link
-                href="/join"
-                className="bg-secondary hover:bg-opacity-90 text-white px-6 py-2 rounded-lg font-semibold transition-all"
-              >
-                Join Now
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
 
       {/* Hero Section */}
       <section className="bg-primary text-white py-20">

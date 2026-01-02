@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, ShieldCheck, DollarSign, Phone } from "lucide-react";
 import { SeniorSavingsCalculator } from "@/components/SeniorSavingsCalculator";
 import { HsaStatusTracker } from "@/components/HsaStatusTracker";
+import { SITE_ASSETS } from "@/lib/images";
 
 export default function BirthdayRuleBlog() {
   return (
@@ -26,12 +28,15 @@ export default function BirthdayRuleBlog() {
               </p>
             </header>
 
-            {/* Featured Image Placeholder */}
-            <div className="mb-8 rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700 h-64 flex items-center justify-center">
-              <img
-                src="/og-image.jpg"
+            {/* Featured Image */}
+            <div className="mb-8 rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700 relative h-96 w-full shadow-lg">
+              <Image
+                src={SITE_ASSETS.blog.medigapBirthdayRule}
                 alt="Indianapolis senior reviewing medical bills with HSA-Eligible DPC savings text"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
               />
             </div>
 

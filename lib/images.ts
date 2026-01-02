@@ -45,6 +45,10 @@ export const SITE_ASSETS = {
     maddieKlinger: '/images/providers/maddie-klinger.webp',
     chaseKeirn: '/images/providers/chase-keirn.webp',
   },
+  blog: {
+    medigapBirthdayRule: '/images/marketing/senior-wellness.webp',
+    seniorHealthcare: '/images/marketing/senior-healthcare.webp',
+  },
 } as const;
 
 /**
@@ -63,4 +67,5 @@ export type MarketingAsset = keyof typeof SITE_ASSETS.marketing;
 export type LocationAsset = keyof typeof SITE_ASSETS.locations;
 export type UIAsset = keyof typeof SITE_ASSETS.ui;
 export type ProviderAsset = keyof typeof SITE_ASSETS.providers;
+export type BlogAsset = keyof typeof SITE_ASSETS.blog;
 
