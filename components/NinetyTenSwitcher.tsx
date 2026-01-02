@@ -27,7 +27,7 @@ export function NinetyTenSwitcher() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto p-8 bg-gray-800 rounded-3xl shadow-xl border border-gray-700 relative overflow-hidden">
+    <div className="max-w-2xl mx-auto section-card relative overflow-hidden">
       {/* Animated 90/10 Model SVG Background */}
       <div className="absolute inset-0 opacity-5">
         <motion.div
@@ -47,7 +47,7 @@ export function NinetyTenSwitcher() {
         </motion.div>
       </div>
       <div className="relative z-10">
-      <div className="flex bg-gray-700 p-1 rounded-full mb-8 relative">
+      <div className="flex bg-muted p-1 rounded-full mb-8 relative">
         <motion.div
           className={`absolute h-full rounded-full ${content[view].color} opacity-20`}
           layoutId="activeGlow"
@@ -55,13 +55,13 @@ export function NinetyTenSwitcher() {
         />
         <button
           onClick={() => setView('dpc')}
-          className={`flex-1 py-3 px-6 rounded-full transition-all z-10 font-medium min-h-[44px] flex items-center justify-center ${view === 'dpc' ? 'text-[#8A9A8A] shadow-sm bg-gray-800' : 'text-gray-400'}`}
+          className={`flex-1 py-3 px-6 rounded-full transition-all z-10 font-medium min-h-[44px] flex items-center justify-center ${view === 'dpc' ? 'text-secondary shadow-sm bg-card' : 'text-muted-foreground'}`}
         >
           90% Routine Care
         </button>
         <button
           onClick={() => setView('insurance')}
-          className={`flex-1 py-3 px-6 rounded-full transition-all z-10 font-medium min-h-[44px] flex items-center justify-center ${view === 'insurance' ? 'text-[#2C3E50] shadow-sm bg-gray-800' : 'text-gray-400'}`}
+          className={`flex-1 py-3 px-6 rounded-full transition-all z-10 font-medium min-h-[44px] flex items-center justify-center ${view === 'insurance' ? 'text-foreground shadow-sm bg-card' : 'text-muted-foreground'}`}
         >
           10% Emergencies
         </button>
@@ -76,17 +76,17 @@ export function NinetyTenSwitcher() {
           className="space-y-6"
         >
           <div className="flex items-center gap-4">
-            <div className={`p-3 rounded-xl ${view === 'dpc' ? 'bg-[#8A9A8A]/20' : 'bg-[#2C3E50]/20'}`}>
+            <div className={`p-3 rounded-xl ${view === 'dpc' ? 'bg-secondary/20' : 'bg-primary/20'}`}>
               {content[view].icon}
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-gray-100">{content[view].title}</h3>
-              <p className="text-gray-400">{content[view].subtitle}</p>
+              <h3 className="text-2xl font-bold text-card-foreground">{content[view].title}</h3>
+              <p className="text-muted-foreground">{content[view].subtitle}</p>
             </div>
           </div>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {content[view].items.map((item) => (
-              <li key={item} className="flex items-center gap-2 text-gray-200">
+              <li key={item} className="flex items-center gap-2 text-card-foreground">
                 <div className={`w-1.5 h-1.5 rounded-full ${content[view].color}`} />
                 {item}
               </li>
@@ -94,11 +94,11 @@ export function NinetyTenSwitcher() {
           </ul>
         </motion.div>
       </AnimatePresence>
-      <div className="mt-8 p-4 bg-blue-900/30 rounded-xl border-l-4 border-blue-500">
-        <p className="text-sm font-semibold text-gray-100 mb-2">
+      <div className="mt-8 p-4 bg-muted rounded-xl border-l-4 border-secondary border">
+        <p className="text-sm font-semibold text-card-foreground mb-2">
           🚗 The Auto Insurance Analogy
         </p>
-        <p className="text-sm text-gray-300 italic">
+        <p className="text-sm text-muted-foreground italic">
           Insurance is for when you <strong>total the car</strong> (the 10% catastrophic events). We are the <strong>mechanic for your oil changes</strong> (the 90% routine care). You need both, but they serve different purposes.
         </p>
       </div>

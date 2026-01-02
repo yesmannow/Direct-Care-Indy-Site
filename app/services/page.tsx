@@ -57,30 +57,30 @@ export default function Services() {
     <div className="min-h-screen bg-background">
 
       {/* Hero */}
-      <section className="bg-primary text-white py-16">
+      <section className="bg-background py-16 border-b border-border">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">Comprehensive Primary Care Services</h2>
-          <p className="text-xl max-w-2xl mx-auto">
+          <h2 className="text-4xl font-black mb-4 text-foreground text-glow">Comprehensive Primary Care Services</h2>
+          <p className="text-xl max-w-2xl mx-auto text-muted-foreground">
             Everything you need for the 90% of healthcare that keeps you healthy and active.
           </p>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-16">
+      <section className="py-16 bg-background border-b border-border">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {services.map((service, idx) => {
               const Icon = service.icon;
               return (
-                <div key={idx} className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700">
-                  <div className="bg-secondary text-white rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                <div key={idx} className="section-card">
+                  <div className="bg-secondary text-secondary-foreground rounded-full w-14 h-14 flex items-center justify-center mb-4">
                     <Icon className="w-7 h-7" />
                   </div>
-                  <h3 className="text-xl font-bold text-primary mb-3">
+                  <h3 className="text-xl font-bold text-foreground mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-gray-300">{service.description}</p>
+                  <p className="text-card-foreground">{service.description}</p>
                 </div>
               );
             })}
@@ -89,12 +89,12 @@ export default function Services() {
       </section>
 
       {/* Wellness Lab Section */}
-      <section className="py-16 bg-gray-900">
+      <section className="py-16 bg-background border-b border-border">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-primary mb-4">Personal Wellness Lab</h3>
-              <p className="text-xl text-gray-300">
+              <h3 className="text-3xl font-bold text-foreground mb-4">Personal Wellness Lab</h3>
+              <p className="text-xl text-muted-foreground">
                 Calculate your BMI, ideal weight, and metabolic health metrics
               </p>
             </div>
@@ -108,8 +108,8 @@ export default function Services() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-primary mb-4">Personalized Health Recommendations</h3>
-              <p className="text-xl text-gray-300">
+              <h3 className="text-3xl font-bold text-foreground mb-4">Personalized Health Recommendations</h3>
+              <p className="text-xl text-muted-foreground">
                 Get evidence-based screening recommendations based on your age and sex
               </p>
             </div>
@@ -119,13 +119,13 @@ export default function Services() {
       </section>
 
       {/* Wholesale Diagnostics Section */}
-      <section className="py-16 bg-gray-900">
+      <section className="py-16 bg-background border-b border-border">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto mb-8">
-            <h3 className="text-3xl font-bold text-primary mb-4 text-center">
+            <h3 className="text-3xl font-bold text-foreground mb-4 text-center">
               Wholesale Diagnostics
             </h3>
-            <p className="text-gray-300 text-center text-lg mb-8">
+            <p className="text-muted-foreground text-center text-lg mb-8">
               Search our complete directory of lab tests. See exactly how much you&apos;ll save compared to Indianapolis hospital rates.
             </p>
             <WholesaleLabSearch />
@@ -163,12 +163,12 @@ export default function Services() {
       {/* DPC Stack Comparison Table */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-primary mb-8 text-center">
+          <h3 className="text-3xl font-bold text-foreground mb-8 text-center">
             Traditional Insurance vs. The DPC Stack
           </h3>
           <div className="max-w-5xl mx-auto overflow-x-auto">
-            <table className="w-full bg-white shadow-lg rounded-lg">
-              <thead className="bg-primary text-white">
+            <table className="w-full bg-card shadow-lg rounded-lg border border-border">
+              <thead className="bg-secondary text-secondary-foreground">
                 <tr>
                   <th className="px-6 py-4 text-left">Feature</th>
                   <th className="px-6 py-4 text-left">Traditional Insurance</th>
@@ -215,7 +215,7 @@ export default function Services() {
             </table>
           </div>
           <div className="text-center mt-8">
-            <p className="text-2xl font-bold text-primary">
+            <p className="text-2xl font-bold text-foreground">
               Annual Net Savings: $3,732
             </p>
           </div>
@@ -223,7 +223,7 @@ export default function Services() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-primary text-white">
+      <section className="py-16 bg-secondary text-secondary-foreground border-b border-border">
         <div className="container mx-auto px-4 text-center">
           <h3 className="text-3xl font-bold mb-6">Experience the Difference</h3>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
@@ -232,13 +232,13 @@ export default function Services() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/pricing"
-              className="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all inline-block"
+              className="bg-card text-card-foreground hover:bg-card/90 border border-border px-8 py-4 rounded-lg font-semibold text-lg transition-all inline-block interactive-element"
             >
               View Pricing
             </Link>
             <a
               href="tel:+13179566288"
-              className="bg-secondary hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all inline-flex items-center justify-center gap-2"
+              className="bg-card text-card-foreground hover:bg-card/90 border border-border px-8 py-4 rounded-lg font-semibold text-lg transition-all inline-flex items-center justify-center gap-2 interactive-element"
             >
               <Phone className="w-5 h-5" />
               (317) 956-6288
@@ -248,7 +248,7 @@ export default function Services() {
       </section>
 
       {/* Footer with Local SEO */}
-      <footer className="bg-primary text-white py-12">
+      <footer className="bg-card text-card-foreground py-12 border-t border-border">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>

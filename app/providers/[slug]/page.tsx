@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { GraduationCap, Award, Building2, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { GraduationCap, Award, Building2, ArrowLeft, CheckCircle2, Stethoscope } from "lucide-react";
 import { getProviderBySlug, getMedicalDirector, PROVIDERS } from "@/lib/data/providers";
 import { ProfilePageSchema } from "@/components/StructuredData";
 import { PhysicianOversightBadge } from "@/components/PhysicianOversightBadge";

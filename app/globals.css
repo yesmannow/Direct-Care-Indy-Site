@@ -1,49 +1,104 @@
 @import "tailwindcss";
 
-:root {
-  --background: #F0F0F0;
-  --foreground: #2C3E50;
-  --primary: #2C3E50;
-  --secondary: #8A9A8A;
-}
-
-.dark {
-  --background: #1B2B3A;
-  --foreground: #E5E7EB;
-  --primary: #1B2B3A;
-  --secondary: #14B8A6;
-}
-
-/* Ensure high contrast for accessibility (WCAG 2.2 AA) */
-.dark .text-primary {
-  color: #E5E7EB;
-}
-
-.dark .bg-primary {
-  background-color: #1B2B3A;
-}
-
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
   --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+@layer base {
+  :root {
+    /* Pure Light Mode - High Contrast */
+    --background: #F8FAFC;
+    --foreground: #0F172A; /* Slate 900 */
+
+    /* Semantic Surfaces */
+    --card: #FFFFFF;
+    --card-foreground: #0F172A;
+    --border: #E2E8F0;
+
+    /* Pike Medical Branding */
+    --primary: #1E293B; /* Deep Slate */
+    --primary-foreground: #F8FAFC;
+    --secondary: #0D9488; /* Clinical Teal */
+    --secondary-foreground: #FFFFFF;
+
+    --muted: #F1F5F9;
+    --muted-foreground: #64748B;
+  }
+
+  .dark {
+    /* Professional Dark Mode - Not just black, but 'Deep Navy Pearl' */
+    --background: #0F172A;
+    --foreground: #F8FAFC;
+
+    --card: #1E293B;
+    --card-foreground: #F8FAFC;
+    --border: #334155;
+
+    --primary: #F8FAFC;
+    --primary-foreground: #0F172A;
+    --secondary: #2DD4BF; /* Vibrant Teal for Dark Mode */
+    --secondary-foreground: #042F2E;
+
+    --muted: #1E293B;
+    --muted-foreground: #94A3B8;
+  }
 }
 
-/* Accessibility: Ensure interactive elements meet WCAG 2.2 touch target minimums */
-/* Apply to specific interactive classes to avoid breaking existing layouts */
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    /* Modern font stack for clinical readability */
+    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+}
+
+@layer utilities {
+  /* Fixes the 'Filter' look by adding distinct borders and shadows */
+  .section-card {
+    @apply bg-card text-card-foreground border border-border shadow-sm rounded-3xl p-8;
+  }
+
+  /* Ensures text is readable over any background image */
+  .text-glow {
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Enforces 44px touch targets for buttons */
+  .interactive-element {
+    @apply min-h-[44px] min-w-[44px] inline-flex items-center justify-center transition-all;
+  }
+
+  /* Legacy support */
+  .hero-text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+  }
+}
+
+/* Legacy support for existing classes */
 .btn, .nav-link, .form-control {
   min-width: 44px;
   min-height: 44px;
 }
 
-/* Text links can be smaller as they have sufficient context */
 a.text-link {
   min-width: auto;
   min-height: auto;
@@ -52,15 +107,6 @@ a.text-link {
 /* Enhanced dark mode contrast for better readability */
 .dark {
   color-scheme: dark;
-}
-
-/* Ensure proper contrast ratios for WCAG 2.2 AA compliance */
-.dark .text-gray-600 {
-  color: #D1D5DB;
-}
-
-.dark .text-gray-700 {
-  color: #E5E7EB;
 }
 
 /* Glassmorphism support */

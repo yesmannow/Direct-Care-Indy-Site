@@ -45,17 +45,17 @@ function MobileMenuItem({
   const Icon = item.icon;
 
   return (
-    <div className="border-b border-gray-200 dark:border-gray-800 pb-4 last:border-0">
+    <div className="border-b border-border pb-4 last:border-0">
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between px-4 py-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        className="w-full flex items-center justify-between px-4 py-3 rounded-xl hover:bg-muted transition-colors"
       >
         <div className="flex items-center gap-3">
-          <Icon className="w-5 h-5 text-primary dark:text-teal-400" />
-          <span className="font-semibold text-gray-900 dark:text-white">{item.label}</span>
+          <Icon className="w-5 h-5 text-secondary" />
+          <span className="font-bold text-foreground">{item.label}</span>
         </div>
         <ChevronDown
-          className={`w-4 h-4 text-gray-500 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+          className={`w-4 h-4 text-muted-foreground transition-transform ${isExpanded ? "rotate-180" : ""}`}
         />
       </button>
       <AnimatePresence>
@@ -73,7 +73,7 @@ function MobileMenuItem({
                     key={link.href}
                     href={link.href}
                     onClick={onLinkClick}
-                    className="block px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary dark:hover:text-teal-400 transition-colors"
+                    className="block px-4 py-2 rounded-lg text-foreground hover:text-secondary transition-colors font-semibold"
                   >
                     {link.label}
                   </Link>
@@ -201,28 +201,24 @@ export function MegaMenu() {
     <>
       <nav
         ref={menuRef}
-        className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-b border-gray-200/80 dark:border-gray-800/80 shadow-lg shadow-gray-900/5"
+        className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border shadow-lg transition-colors duration-300"
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-            {/* Branding - Enhanced with animation */}
-            <Link href="/" className="flex items-center gap-3 group relative">
+            {/* Brand Identity - High Contrast */}
+            <Link href="/" className="flex items-center gap-3 group">
               <motion.div
-                whileHover={{ scale: 1.05, rotate: [0, -5, 5, -5, 0] }}
+                whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl p-2.5 shadow-lg shadow-teal-500/30 group-hover:shadow-teal-500/50 transition-all"
+                className="bg-secondary p-2 rounded-xl text-secondary-foreground shadow-lg group-hover:shadow-[0_0_20px_rgba(13,148,136,0.4)] transition-all"
               >
-                <Stethoscope className="w-6 h-6 text-white" />
+                <Stethoscope size={24} />
               </motion.div>
               <div>
-                <motion.h1
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  className="text-xl font-bold bg-gradient-to-r from-primary to-teal-600 bg-clip-text text-transparent dark:from-teal-400 dark:to-teal-300"
-                >
-                  Direct Care Indy
-                </motion.h1>
-                <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">
+                <span className="font-black text-xl tracking-tighter text-foreground block">
+                  PIKE<span className="text-secondary">MEDICAL</span>
+                </span>
+                <p className="text-xs text-muted-foreground font-medium">
                   Specialist-Led Primary Care
                 </p>
               </div>
@@ -240,19 +236,19 @@ export function MegaMenu() {
                       onClick={() => setActiveMenu(isActive ? null : key)}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className={`flex items-center gap-2 px-5 py-2.5 rounded-xl transition-all duration-300 font-medium ${
+                      className={`flex items-center gap-2 px-5 py-2.5 rounded-xl transition-all duration-300 font-bold ${
                         isActive
-                          ? "bg-gradient-to-r from-primary/20 to-teal-500/20 text-primary dark:text-teal-400 shadow-md"
-                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-800/80"
+                          ? "text-secondary shadow-md"
+                          : "text-foreground/80 hover:text-secondary"
                       }`}
                     >
-                      <Icon className={`w-4 h-4 ${isActive ? "text-primary dark:text-teal-400" : ""}`} />
+                      <Icon className={`w-4 h-4 ${isActive ? "text-secondary" : ""}`} />
                       <span>{item.label}</span>
                       <motion.div
                         animate={{ rotate: isActive ? 180 : 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                       >
-                        <ChevronDown className="w-4 h-4" />
+                        <ChevronDown className={`w-4 h-4 ${isActive ? "text-secondary" : ""}`} />
                       </motion.div>
                     </motion.button>
 
@@ -273,45 +269,37 @@ export function MegaMenu() {
                           {/* Dropdown Panel */}
                           <motion.div
                             ref={dropdownRef}
-                            initial={{ opacity: 0, y: -20, scale: 0.95 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
                             transition={{
                               type: "spring",
                               stiffness: 300,
                               damping: 30,
                               mass: 0.8,
                             }}
-                            className="absolute top-full left-0 mt-3 w-[920px] rounded-3xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden relative bg-white/98 dark:bg-gray-900/98 backdrop-blur-2xl"
+                            className="absolute top-full left-0 mt-3 w-[920px] rounded-3xl shadow-2xl border border-border overflow-hidden relative bg-card/98 backdrop-blur-2xl"
+                            onMouseLeave={() => setActiveMenu(null)}
                           >
-                            {/* Animated Gradient Background */}
-                            <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient || "from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900"} opacity-50`}>
-                              <Image
-                                src={SITE_ASSETS.ui.texture}
-                                alt=""
-                                fill
-                                className="object-cover opacity-[0.03]"
-                                priority
-                              />
-                            </div>
-
-                            {/* Decorative Elements */}
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-teal-500/10 to-transparent rounded-full blur-3xl" />
-                            <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-3xl" />
+                            {/* Background Watermark */}
+                            <div
+                              className="absolute inset-0 opacity-[0.03] pointer-events-none"
+                              style={{ backgroundImage: `url(${SITE_ASSETS.ui.megaMenu})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                            />
 
                             <div className="relative z-10">
                               {/* Header Section */}
-                              <div className="px-8 pt-8 pb-6 border-b border-gray-200/50 dark:border-gray-700/50">
+                              <div className="px-8 pt-8 pb-6 border-b border-border">
                                 <div className="flex items-center gap-3 mb-2">
-                                  <div className="p-2 rounded-lg bg-primary/10 dark:bg-teal-500/20">
-                                    <Icon className="w-5 h-5 text-primary dark:text-teal-400" />
+                                  <div className="p-2 rounded-lg bg-secondary/10">
+                                    <Icon className="w-5 h-5 text-secondary" />
                                   </div>
                                   <div>
-                                    <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                                    <h3 className="text-lg font-bold text-foreground">
                                       {item.label}
                                     </h3>
                                     {item.description && (
-                                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
+                                      <p className="text-sm text-muted-foreground mt-0.5">
                                         {item.description}
                                       </p>
                                     )}
@@ -351,11 +339,10 @@ export function MegaMenu() {
                                         },
                                       }}
                                     >
-                                      <h4 className="text-sm font-bold text-primary dark:text-teal-400 mb-4 uppercase tracking-wider flex items-center gap-2">
-                                        <div className="w-1 h-4 bg-gradient-to-b from-primary to-teal-500 rounded-full" />
+                                      <h4 className="text-[10px] font-black text-muted-foreground mb-4 uppercase tracking-[0.2em]">
                                         {column.title}
                                       </h4>
-                                      <ul className="space-y-2">
+                                      <ul className="space-y-4">
                                         {column.links.map((link, linkIdx) => (
                                           <motion.li
                                             key={link.href}
@@ -373,19 +360,9 @@ export function MegaMenu() {
                                             <Link
                                               href={link.href}
                                               onClick={() => setActiveMenu(null)}
-                                              className="group flex items-start gap-3 px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-primary/10 hover:to-teal-500/10 hover:text-primary dark:hover:text-teal-400 transition-all duration-200 border border-transparent hover:border-primary/20 dark:hover:border-teal-500/20"
+                                              className="text-foreground font-bold hover:text-secondary transition-colors block text-lg"
                                             >
-                                              <ArrowRight className="w-4 h-4 mt-0.5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
-                                              <div className="flex-1">
-                                                <div className="font-semibold group-hover:text-primary dark:group-hover:text-teal-400 transition-colors">
-                                                  {link.label}
-                                                </div>
-                                                {link.description && (
-                                                  <div className="text-xs text-gray-500 dark:text-gray-500 mt-0.5">
-                                                    {link.description}
-                                                  </div>
-                                                )}
-                                              </div>
+                                              {link.label}
                                             </Link>
                                           </motion.li>
                                         ))}
@@ -397,7 +374,7 @@ export function MegaMenu() {
                                 {/* Right Side - Embedded Tool */}
                                 {"embeddedTool" in item && item.embeddedTool && (
                                   <motion.div
-                                    className="border-l border-gray-200/50 dark:border-gray-700/50 pl-8"
+                                    className="bg-muted/50 rounded-3xl p-8 border border-border shadow-inner"
                                     initial={{ opacity: 0, x: 20, scale: 0.95 }}
                                     animate={{ opacity: 1, x: 0, scale: 1 }}
                                     transition={{
@@ -407,13 +384,10 @@ export function MegaMenu() {
                                       delay: 0.3,
                                     }}
                                   >
-                                    <div className="sticky top-8">
-                                      <div className="mb-4 flex items-center gap-2 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                        <Sparkles className="w-3 h-3" />
-                                        Interactive Tool
-                                      </div>
-                                      {item.embeddedTool}
-                                    </div>
+                                    <span className="inline-block bg-secondary/10 text-secondary text-[10px] font-black uppercase px-3 py-1 rounded-full mb-6 tracking-widest">
+                                      Live Platform Tool
+                                    </span>
+                                    {item.embeddedTool}
                                   </motion.div>
                                 )}
                               </div>
@@ -429,21 +403,24 @@ export function MegaMenu() {
               {/* Direct Home Link */}
               <Link
                 href="/"
-                className="px-5 py-2.5 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-800/80 transition-all duration-200 font-medium"
+                className="px-5 py-2.5 rounded-xl text-foreground/80 hover:text-secondary transition-all duration-200 font-bold"
               >
                 Home
               </Link>
 
-              {/* CTA Button */}
-              <div className="ml-2">
-                <DynamicCTA />
-              </div>
+              {/* Global Action - High Contrast Button */}
+              <Link
+                href="/join"
+                className="bg-secondary text-secondary-foreground px-8 py-3 rounded-full font-black hover:shadow-[0_0_20px_rgba(13,148,136,0.4)] hover:scale-105 transition-all active:scale-95 interactive-element"
+              >
+                Join the Table
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="lg:hidden p-2 rounded-lg text-foreground hover:bg-muted transition-colors interactive-element"
               aria-label="Toggle mobile menu"
             >
               <AnimatePresence mode="wait">
@@ -488,7 +465,7 @@ export function MegaMenu() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-20 right-0 bottom-0 w-80 max-w-[85vw] bg-white dark:bg-gray-900 shadow-2xl z-50 lg:hidden overflow-y-auto"
+              className="fixed top-20 right-0 bottom-0 w-80 max-w-[85vw] bg-card shadow-2xl z-50 lg:hidden overflow-y-auto border-l border-border"
             >
               <div className="p-6 space-y-4">
                 {Object.entries(menuItems).map(([key, item]) => (
@@ -501,12 +478,17 @@ export function MegaMenu() {
                 <Link
                   href="/"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium"
+                  className="block px-4 py-3 rounded-xl text-foreground hover:text-secondary transition-colors font-bold"
                 >
                   Home
                 </Link>
                 <div className="pt-4">
-                  <DynamicCTA />
+                  <Link
+                    href="/join"
+                    className="bg-secondary text-secondary-foreground px-8 py-3 rounded-full font-black hover:shadow-[0_0_20px_rgba(13,148,136,0.4)] hover:scale-105 transition-all active:scale-95 interactive-element w-full text-center block"
+                  >
+                    Join the Table
+                  </Link>
                 </div>
               </div>
             </motion.div>
