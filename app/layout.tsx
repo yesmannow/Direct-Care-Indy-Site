@@ -3,7 +3,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { baseMetadata } from "@/lib/metadata";
 import { MegaMenu } from "@/components/MegaMenu";
-import MobileNav from "@/components/MobileNav";
 import { StickySavingsBar } from "@/components/StickySavingsBar";
 import { ScrollTransition } from "@/components/ScrollTransition";
 import { FaqSchema } from "@/components/FaqSchema";
@@ -29,7 +28,6 @@ export default function RootLayout({
 
           {/* Navigation Layer */}
           <MegaMenu />
-          <MobileNav />
 
           {/* Main Content with Scroll Transitions */}
           <div className="pt-20">

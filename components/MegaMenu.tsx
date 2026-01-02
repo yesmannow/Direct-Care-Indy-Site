@@ -1,29 +1,20 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, type MouseEvent as ReactMouseEvent } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence, useSpring, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Stethoscope,
   Menu,
   X,
   ChevronDown,
   Users,
-  Building2,
-  UserCheck,
   Heart,
   BookOpen,
-  FileText,
-  Calculator,
-  Search as SearchIcon,
-  ArrowRight,
-  Sparkles,
 } from "lucide-react";
 import { CompactEmployerCalculator } from "@/components/CompactEmployerCalculator";
 import { CompactLabSearch } from "@/components/CompactLabSearch";
-import { DynamicCTA } from "@/components/DynamicHeader";
 import { SITE_ASSETS } from "@/lib/images";
-import Image from "next/image";
 
 // Mobile Menu Item Component
 function MobileMenuItem({
@@ -90,13 +81,14 @@ function MobileMenuItem({
 export function MegaMenu() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
 
   // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
         setActiveMenu(null);
       }
     };
@@ -126,6 +118,40 @@ export function MegaMenu() {
     window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
   }, []);
+
+  // Keep dropdown aligned just below the nav bar
+  useEffect(() => {
+    const updateDropdownTop = () => {
+      if (navRef.current) {
+        const navRect = navRef.current.getBoundingClientRect();
+        setDropdownPosition((prev) => ({
+          ...prev,
+          top: navRect.bottom + 12,
+        }));
+      }
+    };
+
+    updateDropdownTop();
+    window.addEventListener("resize", updateDropdownTop);
+    return () => window.removeEventListener("resize", updateDropdownTop);
+  }, []);
+
+  const handleMenuToggle = (key: string, event: ReactMouseEvent<HTMLButtonElement>) => {
+    const isActive = activeMenu === key;
+    if (isActive) {
+      setActiveMenu(null);
+      return;
+    }
+
+    const buttonRect = event.currentTarget.getBoundingClientRect();
+    const navRect = navRef.current?.getBoundingClientRect();
+
+    setDropdownPosition({
+      top: (navRect?.bottom ?? buttonRect.bottom) + 12,
+      left: buttonRect.left + buttonRect.width / 2,
+    });
+    setActiveMenu(key);
+  };
 
   const menuItems = {
     "care-models": {
@@ -200,7 +226,7 @@ export function MegaMenu() {
   return (
     <>
       <nav
-        ref={menuRef}
+        ref={navRef}
         className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border shadow-lg transition-colors duration-300"
       >
         <div className="container mx-auto px-4">
@@ -225,7 +251,7 @@ export function MegaMenu() {
             </Link>
 
             {/* Desktop Menu Items */}
-            <div className="hidden lg:flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-2">
               {Object.entries(menuItems).map(([key, item]) => {
                 const Icon = item.icon;
                 const isActive = activeMenu === key;
@@ -233,7 +259,7 @@ export function MegaMenu() {
                 return (
                   <div key={key} className="relative">
                     <motion.button
-                      onClick={() => setActiveMenu(isActive ? null : key)}
+                      onClick={(e) => handleMenuToggle(key, e)}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       className={`flex items-center gap-2 px-5 py-2.5 rounded-xl transition-all duration-300 font-bold ${
@@ -278,7 +304,12 @@ export function MegaMenu() {
                               damping: 30,
                               mass: 0.8,
                             }}
-                            className="absolute top-full left-0 mt-3 w-[920px] rounded-3xl shadow-2xl border border-border overflow-hidden relative bg-card/98 backdrop-blur-2xl"
+                            className="fixed mt-0 w-[920px] max-w-[calc(100vw-32px)] rounded-3xl shadow-2xl border border-border overflow-hidden relative bg-card/98 backdrop-blur-2xl z-[60]"
+                            style={{
+                              top: dropdownPosition.top,
+                              left: dropdownPosition.left,
+                              transform: "translateX(-50%)",
+                            }}
                             onMouseLeave={() => setActiveMenu(null)}
                           >
                             {/* Background Watermark */}
@@ -420,7 +451,7 @@ export function MegaMenu() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-foreground hover:bg-muted transition-colors interactive-element"
+              className="md:hidden p-2 rounded-lg text-foreground hover:bg-muted transition-colors interactive-element"
               aria-label="Toggle mobile menu"
             >
               <AnimatePresence mode="wait">
@@ -457,7 +488,7 @@ export function MegaMenu() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div
@@ -465,7 +496,7 @@ export function MegaMenu() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-20 right-0 bottom-0 w-80 max-w-[85vw] bg-card shadow-2xl z-50 lg:hidden overflow-y-auto border-l border-border"
+              className="fixed top-20 right-0 bottom-0 w-80 max-w-[85vw] bg-card shadow-2xl z-50 md:hidden overflow-y-auto border-l border-border"
             >
               <div className="p-6 space-y-4">
                 {Object.entries(menuItems).map(([key, item]) => (
