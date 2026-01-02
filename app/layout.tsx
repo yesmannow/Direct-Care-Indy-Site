@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { baseMetadata } from "@/lib/metadata";
-import { MegaMenu } from "@/components/MegaMenu";
-import MobileNav from "@/components/MobileNav";
+import Navbar from "@/components/Navbar";
 import { StickySavingsBar } from "@/components/StickySavingsBar";
 import { ScrollTransition } from "@/components/ScrollTransition";
 import { FaqSchema } from "@/components/FaqSchema";
@@ -28,8 +27,7 @@ export default function RootLayout({
           <ServiceSchema />
 
           {/* Navigation Layer */}
-          <MegaMenu />
-          <MobileNav />
+          <Navbar />
 
           {/* Main Content with Scroll Transitions */}
           <div className="pt-20">
