@@ -115,6 +115,42 @@ export default function MobileNav() {
                   ))}
                 </ul>
 
+                {/* About Us quick links */}
+                <div className="mt-8">
+                  <div className="px-4 text-xs uppercase tracking-wide text-muted-foreground font-semibold mb-2">
+                    About Us
+                  </div>
+                  <ul className="space-y-1">
+                    <li>
+                      <Link
+                        href="/providers"
+                        onClick={closeMenu}
+                        className="block px-4 py-3 rounded-lg text-foreground hover:bg-muted hover:text-secondary transition-colors font-medium interactive-element"
+                      >
+                        Our Team
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/faq"
+                        onClick={closeMenu}
+                        className="block px-4 py-3 rounded-lg text-foreground hover:bg-muted hover:text-secondary transition-colors font-medium interactive-element"
+                      >
+                        FAQ
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/blog/indiana-medigap-birthday-rule-2026"
+                        onClick={closeMenu}
+                        className="block px-4 py-3 rounded-lg text-foreground hover:bg-muted hover:text-secondary transition-colors font-medium interactive-element"
+                      >
+                        Blog
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+
                 {/* Dynamic CTA */}
                 <div className="mt-6 pt-6 border-t border-border">
                   <DynamicCTA />

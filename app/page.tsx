@@ -78,13 +78,13 @@ export default function Home() {
               </div>
             </div>
             <div className="grid md:grid-cols-3 gap-4 mt-10">
-              <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-border">
+              <div className="relative aspect-video rounded-xl overflow-hidden border border-border">
                 <Image src="/images/clinical/round-table.webp" alt="Round table care model" fill className="object-cover" />
               </div>
-              <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-border">
+              <div className="relative aspect-video rounded-xl overflow-hidden border border-border">
                 <Image src="/images/clinical/medical-laboratory.webp" alt="Wholesale lab and pharmacy savings" fill className="object-cover" />
               </div>
-              <div className="relative aspect-[16/9] rounded-xl overflow-hidden border border-border">
+              <div className="relative aspect-video rounded-xl overflow-hidden border border-border">
                 <Image src="/images/marketing/senior-wellness.webp" alt="Senior wellness and prevention" fill className="object-cover" />
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function Home() {
                 <div>
                   <NinetyTenSwitcher />
                 </div>
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-border bg-card">
+                <div className="relative aspect-4/3 rounded-2xl overflow-hidden border border-border bg-card">
                   <Image
                     src="/images/clinical/ninety-ten-model.svg"
                     alt="The 90/10 model visualized"

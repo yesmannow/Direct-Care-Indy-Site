@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Shield, TrendingDown, Users, Briefcase } from "lucide-react";
+import { Phone, Shield, TrendingDown, Users, Briefcase } from "lucide-react";
 import { setUserPersona } from "@/lib/persona";
 import { EmployerSavingsCalculator } from "@/components/EmployerSavingsCalculator";
 import { OccHealthIntake } from "@/components/OccHealthIntake";
@@ -174,81 +174,7 @@ export default function Employers() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-primary text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h4 className="text-xl font-semibold mb-4">Direct Care Indy</h4>
-              <p className="text-gray-300">
-                Direct Primary Care for Indianapolis families and businesses
-              </p>
-            </div>
-            <div>
-              <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/" className="text-gray-300 hover:text-white transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/pricing" className="text-gray-300 hover:text-white transition-colors">
-                    Pricing
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/employers" className="text-gray-300 hover:text-white transition-colors">
-                    Employers
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-xl font-semibold mb-4">Resources</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/blog/indiana-medigap-birthday-rule-2026" className="text-gray-300 hover:text-white transition-colors">
-                    2026 Indiana Birthday Rule Guide
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/faq" className="text-gray-300 hover:text-white transition-colors">
-                    FAQ
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-xl font-semibold mb-4">Contact Us</h4>
-              <div className="space-y-3 text-gray-300">
-                <div className="flex items-start gap-2">
-                  <MapPin className="w-5 h-5 shrink-0 mt-1" />
-                  <span>7911 N. Michigan Rd.<br />Indianapolis, IN 46268</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Phone className="w-5 h-5 shrink-0" />
-                  <a href="tel:+13179566288" className="hover:text-white transition-colors">
-                    (317) 956-6288
-                  </a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-5 h-5 shrink-0" />
-                  <a href="mailto:info@directcareindy.com" className="hover:text-white transition-colors">
-                    info@directcareindy.com
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-600 pt-6 text-center text-gray-300">
-            <p className="font-semibold mb-2">Notice: Direct Care Indy is not insurance.</p>
-            <p>James D. Pike, D.O., FCCP, FACP</p>
-            <p className="text-sm opacity-90">Board Certified in Pulmonary and Internal Medicine</p>
-            <p className="mt-2">© {new Date().getFullYear()} Direct Care Indy. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   );
 }
