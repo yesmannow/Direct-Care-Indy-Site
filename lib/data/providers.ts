@@ -19,7 +19,7 @@ export const PROVIDERS: Provider[] = [
     name: "James D. Pike",
     credentials: "D.O., FCCP, FACP",
     role: "Medical Director",
-    image: "/images/provider bio/Dr.-James-Pike.webp",
+    image: "/images/providers/james-pike.webp",
     bio: "Dr. James D. Pike brings over three decades of medical expertise to Direct Care Indy, combining specialist-level training with a commitment to accessible primary care. A 1984 graduate of Kansas City University of Medicine and Biosciences, Dr. Pike served as a U.S. Army physician for 10 years, where he honed his skills in complex care management and emergency medicine. As Chief Medical Officer and Medical Director, Dr. Pike provides weekly case reviews and specialist oversight for every Direct Care Indy member.",
     highlights: [
       "Triple board-certified in Internal Medicine, Pulmonary Medicine, and Critical Care Medicine",
@@ -54,7 +54,7 @@ export const PROVIDERS: Provider[] = [
     name: "Karina White",
     credentials: "PA-C, DMS",
     role: "Lead PA",
-    image: "/images/provider bio/Karina White, PA-C, DMS.jpg",
+    image: "/images/providers/karina-white.webp",
     bio: "Karina White, PA-C, DMS brings exceptional clinical expertise and academic leadership to Direct Care Indy. As a Doctor of Medical Science (DMS), Karina represents the highest level of PA education, combining advanced clinical training with a deep understanding of evidence-based medicine.",
     highlights: [
       "Doctor of Medical Science (DMS) - highest level of PA education",
@@ -84,7 +84,7 @@ export const PROVIDERS: Provider[] = [
     name: "Maddie Klinger",
     credentials: "PA-C, MPAS",
     role: "Lead PA",
-    image: "/images/provider bio/Madeline Klinger, PA-C.jpg",
+    image: "/images/providers/maddie-klinger.webp",
     bio: "Maddie Klinger, PA-C, MPAS brings a whole-patient approach to primary care, focusing on building lasting relationships with her patients. Since joining Direct Care Indy in 2018, Maddie has been committed to treating the whole patient—addressing not just symptoms, but the full context of each person's health journey. As a preceptor at Butler University, Maddie is actively involved in training future healthcare providers while delivering exceptional care to Direct Care Indy members.",
     highlights: [
       "Master of Physician Assistant Studies (MPAS)",
@@ -115,7 +115,7 @@ export const PROVIDERS: Provider[] = [
     name: "Chase Keirn",
     credentials: "PA-C",
     role: "Lead PA",
-    image: "/images/provider bio/chase-keirn.jpeg",
+    image: "/images/providers/chase-keirn.webp",
     bio: "Chase Keirn, PA-C brings specialized expertise in general pulmonology to Direct Care Indy, with a particular focus on lung nodules and respiratory conditions. Working in tandem with Dr. James D. Pike, D.O., FCCP, FACP on complex pulmonary cases, Chase provides expert evaluation and management of lung nodules and respiratory conditions. As the Health Center Director at Marian University, Chase combines clinical excellence with administrative leadership, ensuring comprehensive care for his patients.",
     highlights: [
       "Specialized focus in General Pulmonology",

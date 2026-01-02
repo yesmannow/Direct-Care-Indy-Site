@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { DynamicCTA } from "@/components/DynamicHeader";
 
 interface NavLink {
@@ -12,12 +13,12 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
-  { href: "/providers", label: "Our Team" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/providers", label: "Our Team" },
   { href: "/services", label: "Services" },
   { href: "/seniors", label: "Seniors (Medicare)" },
-  { href: "/partnerships", label: "Partnerships" },
   { href: "/employers", label: "Employers" },
+  { href: "/partnerships", label: "Partnerships" },
   { href: "/faq", label: "FAQ" },
   { href: "/blog/indiana-medigap-birthday-rule-2026", label: "Blog" },
 ];
@@ -26,7 +27,6 @@ export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
   // Close menu on Escape key
   useEffect(() => {
@@ -39,64 +39,16 @@ export default function MobileNav() {
 
     if (isOpen) {
       document.addEventListener("keydown", handleEscape);
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleEscape);
-    };
-  }, [isOpen]);
-
-  // Lock body scroll when menu is open
-  useEffect(() => {
-    if (isOpen) {
       document.documentElement.classList.add("overflow-hidden");
     } else {
       document.documentElement.classList.remove("overflow-hidden");
     }
 
     return () => {
+      document.removeEventListener("keydown", handleEscape);
       document.documentElement.classList.remove("overflow-hidden");
     };
   }, [isOpen]);
-
-  // Focus first link when menu opens
-  useEffect(() => {
-    if (isOpen && firstLinkRef.current) {
-      firstLinkRef.current.focus();
-    }
-  }, [isOpen]);
-
-  // Handle focus trap
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (!isOpen || e.key !== "Tab") return;
-
-    const focusableElements = menuRef.current?.querySelectorAll(
-      'a[href], button:not([disabled])'
-    );
-
-    if (!focusableElements || focusableElements.length === 0) return;
-
-    const firstElement = focusableElements[0] as HTMLElement;
-    const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
-
-    if (e.shiftKey) {
-      // Shift + Tab
-      if (document.activeElement === firstElement) {
-        e.preventDefault();
-        lastElement.focus();
-      }
-    } else {
-      // Tab
-      if (document.activeElement === lastElement) {
-        e.preventDefault();
-        firstElement.focus();
-      }
-    }
-  };
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
 
   const closeMenu = () => {
     setIsOpen(false);
@@ -105,11 +57,11 @@ export default function MobileNav() {
 
   return (
     <>
-      {/* Hamburger Button - visible only on mobile */}
+      {/* Mobile Menu Button - Positioned to align with MegaMenu header */}
       <button
         ref={buttonRef}
-        onClick={toggleMenu}
-        className="md:hidden text-white p-2 hover:bg-primary-dark rounded-lg transition-colors"
+        onClick={() => setIsOpen(!isOpen)}
+        className="lg:hidden fixed top-4 right-4 z-[60] p-2 rounded-lg bg-white/80 dark:bg-gray-900/80 backdrop-blur-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors shadow-lg border border-gray-200 dark:border-gray-700"
         aria-controls="mobile-menu"
         aria-expanded={isOpen}
         aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -118,59 +70,64 @@ export default function MobileNav() {
       </button>
 
       {/* Mobile Menu Overlay */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
-          onClick={closeMenu}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* Mobile Menu Panel */}
-      <div
-        ref={menuRef}
-        id="mobile-menu"
-        role="navigation"
-        aria-label="Mobile navigation"
-        onKeyDown={handleKeyDown}
-        className={`fixed top-0 right-0 h-full w-64 bg-primary text-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 md:hidden ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        {/* Close Button */}
-        <div className="flex justify-end p-4">
-          <button
-            onClick={closeMenu}
-            className="text-white p-2 hover:bg-primary-dark rounded-lg transition-colors"
-            aria-label="Close navigation menu"
-          >
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-
-        {/* Navigation Links */}
-        <nav className="px-4 py-2">
-          <ul className="space-y-2">
-            {navLinks.map((link, index) => (
-              <li key={link.href}>
-                <Link
-                  ref={index === 0 ? firstLinkRef : null}
-                  href={link.href}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+              onClick={closeMenu}
+              aria-hidden="true"
+            />
+            <motion.div
+              ref={menuRef}
+              id="mobile-menu"
+              role="navigation"
+              aria-label="Mobile navigation"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-900 shadow-2xl z-50 lg:hidden overflow-y-auto"
+            >
+              {/* Close Button */}
+              <div className="flex justify-end p-4 border-b border-gray-200 dark:border-gray-700">
+                <button
                   onClick={closeMenu}
-                  className="block px-4 py-3 hover:bg-primary-dark rounded-lg transition-colors text-white"
+                  className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  aria-label="Close navigation menu"
                 >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
 
-          {/* Dynamic CTA */}
-          <div className="mt-6 px-4">
-            <DynamicCTA />
-          </div>
-        </nav>
-      </div>
+              {/* Navigation Links */}
+              <nav className="px-4 py-6">
+                <ul className="space-y-1">
+                  {navLinks.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        onClick={closeMenu}
+                        className="block px-4 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary dark:hover:text-teal-400 transition-colors font-medium"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Dynamic CTA */}
+                <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                  <DynamicCTA />
+                </div>
+              </nav>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 }

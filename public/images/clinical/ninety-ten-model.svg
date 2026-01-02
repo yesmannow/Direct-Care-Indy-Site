@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <!-- 90/10 Model Diagram Placeholder -->
+  <defs>
+    <linearGradient id="careGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#14b8a6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d9488;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="insuranceGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#1e293b">
+    The 90/10 Healthcare Model
+  </text>
+
+  <!-- 90% DPC Section -->
+  <rect x="50" y="100" width="630" height="400" rx="20" fill="url(#careGradient)" opacity="0.9"/>
+  <text x="365" y="150" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="white">
+    90%
+  </text>
+  <text x="365" y="200" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="white">
+    Direct Primary Care
+  </text>
+  <text x="365" y="250" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="white" opacity="0.9">
+    Unlimited visits • Same-day appointments
+  </text>
+  <text x="365" y="280" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="white" opacity="0.9">
+    Direct physician access • Wholesale labs
+  </text>
+
+  <!-- 10% Insurance Section -->
+  <rect x="700" y="100" width="70" height="400" rx="20" fill="url(#insuranceGradient)" opacity="0.9"/>
+  <text x="735" y="200" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="white" transform="rotate(-90 735 200)">
+    10%
+  </text>
+  <text x="735" y="350" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white" transform="rotate(-90 735 350)">
+    Catastrophic Insurance
+  </text>
+
+  <!-- Footer Note -->
+  <text x="400" y="560" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#64748b">
+    Direct Care Indy handles 90% of your healthcare needs • Insurance covers 10% for major events
+  </text>
+</svg>
+
