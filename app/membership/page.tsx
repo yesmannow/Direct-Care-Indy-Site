@@ -1,9 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import { TierDisplay } from "@/components/membership/TierDisplay";
 import { LabPharmacySavingsTable } from "@/components/LabPharmacySavingsTable";
 import { Testimonials } from "@/components/Testimonials";
 import { DPC_CONTENT } from "@/lib/content/dpc";
+import { SITE_ASSETS } from "@/lib/images";
+import { ScrollTransition } from "@/components/ScrollTransition";
 
 export default function MembershipPage() {
   const pricingTiers = DPC_CONTENT.pricingTiers;
@@ -19,6 +22,27 @@ export default function MembershipPage() {
           <p className="body-large max-w-2xl mx-auto">
             One flat monthly fee. No hidden costs. No copays. No deductibles.
           </p>
+        </div>
+      </section>
+
+      {/* Savings Table with Image Accent */}
+      <section className="section-padding bg-muted/30">
+        <div className="content-container">
+          <ScrollTransition id="membership-savings-accent">
+          <div className="grid md:grid-cols-3 gap-8 items-start">
+            <div className="md:col-span-2">
+              <LabPharmacySavingsTable />
+            </div>
+            <div className="space-y-6">
+              <div className="group relative aspect-video rounded-xl overflow-hidden border border-border bg-card">
+                <Image src={SITE_ASSETS.clinical.medicalDiagram} alt="Lab and pharmacy pricing" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-300 group-hover:scale-[1.03] will-change-transform" />
+              </div>
+              <div className="group relative aspect-video rounded-xl overflow-hidden border border-border bg-card">
+                <Image src={SITE_ASSETS.marketing.seniorWellness} alt="Member savings in action" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-300 group-hover:scale-[1.03] will-change-transform" />
+              </div>
+            </div>
+          </div>
+          </ScrollTransition>
         </div>
       </section>
 
@@ -64,6 +88,25 @@ export default function MembershipPage() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Visual Accents */}
+      <section className="section-padding pt-0">
+        <div className="content-container">
+          <ScrollTransition id="membership-visual-accents">
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="group relative aspect-video rounded-xl overflow-hidden border border-border bg-card">
+              <Image src={SITE_ASSETS.clinical.roundTable} alt="Round table care model" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-300 group-hover:scale-[1.03] will-change-transform" />
+            </div>
+            <div className="group relative aspect-video rounded-xl overflow-hidden border border-border bg-card">
+              <Image src={SITE_ASSETS.clinical.medicalLaboratory} alt="Wholesale laboratory savings" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-300 group-hover:scale-[1.03] will-change-transform" />
+            </div>
+            <div className="group relative aspect-video rounded-xl overflow-hidden border border-border bg-card">
+              <Image src={SITE_ASSETS.clinical.healthcareChart} alt="Transparent pricing" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-300 group-hover:scale-[1.03] will-change-transform" />
+            </div>
+          </div>
+          </ScrollTransition>
         </div>
       </section>
 

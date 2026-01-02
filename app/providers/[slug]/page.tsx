@@ -8,6 +8,7 @@ import { ProfilePageSchema } from "@/components/StructuredData";
 import { PhysicianOversightBadge } from "@/components/PhysicianOversightBadge";
 import IndyBreathEasy from "@/components/IndyBreathEasy";
 import { SharedFooter } from "@/components/SharedFooter";
+import { SITE_ASSETS } from "@/lib/images";
 
 interface ProviderPageProps {
   params: Promise<{
@@ -89,8 +90,19 @@ export default async function ProviderPage({ params }: ProviderPageProps) {
       <div className="min-h-screen bg-background">
 
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-teal-600 to-teal-800 text-white py-16">
-          <div className="container mx-auto px-4">
+        <section className="relative text-white py-16 overflow-hidden">
+          <div className="absolute inset-0 -z-10">
+            <Image
+              src={SITE_ASSETS.ui.tealGradient}
+              alt=""
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority={isPhysician}
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-teal-700/80 to-teal-900/80" />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-6xl mx-auto">
               <Link
                 href="/providers"
@@ -146,7 +158,7 @@ export default async function ProviderPage({ params }: ProviderPageProps) {
                       key={idx}
                       className="flex items-start gap-3 bg-white p-4 rounded-lg border border-gray-200"
                     >
-                      <CheckCircle2 className="w-6 h-6 text-teal-600 flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-6 h-6 text-teal-600 shrink-0 mt-0.5" />
                       <p className="text-gray-700">{highlight}</p>
                     </div>
                   ))}

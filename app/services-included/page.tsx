@@ -1,6 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CheckCircle2, XCircle, ArrowRight, Info } from "lucide-react";
 import { DPC_CONTENT } from "@/lib/content/dpc";
+import { SITE_ASSETS } from "@/lib/images";
+import { ScrollTransition } from "@/components/ScrollTransition";
 
 export default function ServicesIncludedPage() {
   const includedServices = DPC_CONTENT.services.filter(s => s.category === 'included');
@@ -16,6 +19,16 @@ export default function ServicesIncludedPage() {
             Direct Primary Care covers 90% of your healthcare needs for one flat monthly fee.
             Here&apos;s exactly what&apos;s included and what&apos;s not.
           </p>
+          <ScrollTransition id="services-hero-images">
+            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              <div className="group relative aspect-video rounded-xl overflow-hidden border border-border bg-card">
+                <Image src={SITE_ASSETS.clinical.medicalDiagram} alt="Clinical diagram" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-300 group-hover:scale-[1.03] will-change-transform" />
+              </div>
+              <div className="group relative aspect-video rounded-xl overflow-hidden border border-border bg-card">
+                <Image src={SITE_ASSETS.clinical.medicalLaboratory} alt="Medical laboratory" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-300 group-hover:scale-[1.03] will-change-transform" />
+              </div>
+            </div>
+          </ScrollTransition>
         </div>
       </section>
 

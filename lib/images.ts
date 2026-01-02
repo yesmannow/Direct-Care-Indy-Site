@@ -49,6 +49,10 @@ export const SITE_ASSETS = {
     medigapBirthdayRule: '/images/marketing/senior-wellness.webp',
     seniorHealthcare: '/images/marketing/senior-healthcare.webp',
   },
+  logos: {
+    primary: '/images/optimized/logos/dci logo primary.webp',
+    secondary: '/images/optimized/logos/dci logo secondary.webp',
+  },
 } as const;
 
 /**
@@ -68,4 +72,5 @@ export type LocationAsset = keyof typeof SITE_ASSETS.locations;
 export type UIAsset = keyof typeof SITE_ASSETS.ui;
 export type ProviderAsset = keyof typeof SITE_ASSETS.providers;
 export type BlogAsset = keyof typeof SITE_ASSETS.blog;
+export type LogoAsset = keyof typeof SITE_ASSETS.logos;
 

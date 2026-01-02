@@ -7,7 +7,7 @@ export function TierDisplay() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {tiers.map((tier) => (
-        <div key={tier.id} className="bg-card rounded-2xl shadow-lg border border-border p-8 text-center hover:shadow-xl transition-shadow transition-transform duration-200 hover:-translate-y-1 will-change-transform h-full flex flex-col">
+        <div key={tier.id} className="bg-card rounded-2xl shadow-lg border border-border p-8 text-center hover:shadow-xl transition-transform duration-200 hover:-translate-y-1 will-change-transform h-full flex flex-col">
           <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
           <div className="text-4xl font-black text-secondary mb-2">
             ${tier.price}

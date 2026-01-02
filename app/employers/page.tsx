@@ -2,11 +2,13 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Shield, TrendingDown, Users, Briefcase } from "lucide-react";
 import { setUserPersona } from "@/lib/persona";
 import { EmployerSavingsCalculator } from "@/components/EmployerSavingsCalculator";
 import { OccHealthIntake } from "@/components/OccHealthIntake";
 import { OccHealthPrices } from "@/components/OccHealthPrices";
+import { SITE_ASSETS } from "@/lib/images";
 
 export default function Employers() {
   useEffect(() => {
@@ -17,8 +19,19 @@ export default function Employers() {
     <div className="min-h-screen bg-background">
 
       {/* Hero Section */}
-      <section className="bg-primary text-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative text-white py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src={SITE_ASSETS.marketing.employerWellness}
+            alt="Employer wellness"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-linear-to-br from-primary/90 via-teal-800/80 to-primary/90" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-5xl font-bold mb-6">
               Protect Your Crew, Not Just Your Bottom Line

@@ -26,8 +26,19 @@ export default function ProvidersPage() {
     <div className="min-h-screen bg-background">
 
       {/* Hero Section */}
-      <section className="bg-linear-to-br from-teal-600 to-teal-800 text-white py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src={SITE_ASSETS.ui.tealGradient}
+            alt=""
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-linear-to-br from-teal-700/80 to-teal-900/80" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Meet Your Care Team

@@ -72,22 +72,51 @@ function MobileMenuItem({
 }
 
 export function MegaMenu() {
+  const [isShrunk, setIsShrunk] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const lastY = useRef(0);
+  const hideTimer = useRef<number | null>(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      const goingDown = y > lastY.current + 2;
+      const goingUp = y < lastY.current - 2;
+
+      setIsShrunk(y > 100);
+      setIsHidden(false);
+
+      if (hideTimer.current) window.clearTimeout(hideTimer.current);
+      if (y > 200 && goingDown) {
+        hideTimer.current = window.setTimeout(() => setIsHidden(true), 2000);
+      }
+      if (y <= 10 || goingUp) {
+        setIsHidden(false);
+      }
+      lastY.current = y;
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (hideTimer.current) window.clearTimeout(hideTimer.current);
+    };
+  }, []);
+
   return (
-    <nav className="bg-card border-b border-border shadow-sm">
+    <nav className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${isShrunk ? 'backdrop-blur-md bg-card/80 border-b border-border' : 'bg-card border-b border-border'} ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-3 group hover:opacity-80 transition-opacity">
-            <div className="bg-secondary p-2 rounded-xl">
-              <Stethoscope className="w-6 h-6 text-secondary-foreground" />
-            </div>
-            <div>
-              <span className="font-black text-xl tracking-tighter text-foreground">
-                PIKE<span className="text-secondary">MEDICAL</span>
-              </span>
-              <p className="text-xs text-muted-foreground font-medium">
-                Direct Primary Care
-              </p>
-            </div>
+        <div className={`flex items-center justify-between ${isShrunk ? 'h-16' : 'h-20'}`}>
+          <Link href="/" className="flex items-center gap-3 group" aria-label="Direct Care Indy">
+            <Image
+              src={SITE_ASSETS.logos.primary}
+              alt="Direct Care Indy"
+              width={160}
+              height={40}
+              sizes="(max-width: 768px) 120px, 160px"
+              priority
+              className={`transition-transform duration-300 ${isShrunk ? 'scale-95' : 'scale-100'} group-hover:scale-105 active:scale-95`}
+            />
           </Link>
           <div className="hidden md:flex items-center gap-8">
             <Link href="/" className="text-foreground hover:text-secondary transition-colors font-medium">
