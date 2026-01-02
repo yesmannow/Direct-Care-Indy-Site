@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Activity, ShieldAlert } from 'lucide-react'
+import Image from 'next/image'
+import { SITE_ASSETS } from '@/lib/images'
 
 export function NinetyTenSwitcher() {
   const [view, setView] = useState<'dpc' | 'insurance'>('dpc')
@@ -25,7 +27,26 @@ export function NinetyTenSwitcher() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto p-8 bg-gray-800 rounded-3xl shadow-xl border border-gray-700">
+    <div className="max-w-2xl mx-auto p-8 bg-gray-800 rounded-3xl shadow-xl border border-gray-700 relative overflow-hidden">
+      {/* Animated 90/10 Model SVG Background */}
+      <div className="absolute inset-0 opacity-5">
+        <motion.div
+          animate={{
+            scale: view === 'dpc' ? [1, 1.1, 1] : [1, 0.9, 1],
+            opacity: view === 'dpc' ? [0.05, 0.1, 0.05] : [0.05, 0.02, 0.05],
+          }}
+          transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
+          className="w-full h-full"
+        >
+          <Image
+            src={SITE_ASSETS.clinical.ninetyTen}
+            alt="90/10 Model"
+            fill
+            className="object-contain"
+          />
+        </motion.div>
+      </div>
+      <div className="relative z-10">
       <div className="flex bg-gray-700 p-1 rounded-full mb-8 relative">
         <motion.div
           className={`absolute h-full rounded-full ${content[view].color} opacity-20`}
@@ -80,6 +101,7 @@ export function NinetyTenSwitcher() {
         <p className="text-sm text-gray-300 italic">
           Insurance is for when you <strong>total the car</strong> (the 10% catastrophic events). We are the <strong>mechanic for your oil changes</strong> (the 90% routine care). You need both, but they serve different purposes.
         </p>
+      </div>
       </div>
     </div>
   )

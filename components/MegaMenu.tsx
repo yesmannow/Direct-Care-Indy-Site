@@ -19,6 +19,8 @@ import {
 import { CompactEmployerCalculator } from "@/components/CompactEmployerCalculator";
 import { CompactLabSearch } from "@/components/CompactLabSearch";
 import { DynamicCTA } from "@/components/DynamicHeader";
+import { SITE_ASSETS } from "@/lib/images";
+import Image from "next/image";
 
 export function MegaMenu() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -160,19 +162,55 @@ export function MegaMenu() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-2 w-[900px] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden"
+                        className="absolute top-full left-0 mt-2 w-[900px] rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden relative"
                       >
+                        {/* Glassmorphism Background with Asset */}
+                        <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md">
+                          <Image
+                            src={SITE_ASSETS.ui.megaMenu}
+                            alt=""
+                            fill
+                            className="object-cover opacity-20"
+                            priority
+                          />
+                        </div>
+                        <div className="relative z-10">
                         <div className="grid grid-cols-2 gap-8 p-8">
-                          {/* Left Side - Navigation Columns */}
-                          <div className="space-y-6">
+                          {/* Left Side - Navigation Columns with Staggered Animation */}
+                          <motion.div
+                            className="space-y-6"
+                            initial="hidden"
+                            animate="visible"
+                            variants={{
+                              visible: {
+                                transition: {
+                                  staggerChildren: 0.1
+                                }
+                              }
+                            }}
+                          >
                             {item.columns.map((column, idx) => (
-                              <div key={idx}>
+                              <motion.div
+                                key={idx}
+                                variants={{
+                                  hidden: { opacity: 0, x: -20 },
+                                  visible: { opacity: 1, x: 0 }
+                                }}
+                                transition={{ duration: 0.3 }}
+                              >
                                 <h3 className="text-sm font-bold text-primary dark:text-teal-400 mb-3 uppercase tracking-wide">
                                   {column.title}
                                 </h3>
                                 <ul className="space-y-2">
-                                  {column.links.map((link) => (
-                                    <li key={link.href}>
+                                  {column.links.map((link, linkIdx) => (
+                                    <motion.li
+                                      key={link.href}
+                                      variants={{
+                                        hidden: { opacity: 0, x: -10 },
+                                        visible: { opacity: 1, x: 0 }
+                                      }}
+                                      transition={{ duration: 0.2, delay: linkIdx * 0.05 }}
+                                    >
                                       <Link
                                         href={link.href}
                                         onClick={() => setActiveMenu(null)}
@@ -180,21 +218,27 @@ export function MegaMenu() {
                                       >
                                         {link.label}
                                       </Link>
-                                    </li>
+                                    </motion.li>
                                   ))}
                                 </ul>
-                              </div>
+                              </motion.div>
                             ))}
-                          </div>
+                          </motion.div>
 
-                          {/* Right Side - Embedded Tool */}
+                          {/* Right Side - Embedded Tool with Staggered Animation */}
                           {item.embeddedTool && (
-                            <div className="border-l border-gray-200 dark:border-gray-700 pl-8">
+                            <motion.div
+                              className="border-l border-gray-200 dark:border-gray-700 pl-8"
+                              initial={{ opacity: 0, x: 20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.4, delay: 0.2 }}
+                            >
                               <div className="sticky top-8">
                                 {item.embeddedTool}
                               </div>
-                            </div>
+                            </motion.div>
                           )}
+                        </div>
                         </div>
                       </motion.div>
                     )}

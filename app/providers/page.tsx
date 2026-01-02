@@ -84,6 +84,46 @@ export default function ProvidersPage() {
       {/* Round Table Overview */}
       <RoundTableOverview />
 
+      {/* Parallax Specialist Section */}
+      <section className="relative h-[600px] overflow-hidden">
+        {/* Fixed Background Image */}
+        <div className="fixed inset-0 -z-10">
+          <Image
+            src={SITE_ASSETS.clinical.specialist}
+            alt="Specialist Team"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/80" />
+        </div>
+
+        {/* Scrolling Content */}
+        <div className="relative z-10 h-full flex items-center">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center text-white">
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                <h2 className="text-4xl font-bold mb-4">Physician-Led Clinical Excellence</h2>
+                <p className="text-xl mb-6 opacity-90">
+                  Dr. Pike&apos;s board-certified oversight ensures every member receives specialist-level diagnostic security through our Round Table model.
+                </p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <div className="bg-teal-500/20 px-4 py-2 rounded-lg border border-teal-400/30">
+                    <span className="font-semibold">Board Certified</span>
+                  </div>
+                  <div className="bg-teal-500/20 px-4 py-2 rounded-lg border border-teal-400/30">
+                    <span className="font-semibold">Specialist Oversight</span>
+                  </div>
+                  <div className="bg-teal-500/20 px-4 py-2 rounded-lg border border-teal-400/30">
+                    <span className="font-semibold">Round Table Model</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Medical Director */}
       {medicalDirector && (
         <section className="py-16 bg-background">

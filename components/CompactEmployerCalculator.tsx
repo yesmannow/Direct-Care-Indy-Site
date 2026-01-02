@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { motion, useSpring, useTransform } from "framer-motion";
 import { Calculator, TrendingDown, DollarSign, ShieldCheck } from "lucide-react";
 import { calculateEmployerSavings, type PlanType } from "@/lib/calculators/employerRoi";
+import Image from "next/image";
+import { SITE_ASSETS } from "@/lib/images";
 
 interface CompactEmployerCalculatorProps {
   variant?: 'full' | 'compact';
@@ -28,7 +30,17 @@ export function CompactEmployerCalculator({ variant = 'compact' }: CompactEmploy
   // Ultra-compact mode for Mega Menu
   if (isCompact) {
     return (
-      <div className="p-4 space-y-3 bg-transparent border-0">
+      <div className="p-4 space-y-3 bg-transparent border-0 relative">
+        {/* Trades 90/10 Background - Subtle */}
+        <div className="absolute inset-0 opacity-5 rounded-lg overflow-hidden">
+          <Image
+            src={SITE_ASSETS.marketing.employer}
+            alt=""
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="relative z-10">
         <h4 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-tight">
           Est. Annual Savings
         </h4>
@@ -54,6 +66,7 @@ export function CompactEmployerCalculator({ variant = 'compact' }: CompactEmploy
             onChange={(e) => setEmployeeCount(Number(e.target.value))}
             className="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-teal-500"
           />
+        </div>
         </div>
       </div>
     );

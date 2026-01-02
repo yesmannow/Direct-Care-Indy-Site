@@ -99,7 +99,8 @@ export function PhysicianSchema() {
       "@type": "City",
       "name": "Indianapolis",
       "addressRegion": "IN"
-    }
+    },
+    "image": "https://directcareindy.com/images/providers/james-pike.webp"
   };
 
   return (

@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { Search, TrendingDown } from 'lucide-react';
+import Image from 'next/image';
+import { SITE_ASSETS } from '@/lib/images';
 
 const LAB_DATA = [
   { name: "A1C (Diabetes Monitoring)", hospital: 173, dpc: 8 },
@@ -71,7 +73,17 @@ export default function WholesaleLabSearch() {
   };
 
   return (
-    <div className="bg-[#1B2B3A] text-white rounded-3xl p-8 shadow-2xl">
+    <div className="bg-[#1B2B3A] text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+      {/* Clinical Texture Background */}
+      <div className="absolute inset-0 opacity-10">
+        <Image
+          src={SITE_ASSETS.ui.texture}
+          alt=""
+          fill
+          className="object-cover"
+        />
+      </div>
+      <div className="relative z-10">
       <div className="mb-8">
         <h2 className="text-3xl font-bold mb-2">Wholesale Lab Directory</h2>
         <p className="text-teal-400 font-medium flex items-center gap-2">

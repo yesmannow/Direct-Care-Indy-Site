@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from 'react';
-import { Search, TrendingDown } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Search as SearchIcon, TrendingDown } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const LAB_DATA = [
   { name: "A1C (Diabetes Monitoring)", hospital: 173, dpc: 8 },
@@ -44,13 +45,25 @@ export function CompactLabSearch() {
       </div>
 
       <div className="relative mb-4">
-        <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
-        <input
+        <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4 z-10" />
+        <motion.input
           type="text"
           placeholder="Search labs..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full bg-white/10 border border-white/20 rounded-lg py-2 pl-9 pr-3 text-sm text-white placeholder:text-gray-500 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none"
+          className="w-full bg-white/10 border border-white/20 rounded-lg py-2 pl-9 pr-3 text-sm text-white placeholder:text-gray-500 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none relative z-0"
+          animate={{
+            boxShadow: [
+              "0 0 0px rgba(20, 184, 166, 0)",
+              "0 0 8px rgba(20, 184, 166, 0.3)",
+              "0 0 0px rgba(20, 184, 166, 0)",
+            ],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         />
       </div>
 

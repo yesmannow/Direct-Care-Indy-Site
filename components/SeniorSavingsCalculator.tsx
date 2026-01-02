@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Calculator, TrendingDown, DollarSign, ShieldCheck } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { SITE_ASSETS } from "@/lib/images";
 
 export function SeniorSavingsCalculator() {
   const [currentMedigap, setCurrentMedigap] = useState(217); // Default average
@@ -33,8 +35,18 @@ export function SeniorSavingsCalculator() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border-2 border-orange-200 dark:border-orange-800"
+      className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border-2 border-orange-200 dark:border-orange-800 relative overflow-hidden"
     >
+      {/* Senior Wellness Background */}
+      <div className="absolute inset-0 opacity-5">
+        <Image
+          src={SITE_ASSETS.marketing.seniorWellness}
+          alt=""
+          fill
+          className="object-cover"
+        />
+      </div>
+      <div className="relative z-10">
       <div className="flex items-center gap-3 mb-6">
         <Calculator className="w-8 h-8 text-orange-600 dark:text-orange-400" />
         <h3 className="text-2xl font-bold text-primary">Senior Savings Calculator</h3>

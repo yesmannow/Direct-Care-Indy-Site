@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Stethoscope, CheckCircle2, TrendingDown, Clock, DollarSign, Heart, Briefcase } from "lucide-react";
 import { LocalBusinessSchema } from "@/components/StructuredData";
 import { SharedFooter } from "@/components/SharedFooter";
 import { NEIGHBORHOODS, BUSINESS_INFO } from "@/lib/constants";
 import WholesaleLabSearch from "@/components/WholesaleLabSearch";
+import { SeniorSavingsCalculator } from "@/components/SeniorSavingsCalculator";
+import { SITE_ASSETS } from "@/lib/images";
 
 interface NeighborhoodPageProps {
   params: Promise<{
@@ -193,9 +196,29 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
           </div>
         </nav>
 
-        {/* Hero */}
-        <section className="bg-gradient-to-br from-teal-600 to-teal-800 text-white py-20">
-          <div className="container mx-auto px-4">
+        {/* Hero with Dynamic Background */}
+        <section className="relative text-white py-20 overflow-hidden">
+          {/* Dynamic Hero Image Background */}
+          <div className="absolute inset-0">
+            <Image
+              src={
+                neighborhoodKey === 'carmel' ? SITE_ASSETS.locations.carmel :
+                neighborhoodKey === 'zionsville' ? SITE_ASSETS.locations.zionsville :
+                neighborhoodKey === 'fishers' ? SITE_ASSETS.locations.fishers :
+                neighborhoodKey === 'geist' ? SITE_ASSETS.locations.geist :
+                SITE_ASSETS.locations.indianapolisSuburban
+              }
+              alt={`${neighborhoodData.name} neighborhood`}
+              fill
+              className="object-cover"
+              priority
+            />
+            {/* Teal Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-teal-600/90 via-teal-700/80 to-teal-800/90" />
+            {/* Glassmorphism Overlay */}
+            <div className="absolute inset-0 bg-white/5 backdrop-blur-sm" />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 Direct Primary Care for {neighborhoodData.name} Families
@@ -304,6 +327,27 @@ export default async function NeighborhoodPage({ params }: NeighborhoodPageProps
             </div>
           </div>
         </section>
+
+        {/* Senior Savings Calculator - For Zionsville and Carmel */}
+        {(neighborhoodKey === 'zionsville' || neighborhoodKey === 'carmel') && (
+          <section className="py-16 bg-background">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold text-primary mb-4">
+                    Calculate Your {neighborhoodKey === 'carmel' ? 'Medigap Birthday Rule' : 'Medicare'} Savings
+                  </h2>
+                  <p className="text-xl text-gray-600 dark:text-gray-300">
+                    {neighborhoodKey === 'carmel'
+                      ? 'See how much you can save by combining Medigap plan switching with HSA-eligible Direct Primary Care'
+                      : 'See how much you can save with HSA-eligible Direct Primary Care for Medicare beneficiaries'}
+                  </p>
+                </div>
+                <SeniorSavingsCalculator />
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Wholesale Lab Directory */}
         <section className="py-16 bg-white">
