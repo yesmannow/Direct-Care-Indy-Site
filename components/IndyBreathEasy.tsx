@@ -15,7 +15,6 @@ export default function IndyBreathEasy() {
 
     if (!API_KEY) {
       console.warn("OpenWeather API key not configured");
-      setLoading(false);
       return;
     }
 
@@ -25,9 +24,9 @@ export default function IndyBreathEasy() {
         if (data && data.list && data.list[0]) {
           setAqiData(data.list[0]);
         }
-        setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => {})
+      .finally(() => setLoading(false));
   }, []);
 
   if (loading || !aqiData) {
@@ -85,7 +84,7 @@ export default function IndyBreathEasy() {
         </div>
       ) : (
         <div className="text-center">
-          <p className="text-xs text-slate-700 italic">"Conditions look stable. A perfect day for preventative wellness." — Dr. James Pike</p>
+          <p className="text-xs text-slate-700 italic">&ldquo;Conditions look stable. A perfect day for preventative wellness.&rdquo; — Dr. James Pike</p>
         </div>
       )}
     </div>

@@ -72,7 +72,7 @@ export function OccHealthIntake() {
         <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
         <h3 className="text-2xl font-bold text-primary mb-2">Thank You!</h3>
         <p className="text-gray-300 mb-4">
-          We've received your information and will send you pricing details and a scheduling link via email.
+          We&apos;ve received your information and will send you pricing details and a scheduling link via email.
         </p>
         <p className="text-sm text-gray-400">
           You can also call us directly at <a href="tel:+13179566288" className="text-primary hover:text-secondary">(317) 956-6288</a>

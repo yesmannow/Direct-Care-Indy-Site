@@ -80,13 +80,13 @@ export default function PricingTiers() {
             } hover:shadow-2xl transition-all duration-300`}
           >
             {tier.popular && (
-              <div className="bg-gradient-to-r from-secondary to-primary text-white text-sm font-semibold px-4 py-2 text-center">
+              <div className="bg-linear-to-r from-secondary to-primary text-white text-sm font-semibold px-4 py-2 text-center">
                 ⭐ Most Popular
               </div>
             )}
 
             <div className="p-6">
-              <div className={`bg-gradient-to-r ${tier.color} text-white rounded-xl p-4 mb-4 text-center`}>
+              <div className={`bg-linear-to-r ${tier.color} text-white rounded-xl p-4 mb-4 text-center`}>
                 <h3 className="text-2xl font-bold mb-1">{tier.name}</h3>
                 <p className="text-sm opacity-90">{tier.ageRange}</p>
               </div>
@@ -113,7 +113,7 @@ export default function PricingTiers() {
               <ul className="space-y-3 mb-6">
                 {tier.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <Check className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
                     <span className="text-gray-900 text-sm">{feature}</span>
                   </li>
                 ))}
@@ -123,7 +123,7 @@ export default function PricingTiers() {
                 href="/join"
                 className={`block w-full text-center px-6 py-3 rounded-lg font-semibold transition-all ${
                   tier.popular
-                    ? "bg-gradient-to-r from-secondary to-primary text-white hover:shadow-lg"
+                    ? "bg-linear-to-r from-secondary to-primary text-white hover:shadow-lg"
                     : "bg-gray-100 text-primary hover:bg-gray-200"
                 }`}
               >
@@ -139,7 +139,7 @@ export default function PricingTiers() {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.4 }}
-        className="bg-gradient-to-r from-secondary to-primary text-white rounded-2xl p-8 text-center shadow-xl"
+        className="bg-linear-to-r from-secondary to-primary text-white rounded-2xl p-8 text-center shadow-xl"
       >
         <div className="flex items-center justify-center gap-3 mb-4">
           <Users className="w-10 h-10" />

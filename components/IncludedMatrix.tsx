@@ -41,7 +41,7 @@ export function IncludedMatrix() {
         ))}
       </div>
       <div className="mt-8 bg-amber-50 dark:bg-amber-900/20 p-4 rounded-2xl flex gap-3 items-center border border-amber-100 dark:border-amber-800">
-        <AlertCircle className="text-amber-600 dark:text-amber-400 w-5 h-5 flex-shrink-0" />
+        <AlertCircle className="text-amber-600 dark:text-amber-400 w-5 h-5 shrink-0" />
         <p className="text-sm text-amber-800 dark:text-amber-200 italic">
           <strong>The Mechanic Analogy:</strong> Your DPC membership is the expert mechanic for your regular &quot;oil changes.&quot; Your insurance is the policy you keep for when you &quot;total the car.&quot;
         </p>

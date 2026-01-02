@@ -134,7 +134,7 @@ export default function FAQ() {
             <div className="space-y-3">
               <div className="bg-red-100 border-l-4 border-red-600 p-4 rounded">
                 <div className="flex items-start gap-3">
-                  <AlertTriangle className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" />
+                  <AlertTriangle className="w-6 h-6 text-red-600 shrink-0 mt-1" />
                   <div>
                     <p className="font-bold text-red-900 text-lg mb-2">EMERGENCY PROTOCOL</p>
                     <p className="text-red-800 font-semibold mb-3">
@@ -356,9 +356,9 @@ export default function FAQ() {
                             {faq.question}
                           </span>
                           {isOpen ? (
-                            <ChevronUp className="w-6 h-6 text-secondary flex-shrink-0" />
+                            <ChevronUp className="w-6 h-6 text-secondary shrink-0" />
                           ) : (
-                            <ChevronDown className="w-6 h-6 text-gray-400 flex-shrink-0" />
+                            <ChevronDown className="w-6 h-6 text-gray-400 shrink-0" />
                           )}
                         </button>
                         {isOpen && (
@@ -447,17 +447,17 @@ export default function FAQ() {
               <h4 className="text-xl font-semibold mb-4">Contact Us</h4>
               <div className="space-y-3 text-gray-300">
                 <div className="flex items-start gap-2">
-                  <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
+                  <MapPin className="w-5 h-5 shrink-0 mt-1" />
                   <span>7911 N. Michigan Rd.<br />Indianapolis, IN 46268</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Phone className="w-5 h-5 flex-shrink-0" />
+                  <Phone className="w-5 h-5 shrink-0" />
                   <a href="tel:+13179566288" className="hover:text-white transition-colors">
                     (317) 956-6288
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Mail className="w-5 h-5 flex-shrink-0" />
+                  <Mail className="w-5 h-5 shrink-0" />
                   <a href="mailto:info@directcareindy.com" className="hover:text-white transition-colors">
                     info@directcareindy.com
                   </a>

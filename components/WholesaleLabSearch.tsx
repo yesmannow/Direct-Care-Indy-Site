@@ -111,7 +111,7 @@ export default function WholesaleLabSearch({ variant = 'full' }: LabSearchProps)
                         <p className="font-black text-slate-800 text-xs truncate">{lab.name}</p>
                         <p className="text-[10px] text-teal-600 font-bold tracking-widest uppercase">Pike Choice</p>
                       </div>
-                      <span className="font-black text-slate-900 text-sm ml-2 flex-shrink-0">
+                      <span className="font-black text-slate-900 text-sm ml-2 shrink-0">
                         {lab.dpc === 0 ? 'FREE' : `$${lab.dpc}`}
                       </span>
                     </div>

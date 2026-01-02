@@ -87,7 +87,7 @@ function CostBenchmarkContent() {
 
       <div className="mt-6 pt-6 border-t border-gray-700">
         <div className="flex items-start gap-2 text-xs text-gray-400">
-          <Info className="w-4 h-4 flex-shrink-0 mt-0.5" />
+          <Info className="w-4 h-4 shrink-0 mt-0.5" />
           <p>
             Market estimates provided by Turquoise Health/Serif Health for educational purposes only.
             Actual costs vary by facility. Direct Care Indy rates are wholesale pricing available to members.

@@ -18,7 +18,7 @@ export default function PortalPreview() {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-[#1B2B3A] dark:to-[#0F1A23] rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700 backdrop-blur-sm">
+    <div className="bg-linear-to-br from-gray-50 to-gray-100 dark:from-[#1B2B3A] dark:to-[#0F1A23] rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700 backdrop-blur-sm">
       <div className="text-center mb-8">
         <h3 className="text-3xl font-bold text-primary mb-2">
           Your Patient Dashboard Preview
@@ -43,9 +43,9 @@ export default function PortalPreview() {
             <h4 className="text-xl font-bold text-primary">Direct Access</h4>
           </div>
 
-          <div className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-lg p-4 border-l-4 border-blue-500 backdrop-blur-sm">
+          <div className="bg-linear-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-lg p-4 border-l-4 border-blue-500 backdrop-blur-sm">
             <div className="flex items-start gap-3">
-              <div className="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 font-bold text-sm">
+              <div className="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center shrink-0 font-bold text-sm">
                 Dr. P
               </div>
               <div className="flex-1">
@@ -145,7 +145,7 @@ export default function PortalPreview() {
             {currentMeds.map((med, idx) => (
               <div
                 key={idx}
-                className="bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-lg p-4 border-l-4 border-purple-500 backdrop-blur-sm"
+                className="bg-linear-to-r from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-lg p-4 border-l-4 border-purple-500 backdrop-blur-sm"
               >
                 <div className="flex justify-between items-start">
                   <div className="flex-1">
@@ -187,7 +187,7 @@ export default function PortalPreview() {
             <h4 className="text-xl font-bold text-primary">Wholesale Access</h4>
           </div>
 
-          <div className="bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-lg p-5 border-l-4 border-green-600 backdrop-blur-sm">
+          <div className="bg-linear-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-lg p-5 border-l-4 border-green-600 backdrop-blur-sm">
             <h5 className="font-bold text-gray-900 dark:text-gray-100 mb-3">Members Pay What We Pay</h5>
             <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
               <div className="flex items-start gap-2">
@@ -225,7 +225,7 @@ export default function PortalPreview() {
         </p>
         <a
           href="/join"
-          className="inline-block bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-lg transition-all"
+          className="inline-block bg-linear-to-r from-primary to-secondary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-lg transition-all"
         >
           Get Started Today
         </a>

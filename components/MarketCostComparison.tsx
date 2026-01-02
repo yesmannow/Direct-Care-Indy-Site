@@ -119,7 +119,7 @@ function MarketCostComparisonContent() {
 
       <div className="mt-6 pt-6 border-t border-gray-700">
         <div className="flex items-start gap-2 text-xs text-gray-400">
-          <Info className="w-4 h-4 flex-shrink-0 mt-0.5" />
+          <Info className="w-4 h-4 shrink-0 mt-0.5" />
           <p>
             <strong className="text-gray-300">Market Estimates:</strong> Hospital PPO rates and Market Median
             estimates provided by Turquoise Health/Serif Health for educational purposes only. Actual costs vary

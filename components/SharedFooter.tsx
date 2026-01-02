@@ -30,13 +30,13 @@ export function SharedFooter() {
   }, []);
 
   return (
-    <footer className="bg-primary text-white py-12">
+    <footer className="bg-card text-card-foreground border-t border-border">
       <div className="container mx-auto px-4">
         {/* Trust Badges Section */}
-        <div className="max-w-6xl mx-auto mb-8 pb-8 border-b border-gray-600">
+        <div className="max-w-6xl mx-auto mb-8 pb-8 border-b border-border">
           <div className="flex flex-wrap items-center justify-center gap-6 mb-6">
             {/* Member Count Ticker */}
-            <div className="flex items-center gap-2 bg-teal-600 px-4 py-2 rounded-full">
+            <div className="flex items-center gap-2 bg-secondary text-secondary-foreground px-4 py-2 rounded-full">
               <Users className="w-5 h-5" />
               <span className="font-bold text-lg">
                 Join {memberCount}+ Indianapolis Families
@@ -44,13 +44,13 @@ export function SharedFooter() {
             </div>
 
             {/* Trust Badges */}
-            <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
-              <Award className="w-5 h-5 text-yellow-300" />
+            <div className="flex items-center gap-2 bg-muted text-muted-foreground px-4 py-2 rounded-full border border-border">
+              <Award className="w-5 h-5 text-secondary" />
               <span className="font-semibold">Member of the DPC Alliance</span>
             </div>
 
-            <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
-              <Shield className="w-5 h-5 text-green-300" />
+            <div className="flex items-center gap-2 bg-muted text-muted-foreground px-4 py-2 rounded-full border border-border">
+              <Shield className="w-5 h-5 text-secondary" />
               <span className="font-semibold">2026 HSA Approved</span>
             </div>
           </div>
@@ -59,95 +59,87 @@ export function SharedFooter() {
         {/* Main Footer Content */}
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h4 className="text-xl font-semibold mb-4">Direct Care Indy</h4>
-            <p className="text-gray-300">
+            <h4 className="text-xl font-semibold mb-4 text-foreground">Direct Care Indy</h4>
+            <p className="text-muted-foreground">
               Direct Primary Care for Indianapolis families. Transparent,
               accessible, and affordable healthcare without the insurance
               bureaucracy.
             </p>
           </div>
           <div>
-            <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-xl font-semibold mb-4 text-foreground">Resources</h4>
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  href="/about"
+                  className="text-muted-foreground hover:text-secondary transition-colors"
                 >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/pricing"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/seniors"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Seniors (Medicare)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/employers"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Employers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/partnerships"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Partnerships
+                  About Us
                 </Link>
               </li>
               <li>
                 <Link
                   href="/faq"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-muted-foreground hover:text-secondary transition-colors"
                 >
                   FAQ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/how-it-works"
+                  className="text-muted-foreground hover:text-secondary transition-colors"
+                >
+                  How It Works
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/indiana-medigap-birthday-rule-2026"
+                  className="text-muted-foreground hover:text-secondary transition-colors"
+                >
+                  2026 Indiana Birthday Rule Guide
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/wraparound"
+                  className="text-muted-foreground hover:text-secondary transition-colors"
+                >
+                  Wraparound Partners
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/partnerships"
+                  className="text-muted-foreground hover:text-secondary transition-colors"
+                >
+                  Partnerships
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h4 className="text-xl font-semibold mb-4">Contact Us</h4>
-            <div className="space-y-3 text-gray-300">
+            <h4 className="text-xl font-semibold mb-4 text-foreground">Contact Us</h4>
+            <div className="space-y-3 text-muted-foreground">
               <div className="flex items-start gap-2">
-                <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
+                <MapPin className="w-5 h-5 shrink-0 mt-1 text-secondary" />
                 <span>7911 N. Michigan Rd.<br />Indianapolis, IN 46268</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-5 h-5 flex-shrink-0" />
+                <Phone className="w-5 h-5 shrink-0 text-secondary" />
                 <a
                   href="tel:+13179566288"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-secondary transition-colors"
                 >
                   (317) 956-6288
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-5 h-5 flex-shrink-0" />
+                <Mail className="w-5 h-5 shrink-0 text-secondary" />
                 <a
                   href="mailto:info@directcareindy.com"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-secondary transition-colors"
                 >
                   info@directcareindy.com
                 </a>
@@ -157,34 +149,34 @@ export function SharedFooter() {
         </div>
 
         {/* SEO Footer - Areas We Serve */}
-        <div className="border-t border-gray-600 pt-4 pb-2">
-          <p className="text-xs text-gray-500 text-center mb-2">
+        <div className="border-t border-border pt-4 pb-2">
+          <p className="text-xs text-muted-foreground text-center mb-2">
             Serving Central Indiana:{' '}
-            <Link href="/locations/carmel" className="hover:text-gray-400 transition-colors">
+            <Link href="/locations/carmel" className="hover:text-secondary transition-colors">
               Carmel
             </Link>
             {' | '}
-            <Link href="/locations/zionsville" className="hover:text-gray-400 transition-colors">
+            <Link href="/locations/zionsville" className="hover:text-secondary transition-colors">
               Zionsville
             </Link>
             {' | '}
-            <Link href="/locations/fishers" className="hover:text-gray-400 transition-colors">
+            <Link href="/locations/fishers" className="hover:text-secondary transition-colors">
               Fishers
             </Link>
             {' | '}
-            <Link href="/locations/geist" className="hover:text-gray-400 transition-colors">
+            <Link href="/locations/geist" className="hover:text-secondary transition-colors">
               Geist
             </Link>
             {' | '}
-            <Link href="/" className="hover:text-gray-400 transition-colors">
+            <Link href="/" className="hover:text-secondary transition-colors">
               Indianapolis
             </Link>
           </p>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-600 pt-6 text-center text-gray-300">
-          <p className="font-semibold mb-2">
+        <div className="border-t border-border pt-6 text-center text-muted-foreground">
+          <p className="font-semibold mb-2 text-foreground">
             Notice: Direct Care Indy is not insurance.
           </p>
           <p>James D. Pike, D.O., FCCP, FACP | Direct Primary Care Physician</p>

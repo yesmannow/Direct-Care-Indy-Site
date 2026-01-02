@@ -192,7 +192,7 @@ export default function Partnerships() {
                 </ul>
               </div>
             </div>
-            <div className="mt-8 p-6 bg-gradient-to-r from-secondary to-primary text-white rounded-lg text-center shadow-xl border-2 border-white/20">
+            <div className="mt-8 p-6 bg-linear-to-r from-secondary to-primary text-white rounded-lg text-center shadow-xl border-2 border-white/20">
               <p className="text-lg mb-2 font-semibold">Potential Annual Savings Per Employee</p>
               <p className="text-5xl font-bold mb-2">$4,700+</p>
               <p className="text-sm mt-2 opacity-90">
@@ -278,7 +278,7 @@ export default function Partnerships() {
               </div>
 
               {/* Savings Summary */}
-              <div className="bg-gradient-to-r from-secondary to-primary text-white rounded-lg p-6 text-center">
+              <div className="bg-linear-to-r from-secondary to-primary text-white rounded-lg p-6 text-center">
                 <p className="text-lg mb-2">Your Fixed Monthly Investment</p>
                 <p className="text-5xl font-bold mb-4">${(quoteEmployees * 89).toLocaleString()}/mo</p>
                 <div className="border-t border-white/30 pt-4">
@@ -493,17 +493,17 @@ export default function Partnerships() {
               <h4 className="text-xl font-semibold mb-4">Contact Us</h4>
               <div className="space-y-3 text-gray-300">
                 <div className="flex items-start gap-2">
-                  <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
+                  <MapPin className="w-5 h-5 shrink-0 mt-1" />
                   <span>7911 N. Michigan Rd.<br />Indianapolis, IN 46268</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Phone className="w-5 h-5 flex-shrink-0" />
+                  <Phone className="w-5 h-5 shrink-0" />
                   <a href="tel:+13179566288" className="hover:text-white transition-colors">
                     (317) 956-6288
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Mail className="w-5 h-5 flex-shrink-0" />
+                  <Mail className="w-5 h-5 shrink-0" />
                   <a href="mailto:info@directcareindy.com" className="hover:text-white transition-colors">
                     info@directcareindy.com
                   </a>

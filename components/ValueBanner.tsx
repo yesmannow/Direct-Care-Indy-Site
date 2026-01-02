@@ -4,7 +4,7 @@ import { TrendingDown, Award } from "lucide-react";
 
 export function ValueBanner() {
   return (
-    <div className="bg-gradient-to-r from-teal-500 to-teal-600 text-white rounded-2xl p-8 shadow-lg">
+    <div className="bg-linear-to-r from-teal-500 to-teal-600 text-white rounded-2xl p-8 shadow-lg">
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center justify-center gap-3 mb-4">
           <Award className="w-8 h-8" />

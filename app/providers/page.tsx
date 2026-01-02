@@ -26,7 +26,7 @@ export default function ProvidersPage() {
     <div className="min-h-screen bg-background">
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-teal-600 to-teal-800 text-white py-20">
+      <section className="bg-linear-to-br from-teal-600 to-teal-800 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -36,7 +36,7 @@ export default function ProvidersPage() {
               Specialist-led primary care with high-access clinicians
             </p>
             <p className="text-lg opacity-80 max-w-2xl mx-auto">
-              Our "Round Table" model combines 24/7 direct access to expert PAs with weekly specialist oversight from Dr. Pike—bringing hospital-grade expertise to your everyday healthcare.
+              Our &ldquo;Round Table&rdquo; model combines 24/7 direct access to expert PAs with weekly specialist oversight from Dr. Pike—bringing hospital-grade expertise to your everyday healthcare.
             </p>
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function ProvidersPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/80" />
+          <div className="absolute inset-0 bg-linear-to-b from-primary/80 via-primary/60 to-primary/80" />
         </div>
 
         {/* Scrolling Content */}
@@ -161,7 +161,7 @@ export default function ProvidersPage() {
                   key={pa.slug}
                   className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow"
                 >
-                  <div className="relative aspect-[4/3] w-full">
+                  <div className="relative aspect-4/3 w-full">
                     <Image
                       src={pa.image}
                       alt={`${pa.name}, ${pa.credentials}`}

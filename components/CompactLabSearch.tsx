@@ -91,7 +91,7 @@ export function CompactLabSearch() {
                     )}
                   </p>
                 </div>
-                <div className="text-right ml-2 flex-shrink-0">
+                <div className="text-right ml-2 shrink-0">
                   <span className="text-lg font-black text-teal-400">
                     {lab.dpc === 0 ? 'FREE' : `$${lab.dpc}`}
                   </span>

@@ -7,12 +7,6 @@ import { SharedFooter } from "@/components/SharedFooter";
 import { useEffect, useState } from "react";
 
 export default function JoinSuccess() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const timelineSteps = [
     {
       icon: Mail,
@@ -44,7 +38,7 @@ export default function JoinSuccess() {
     <div className="min-h-screen bg-background">
 
       {/* Success Hero */}
-      <section className="bg-gradient-to-br from-teal-600 to-teal-800 text-white py-16">
+      <section className="bg-linear-to-br from-teal-600 to-teal-800 text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ scale: 0 }}
@@ -77,7 +71,7 @@ export default function JoinSuccess() {
                   key={index}
                   className="flex gap-6 items-start"
                 >
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center">
                       <step.icon className="w-6 h-6 text-teal-600" />
                     </div>

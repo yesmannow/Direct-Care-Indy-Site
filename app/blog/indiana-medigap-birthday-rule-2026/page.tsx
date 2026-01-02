@@ -64,19 +64,19 @@ export default function BirthdayRuleBlog() {
                 </h3>
                 <div className="space-y-4 text-lg">
                   <div className="flex items-start gap-3">
-                    <div className="bg-secondary text-secondary-foreground rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">1</div>
+                    <div className="bg-secondary text-secondary-foreground rounded-full w-8 h-8 flex items-center justify-center shrink-0 font-bold">1</div>
                     <div>
                       <strong className="text-foreground">Medicare + Medigap (Your 10%):</strong> Covers hospitalizations, major surgeries, and catastrophic events. Use the Birthday Rule to reduce your Medigap premium by 15-25%.
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="bg-secondary text-secondary-foreground rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">2</div>
+                    <div className="bg-secondary text-secondary-foreground rounded-full w-8 h-8 flex items-center justify-center shrink-0 font-bold">2</div>
                     <div>
                       <strong className="text-foreground">Direct Care Indy (Your 90%):</strong> Handles day-to-day care, same-day sick visits, and complex chronic management with Dr. Pike&apos;s Pulmonary expertise—all for $109/month.
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="bg-secondary text-secondary-foreground rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">3</div>
+                    <div className="bg-secondary text-secondary-foreground rounded-full w-8 h-8 flex items-center justify-center shrink-0 font-bold">3</div>
                     <div>
                       <strong className="text-foreground">HSA (Tax-Free Savings):</strong> Thanks to the 2026 One Big Beautiful Bill Act (OBBBA), your DPC membership is now a qualified medical expense. Use your HSA to pay your $109 membership tax-free, saving up to 30% depending on your tax bracket.
                     </div>

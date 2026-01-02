@@ -20,26 +20,8 @@ export function DynamicHeader({ children }: DynamicHeaderProps) {
 
 // Helper component to render dynamic CTA
 export function DynamicCTA() {
-  const [persona, setPersona] = useState<UserPersona>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    setPersona(getUserPersona());
-  }, []);
-
+  const persona = getUserPersona();
   const ctaClasses = "relative overflow-hidden bg-secondary hover:bg-opacity-90 text-white px-6 py-2 rounded-lg font-semibold transition-all group";
-
-  if (!mounted) {
-    return (
-      <Link href="/join" className={ctaClasses}>
-        <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
-          <Image src={SITE_ASSETS.ui.tealGradient} alt="" fill className="object-cover" />
-        </div>
-        <span className="relative z-10">Join Now</span>
-      </Link>
-    );
-  }
 
   switch (persona) {
     case 'senior':

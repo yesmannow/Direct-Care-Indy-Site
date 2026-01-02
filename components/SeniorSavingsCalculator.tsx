@@ -41,7 +41,7 @@ export function SeniorSavingsCalculator({ variant = 'full' }: SeniorSavingsCalcu
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="relative overflow-hidden rounded-2xl p-4 bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-800/20 border-2 border-teal-200 dark:border-teal-800"
+        className="relative overflow-hidden rounded-2xl p-4 bg-linear-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-800/20 border-2 border-teal-200 dark:border-teal-800"
       >
         <div className="relative z-10">
           <h3 className="text-sm font-black text-slate-900 dark:text-white mb-2 uppercase tracking-wide">
@@ -194,7 +194,7 @@ export function SeniorSavingsCalculator({ variant = 'full' }: SeniorSavingsCalcu
           initial={{ scale: 0.95 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2 }}
-          className="bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl p-6 mb-6"
+          className="bg-linear-to-r from-orange-500 to-orange-600 text-white rounded-xl p-6 mb-6"
         >
           <div className="flex items-center gap-2 mb-4">
             <TrendingDown className="w-6 h-6" />
@@ -212,7 +212,7 @@ export function SeniorSavingsCalculator({ variant = 'full' }: SeniorSavingsCalcu
           initial={{ scale: 0.95 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.3 }}
-          className="bg-gradient-to-r from-primary to-secondary text-white rounded-xl p-6"
+          className="bg-linear-to-r from-primary to-secondary text-white rounded-xl p-6"
         >
           <div className="flex items-center gap-2 mb-4">
             <DollarSign className="w-6 h-6" />

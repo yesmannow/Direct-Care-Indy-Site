@@ -43,7 +43,7 @@ export default function ComparisonTable() {
 
   return (
     <div className="bg-white rounded-lg shadow-xl overflow-hidden">
-      <div className="bg-gradient-to-r from-primary to-secondary text-white p-6 text-center">
+      <div className="bg-linear-to-r from-primary to-secondary text-white p-6 text-center">
         <h3 className="text-3xl font-bold mb-2">The 90/10 Model Comparison</h3>
         <p className="text-lg opacity-90">
           See why Direct Care covers 90% of your healthcare needs better than traditional insurance
@@ -72,7 +72,7 @@ export default function ComparisonTable() {
                 >
                   <td className="p-4">
                     <div className="flex items-center gap-3">
-                      <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0">
+                      <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center shrink-0">
                         <Icon className="w-5 h-5" />
                       </div>
                       <span className="font-semibold text-gray-900">{item.feature}</span>
@@ -80,13 +80,13 @@ export default function ComparisonTable() {
                   </td>
                   <td className="p-4 text-center">
                     <div className="flex items-center justify-center gap-2">
-                      <X className="w-5 h-5 text-red-600 flex-shrink-0" />
+                      <X className="w-5 h-5 text-red-600 shrink-0" />
                       <span className="text-gray-700">{item.traditional}</span>
                     </div>
                   </td>
                   <td className="p-4 text-center">
                     <div className="flex items-center justify-center gap-2">
-                      <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-green-600 shrink-0" />
                       <span className="font-semibold text-gray-900">{item.dpc}</span>
                     </div>
                   </td>
@@ -104,7 +104,7 @@ export default function ComparisonTable() {
           return (
             <div key={index} className="border-b border-gray-200 p-4">
               <div className="flex items-center gap-3 mb-3">
-                <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0">
+                <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center shrink-0">
                   <Icon className="w-5 h-5" />
                 </div>
                 <span className="font-semibold text-gray-900">{item.feature}</span>
@@ -113,14 +113,14 @@ export default function ComparisonTable() {
                 <div className="bg-red-50 p-3 rounded">
                   <p className="text-xs font-semibold text-red-700 mb-1">Traditional</p>
                   <div className="flex items-start gap-1">
-                    <X className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+                    <X className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
                     <p className="text-sm text-gray-700">{item.traditional}</p>
                   </div>
                 </div>
                 <div className="bg-green-50 p-3 rounded">
                   <p className="text-xs font-semibold text-green-700 mb-1">Direct Care</p>
                   <div className="flex items-start gap-1">
-                    <Check className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-green-600 shrink-0 mt-0.5" />
                     <p className="text-sm font-semibold text-gray-900">{item.dpc}</p>
                   </div>
                 </div>
@@ -131,7 +131,7 @@ export default function ComparisonTable() {
       </div>
 
       {/* Bottom Summary */}
-      <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 text-center">
+      <div className="bg-linear-to-r from-green-500 to-green-600 text-white p-6 text-center">
         <p className="text-2xl font-bold mb-2">Annual Net Savings: $4,536+</p>
         <p className="opacity-90">
           That&apos;s the power of the DPC Stack: Better care + Lower costs

@@ -13,14 +13,10 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/providers", label: "Our Team" },
-  { href: "/services", label: "Services" },
-  { href: "/seniors", label: "Seniors (Medicare)" },
-  { href: "/employers", label: "Employers" },
-  { href: "/partnerships", label: "Partnerships" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/blog/indiana-medigap-birthday-rule-2026", label: "Blog" },
+  { href: "/membership", label: "Pricing" },
+  { href: "/services-included", label: "Services" },
+  { href: "/for-employers", label: "Employers" },
+  { href: "/seniors", label: "Seniors" },
 ];
 
 export default function MobileNav() {
@@ -61,7 +57,7 @@ export default function MobileNav() {
       <button
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-4 right-4 z-[60] interactive-element rounded-lg bg-card/80 backdrop-blur-md text-foreground hover:bg-muted transition-colors shadow-lg border border-border"
+        className="lg:hidden fixed top-4 right-4 z-60 interactive-element rounded-lg bg-card/80 backdrop-blur-md text-foreground hover:bg-muted transition-colors shadow-lg border border-border"
         aria-controls="mobile-menu"
         aria-expanded={isOpen}
         aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}

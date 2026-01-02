@@ -38,7 +38,7 @@ async function HealthChecklistContent({ age, sex }: HealthChecklistProps) {
             className="bg-gray-700 rounded-lg p-4 border border-gray-600 hover:border-primary/50 transition-colors"
           >
             <div className="flex items-start gap-3">
-              <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+              <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
               <div className="flex-1">
                 <h4 className="font-semibold text-gray-100 mb-1">{screening.Title}</h4>
                 <p className="text-sm text-gray-300 mb-2">{screening.Description}</p>

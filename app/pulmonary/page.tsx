@@ -43,7 +43,7 @@ export default function PulmonaryPage() {
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/70 to-primary/90" />
+            <div className="absolute inset-0 bg-linear-to-b from-primary/90 via-primary/70 to-primary/90" />
           </div>
 
           {/* Scrolling Content */}
@@ -175,15 +175,15 @@ export default function PulmonaryPage() {
                   </p>
                   <ul className="space-y-2 text-gray-600 dark:text-gray-400">
                     <li className="flex items-start gap-2">
-                      <Activity className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                      <Activity className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                       <span>Unlimited sick visits</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Activity className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                      <Activity className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                       <span>Chronic disease management</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Activity className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                      <Activity className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                       <span>Preventive care & screenings</span>
                     </li>
                   </ul>
@@ -199,15 +199,15 @@ export default function PulmonaryPage() {
                   </p>
                   <ul className="space-y-2 text-gray-600 dark:text-gray-400">
                     <li className="flex items-start gap-2">
-                      <TrendingUp className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <TrendingUp className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                       <span>Complex case review</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <TrendingUp className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <TrendingUp className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                       <span>Diagnostic security</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <TrendingUp className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <TrendingUp className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                       <span>Specialist-level expertise</span>
                     </li>
                   </ul>

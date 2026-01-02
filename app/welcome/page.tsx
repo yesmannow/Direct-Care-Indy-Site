@@ -34,7 +34,7 @@ export default function Welcome() {
             {/* Step 1: The Secure Connection */}
             <div className="bg-white rounded-lg shadow-lg p-8 mb-6 border-l-4 border-secondary">
               <div className="flex items-start gap-6">
-                <div className="bg-secondary text-white rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
+                <div className="bg-secondary text-white rounded-full w-16 h-16 flex items-center justify-center shrink-0">
                   <MessageSquare className="w-8 h-8" />
                 </div>
                 <div className="flex-1">
@@ -67,7 +67,7 @@ export default function Welcome() {
             {/* Step 2: The Medical History */}
             <div className="bg-white rounded-lg shadow-lg p-8 mb-6 border-l-4 border-primary">
               <div className="flex items-start gap-6">
-                <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
+                <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center shrink-0">
                   <FileText className="w-8 h-8" />
                 </div>
                 <div className="flex-1">
@@ -95,7 +95,7 @@ export default function Welcome() {
             {/* Step 3: The First Visit */}
             <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-green-500">
               <div className="flex items-start gap-6">
-                <div className="bg-green-500 text-white rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
+                <div className="bg-green-500 text-white rounded-full w-16 h-16 flex items-center justify-center shrink-0">
                   <Calendar className="w-8 h-8" />
                 </div>
                 <div className="flex-1">
@@ -139,7 +139,7 @@ export default function Welcome() {
             </h3>
             <div className="space-y-4">
               <div className="flex items-start gap-4 p-4 bg-background rounded-lg">
-                <div className="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">
                   1
                 </div>
                 <div>
@@ -148,7 +148,7 @@ export default function Welcome() {
                 </div>
               </div>
               <div className="flex items-start gap-4 p-4 bg-background rounded-lg">
-                <div className="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">
                   2
                 </div>
                 <div>
@@ -157,7 +157,7 @@ export default function Welcome() {
                 </div>
               </div>
               <div className="flex items-start gap-4 p-4 bg-background rounded-lg">
-                <div className="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">
                   3
                 </div>
                 <div>
@@ -233,17 +233,17 @@ export default function Welcome() {
               <h4 className="text-xl font-semibold mb-4">Contact Us</h4>
               <div className="space-y-3 text-gray-300">
                 <div className="flex items-start gap-2">
-                  <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
+                  <MapPin className="w-5 h-5 shrink-0 mt-1" />
                   <span>7911 N. Michigan Rd.<br />Indianapolis, IN 46268</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Phone className="w-5 h-5 flex-shrink-0" />
+                  <Phone className="w-5 h-5 shrink-0" />
                   <a href="tel:+13179566288" className="hover:text-white transition-colors">
                     (317) 956-6288
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Mail className="w-5 h-5 flex-shrink-0" />
+                  <Mail className="w-5 h-5 shrink-0" />
                   <a href="mailto:info@directcareindy.com" className="hover:text-white transition-colors">
                     info@directcareindy.com
                   </a>

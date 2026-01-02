@@ -13,112 +13,56 @@ import { FaqSchema } from "@/components/FaqSchema";
 import { OrganizationSchema, PhysicianSchema, ServiceSchema } from "@/components/StructuredData";
 import { StickySavingsBar } from "@/components/StickySavingsBar";
 import { ScrollTransition } from "@/components/ScrollTransition";
+import { ValueProps } from "@/components/home/ValueProps";
+import { WhoItsFor } from "@/components/home/WhoItsFor";
+import { getCTAById } from "@/lib/content/dpc";
+import { Testimonials } from "@/components/Testimonials";
 
 export default function Home() {
-  return (
-    <>
-      <FaqSchema />
-      <OrganizationSchema />
-      <PhysicianSchema />
-      <ServiceSchema />
-      <div className="min-h-screen bg-background">
+  const primaryCTA = getCTAById('join-now');
 
+  return (
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="bg-background py-20 border-b border-border">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-5xl font-black mb-6 text-foreground text-glow">
-              Transparent Healthcare for Indianapolis
-            </h2>
-            <p className="text-2xl mb-4 text-foreground">
-              Experience the 90/10 model—90% of your care covered for a flat monthly fee.
-            </p>
-            <p className="text-xl mb-8 text-muted-foreground">
-              No insurance hassles. No surprise bills. Just quality care.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/pricing"
-                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-all interactive-element"
-              >
-                View Pricing
-              </Link>
-              <a
-                href="tel:+13179566288"
-                className="bg-card text-card-foreground hover:bg-card/90 border border-border px-8 py-4 rounded-lg font-semibold text-lg transition-all flex items-center justify-center gap-2 interactive-element"
-              >
-                <Phone className="w-5 h-5" />
-                (317) 956-6288
-              </a>
-            </div>
-          </div>
+      <section className="section-padding text-center">
+        <div className="content-container-narrow">
+          <h1 className="heading-1 mb-6">Healthcare Without the Hassle</h1>
+          <p className="body-large mb-8">
+            90% of your healthcare covered for one flat monthly fee
+          </p>
+          {primaryCTA && (
+            <Link href={primaryCTA.href} className="bg-secondary text-secondary-foreground px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform interactive-element">
+              {primaryCTA.text}
+            </Link>
+          )}
         </div>
       </section>
 
-      {/* About the Doctor Section */}
-      <section className="py-16 bg-background border-b border-border">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-foreground mb-4">
-                Expert Care from Dr. James D. Pike
-              </h3>
-              <div className="flex items-center justify-center gap-2 text-secondary font-semibold mb-2">
-                <Award className="w-5 h-5" />
-                <span>D.O., FCCP, FACP</span>
-              </div>
-              <p className="text-lg text-muted-foreground">
-                Board Certified in Internal Medicine & Pulmonary Medicine
-              </p>
-            </div>
-            <div className="section-card">
-              <p className="text-lg text-card-foreground mb-4">
-                Dr. Pike is a board-certified physician with specialized training in <strong className="text-foreground">Internal Medicine</strong> and <strong className="text-foreground">Pulmonary Medicine</strong>. His extensive training and experience allow him to provide comprehensive primary care with the expertise to handle complex medical conditions that typically require specialist referrals.
-              </p>
-              <div className="bg-muted rounded-lg p-6 mb-6 border-l-4 border-secondary border">
-                <h4 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
-                  <Award className="w-6 h-6" />
-                  Specialized Care for Seniors (65+)
-                </h4>
-                <p className="text-base text-card-foreground mb-3">
-                  Dr. Pike&apos;s <strong className="text-foreground">Pulmonary Medicine expertise</strong> is particularly valuable for the 65+ demographic, who often face complex respiratory conditions, COPD, chronic lung disease, and age-related pulmonary challenges. As a Fellow of the American College of Chest Physicians (FCCP), he brings specialist-level knowledge directly to your primary care—eliminating the need for separate pulmonary referrals and reducing care fragmentation.
-                </p>
-                <p className="text-base text-card-foreground">
-                  This <strong className="text-foreground">complex care capability</strong>—combined with the convenience and affordability of Direct Primary Care—makes our $109/month senior membership a market-leading value. You get pulmonary specialist expertise without the specialist copays, referral delays, or fragmented care coordination that traditional insurance models require.
-                </p>
-              </div>
-              <div className="grid md:grid-cols-2 gap-4 mt-6">
-                <div className="flex items-start gap-3 bg-card p-4 rounded-lg border border-border">
-                  <div className="bg-secondary text-secondary-foreground rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
-                    ✓
-                  </div>
-                  <div>
-                    <strong className="text-foreground">FCCP:</strong> Fellow of
-                    the American College of Chest Physicians
-                    <p className="text-sm text-muted-foreground mt-1">Pulmonary & Critical Care Expertise • Ideal for 65+ Complex Respiratory Needs</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 bg-card p-4 rounded-lg border border-border">
-                  <div className="bg-secondary text-secondary-foreground rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
-                    ✓
-                  </div>
-                  <div>
-                    <strong className="text-foreground">FACP:</strong> Fellow of
-                    the American College of Physicians
-                    <p className="text-sm text-muted-foreground mt-1">Internal Medicine Excellence • Comprehensive Primary Care</p>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-6 bg-muted rounded-lg p-4 border border-border">
-                <p className="text-lg text-card-foreground italic text-center font-medium">
-                  &quot;Pulmonary specialist expertise with Primary Care convenience—especially critical for seniors managing complex respiratory conditions.&quot;
-                </p>
-                <p className="text-sm text-muted-foreground text-center mt-2">
-                  Located at 7911 N. Michigan Rd., Indianapolis, IN 46268
-                </p>
-              </div>
-            </div>
-          </div>
+      {/* Value Props */}
+      <section className="section-padding">
+        <div className="content-container">
+          <h2 className="heading-2 text-center mb-12">Why Choose Direct Primary Care?</h2>
+          <ValueProps />
+        </div>
+      </section>
+
+      {/* Who It's For */}
+      <section className="section-padding bg-muted">
+        <div className="content-container-narrow">
+          <WhoItsFor />
+        </div>
+      </section>
+
+      {/* How It Works Teaser */}
+      <section className="section-padding">
+        <div className="content-container-narrow text-center">
+          <h2 className="heading-2 mb-6">How It Works</h2>
+          <p className="body-large max-w-2xl mx-auto mb-8">
+            Our 90/10 model means we handle 90% of your healthcare needs directly, while insurance covers the remaining 10%.
+          </p>
+          <p className="body-small">
+            This is not insurance. This is direct primary care.
+          </p>
         </div>
       </section>
 
@@ -206,18 +150,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Savings Personas Section */}
-      <section className="py-16 bg-background border-b border-border">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h3 className="text-3xl font-bold text-foreground mb-4 text-center">
-              Real People, Real Savings
-            </h3>
-            <p className="text-center text-muted-foreground mb-6 max-w-2xl mx-auto">
-              See how Direct Care Indy transforms healthcare for Indianapolis families and small businesses
+      {/* Testimonials Section */}
+      <section className="section-padding bg-muted/30">
+        <div className="content-container">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="heading-2 mb-4">What Our Members Say</h2>
+            <p className="body-large text-muted-foreground">
+              Real stories from real Indianapolis families who&apos;ve switched to Direct Primary Care.
             </p>
-            <SavingsPersonas />
           </div>
+          <Testimonials limit={3} />
         </div>
       </section>
 
@@ -304,17 +246,17 @@ export default function Home() {
               <h4 className="text-xl font-semibold mb-4">Contact Us</h4>
               <div className="space-y-3 text-muted-foreground">
                 <div className="flex items-start gap-2">
-                  <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
+                  <MapPin className="w-5 h-5 shrink-0 mt-1" />
                   <span>7911 N. Michigan Rd.<br />Indianapolis, IN 46268</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Phone className="w-5 h-5 flex-shrink-0" />
+                  <Phone className="w-5 h-5 shrink-0" />
                   <a href="tel:+13179566288" className="hover:text-foreground transition-colors">
                     (317) 956-6288
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Mail className="w-5 h-5 flex-shrink-0" />
+                  <Mail className="w-5 h-5 shrink-0" />
                   <a href="mailto:info@directcareindy.com" className="hover:text-foreground transition-colors">
                     info@directcareindy.com
                   </a>
@@ -326,7 +268,7 @@ export default function Home() {
             <p className="font-semibold mb-2">Notice: Direct Care Indy is not insurance.</p>
             <p>James D. Pike, D.O., FCCP, FACP | Direct Primary Care Physician</p>
             <p className="text-sm opacity-90 mt-1">Board Certified in Pulmonary and Internal Medicine</p>
-            <p className="mt-2">© {new Date().getFullYear()} Direct Care Indy. All rights reserved.</p>
+            <p className="mt-2"> {new Date().getFullYear()} Direct Care Indy. All rights reserved.</p>
           </div>
         </div>
       </footer>
@@ -334,6 +276,5 @@ export default function Home() {
       {/* Sticky Savings Bar */}
       <StickySavingsBar />
     </div>
-    </>
   );
 }

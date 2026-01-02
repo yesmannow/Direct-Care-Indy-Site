@@ -162,7 +162,7 @@ export function WellnessLab() {
             </div>
           )}
           <div className="mt-4 flex items-start gap-2 text-sm text-teal-200 italic">
-            <Info className="w-4 h-4 mt-1 flex-shrink-0" />
+            <Info className="w-4 h-4 mt-1 shrink-0" />
             <p>Note: This is a general screening. Members get deeper metabolic insights through Dr. Pike&apos;s specialized Internal Medicine labs.</p>
           </div>
         </motion.div>

@@ -3,13 +3,13 @@ import { Users, Shield, Clock, MessageSquare, Stethoscope, CheckCircle2 } from "
 
 export function RoundTableOverview() {
   return (
-    <div className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16">
+    <div className="bg-linear-to-br from-gray-900 to-gray-800 text-white py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              The Direct Care Indy "Round Table" Model
+              The Direct Care Indy &ldquo;Round Table&rdquo; Model
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               High-access primary care clinicians with specialist oversight—bringing hospital-grade expertise to your everyday healthcare.
@@ -39,15 +39,15 @@ export function RoundTableOverview() {
                 </div>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start gap-2">
-                    <MessageSquare className="w-5 h-5 text-teal-400 flex-shrink-0 mt-0.5" />
+                    <MessageSquare className="w-5 h-5 text-teal-400 shrink-0 mt-0.5" />
                     <span><strong className="text-white">24/7 Direct Text:</strong> Text your PA directly via Spruce Health app—no phone tag, instant responses.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Clock className="w-5 h-5 text-teal-400 flex-shrink-0 mt-0.5" />
+                    <Clock className="w-5 h-5 text-teal-400 shrink-0 mt-0.5" />
                     <span><strong className="text-white">60-Minute Unhurried Visits:</strong> Comprehensive appointments with no time pressure—your PA listens and addresses all concerns.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Stethoscope className="w-5 h-5 text-teal-400 flex-shrink-0 mt-0.5" />
+                    <Stethoscope className="w-5 h-5 text-teal-400 shrink-0 mt-0.5" />
                     <span><strong className="text-white">90% Daily Care:</strong> Routine visits, Strep tests, wellness exams, and chronic disease management.</span>
                   </li>
                 </ul>
@@ -63,15 +63,15 @@ export function RoundTableOverview() {
                 </div>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
                     <span><strong className="text-white">Weekly Case Reviews:</strong> Dr. Pike reviews complex cases weekly, bringing hospital-grade expertise to primary care.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Stethoscope className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                    <Stethoscope className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
                     <span><strong className="text-white">Triple Board-Certified:</strong> Internal Medicine, Pulmonary Medicine, and Critical Care expertise for complex needs.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Shield className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                    <Shield className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
                     <span><strong className="text-white">10% Complex Cases:</strong> Specialist-level diagnostic security for pulmonary conditions and complex internal medicine.</span>
                   </li>
                 </ul>
@@ -87,15 +87,15 @@ export function RoundTableOverview() {
                 </div>
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
                     <span><strong className="text-white">Routine Care (90%):</strong> Strep tests, lab work, wellness exams, and preventive care handled by your PA.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Shield className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                    <Shield className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
                     <span><strong className="text-white">Catastrophic Security (10%):</strong> Complex diagnostics, pulmonary conditions, and specialist-level care with Dr. Pike.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Stethoscope className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                    <Stethoscope className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
                     <span><strong className="text-white">Seamless Handoff:</strong> Your PA coordinates with Dr. Pike when specialist expertise is needed—no gaps in care.</span>
                   </li>
                 </ul>

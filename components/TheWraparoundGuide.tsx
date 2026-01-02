@@ -70,7 +70,7 @@ export function TheWraparoundGuide() {
   };
 
   return (
-    <div className="py-16 bg-gradient-to-br from-gray-50 to-white">
+    <div className="py-16 bg-linear-to-br from-gray-50 to-white">
       <div className="max-w-5xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-[#1B2B3A] mb-4">
@@ -94,7 +94,7 @@ export function TheWraparoundGuide() {
               >
                 <div className="flex items-start gap-6">
                   {/* Step Number & Icon */}
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <div className={`${colors.icon} text-white w-16 h-16 rounded-2xl flex items-center justify-center mb-3`}>
                       <Icon className="w-8 h-8" />
                     </div>
@@ -139,7 +139,7 @@ export function TheWraparoundGuide() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-12 bg-gradient-to-r from-[#1B2B3A] to-teal-600 text-white rounded-3xl p-8 text-center">
+        <div className="mt-12 bg-linear-to-r from-[#1B2B3A] to-teal-600 text-white rounded-3xl p-8 text-center">
           <h3 className="text-2xl font-bold mb-4">
             Ready to Build Your DPC Stack?
           </h3>
