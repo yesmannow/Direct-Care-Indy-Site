@@ -99,7 +99,7 @@ export function MegaMenu() {
             <Link href="/services-included" className="text-foreground hover:text-secondary transition-colors font-medium">
               Services
             </Link>
-            <Link href="/for-employers" className="text-foreground hover:text-secondary transition-colors font-medium">
+            <Link href="/employers" className="text-foreground hover:text-secondary transition-colors font-medium">
               Employers
             </Link>
             <Link href="/seniors" className="text-foreground hover:text-secondary transition-colors font-medium">
