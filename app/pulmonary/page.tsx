@@ -5,7 +5,7 @@ import { Shield, Stethoscope, TrendingUp, Users, Activity, BarChart3, Phone } fr
 import { SITE_ASSETS } from "@/lib/images";
 import { GlobalHealthChart } from "@/components/GlobalHealthChart";
 import { NinetyTenSwitcher } from "@/components/NinetyTenSwitcher";
-import { IndyBreathEasy } from "@/components/IndyBreathEasy";
+import IndyBreathEasy from "@/components/IndyBreathEasy";
 import { PhysicianOversightBadge } from "@/components/PhysicianOversightBadge";
 import { SharedFooter } from "@/components/SharedFooter";
 

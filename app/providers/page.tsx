@@ -5,6 +5,7 @@ import { Stethoscope, Users, Shield } from "lucide-react";
 import { PROVIDERS, getMedicalDirector, getLeadPAs } from "@/lib/data/providers";
 import { RoundTableOverview } from "@/components/RoundTableOverview";
 import { SharedFooter } from "@/components/SharedFooter";
+import { SITE_ASSETS } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Meet Our Team | Direct Care Indy - Specialist-Led Primary Care",

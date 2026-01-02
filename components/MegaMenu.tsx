@@ -226,7 +226,7 @@ export function MegaMenu() {
                           </motion.div>
 
                           {/* Right Side - Embedded Tool with Staggered Animation */}
-                          {item.embeddedTool && (
+                          {'embeddedTool' in item && item.embeddedTool && (
                             <motion.div
                               className="border-l border-gray-200 dark:border-gray-700 pl-8"
                               initial={{ opacity: 0, x: 20 }}
