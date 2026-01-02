@@ -139,7 +139,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2" aria-label="Direct Care Indy">
               <Image
-                src="/images/logos/dci logo primary.PNG"
+                src="/images/logos/dci-logo-primary.svg"
                 alt="Direct Care Indy logo"
                 width={160}
                 height={40}
