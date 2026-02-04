@@ -148,12 +148,14 @@ export default function OnboardingWizard() {
               ].map(({ value, label, icon: Icon }) => (
                 <button
                   key={value}
+                  type="button"
                   onClick={() => handleTypeSelect(value)}
                   className={`w-full p-4 rounded-2xl border-2 text-left flex items-center gap-4 transition-all ${
                     formData.type === value
                       ? 'border-teal-500 bg-teal-50'
                       : 'border-gray-100 hover:border-teal-200 hover:bg-gray-50'
                   }`}
+                  aria-pressed={formData.type === value}
                 >
                   <Icon className="w-6 h-6 text-teal-600" />
                   <span className="font-semibold text-gray-900">{label}</span>
@@ -182,12 +184,14 @@ export default function OnboardingWizard() {
               {healthGoals.map(goal => (
                 <button
                   key={goal}
+                  type="button"
                   onClick={() => handleGoalSelect(goal)}
                   className={`p-4 rounded-xl border text-left font-medium transition-all ${
                     formData.goal === goal
                       ? 'border-teal-500 bg-teal-50 text-teal-900'
                       : 'border-gray-200 hover:bg-gray-50 text-gray-900'
                   }`}
+                  aria-pressed={formData.goal === goal}
                 >
                   {goal}
                 </button>
@@ -220,30 +224,51 @@ export default function OnboardingWizard() {
               and reach out shortly.
             </p>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <input
-                type="text"
-                placeholder="Full Name"
-                required
-                value={formData.name}
-                onChange={e => setFormData({ ...formData, name: e.target.value })}
-                className="w-full p-4 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-teal-500 focus:outline-none"
-              />
-              <input
-                type="email"
-                placeholder="Email Address"
-                required
-                value={formData.email}
-                onChange={e => setFormData({ ...formData, email: e.target.value })}
-                className="w-full p-4 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-teal-500 focus:outline-none"
-              />
-              <input
-                type="tel"
-                placeholder="Phone Number"
-                required
-                value={formData.phone}
-                onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full p-4 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-teal-500 focus:outline-none"
-              />
+              <div className="space-y-2">
+                <label htmlFor="name" className="block text-sm font-semibold text-gray-800">
+                  Full name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Full Name"
+                  required
+                  value={formData.name}
+                  onChange={e => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full p-4 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-teal-500 focus:outline-none"
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-800">
+                  Email address
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="Email Address"
+                  required
+                  value={formData.email}
+                  onChange={e => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full p-4 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-teal-500 focus:outline-none"
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="phone" className="block text-sm font-semibold text-gray-800">
+                  Phone number
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="Phone Number"
+                  required
+                  value={formData.phone}
+                  onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full p-4 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-teal-500 focus:outline-none"
+                />
+              </div>
               <div className="flex gap-4 pt-4">
                 <button
                   type="button"

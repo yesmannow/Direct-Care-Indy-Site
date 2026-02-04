@@ -52,10 +52,16 @@ export function StickySavingsBar() {
           </div>
           <div className="flex items-center gap-3">
             <Link
-              href="/membership"
-              className="bg-secondary text-secondary-foreground px-6 py-2 rounded-full font-semibold text-sm hover:scale-105 transition-transform interactive-element"
+              href="/join"
+              className="bg-secondary text-secondary-foreground px-6 py-2 rounded-full font-semibold text-sm hover:scale-105 transition-transform interactive-element shadow"
             >
-              View Plans
+              Join Now
+            </Link>
+            <Link
+              href="/pricing#pricing-calculator"
+              className="hidden md:inline-flex px-5 py-2 rounded-full font-semibold text-sm border border-border text-foreground hover:bg-muted transition-colors interactive-element"
+            >
+              Calculate Price
             </Link>
             <button
               onClick={handleDismiss}

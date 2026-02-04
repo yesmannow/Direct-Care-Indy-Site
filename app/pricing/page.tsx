@@ -7,6 +7,7 @@ import { IncludedMatrix } from "@/components/IncludedMatrix";
 import { ValueBanner } from "@/components/ValueBanner";
 import { MarketCostComparison } from "@/components/MarketCostComparison";
 import WholesaleLabSearch from "@/components/WholesaleLabSearch";
+import { PricingCalculator } from "@/components/PricingCalculator";
 
 export default function Pricing() {
 
@@ -20,6 +21,15 @@ export default function Pricing() {
           <p className="text-xl max-w-2xl mx-auto">
             One flat monthly fee. No hidden costs. No copays. No deductibles.
           </p>
+        </div>
+      </section>
+
+      {/* Pricing Calculator */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <PricingCalculator />
+          </div>
         </div>
       </section>
 

@@ -8,6 +8,7 @@ import { setUserPersona } from "@/lib/persona";
 import { EmployerSavingsCalculator } from "@/components/EmployerSavingsCalculator";
 import { OccHealthIntake } from "@/components/OccHealthIntake";
 import { OccHealthPrices } from "@/components/OccHealthPrices";
+import { EmployerDemoForm } from "@/components/EmployerDemoForm";
 import { SITE_ASSETS } from "@/lib/images";
 
 export default function Employers() {
@@ -50,6 +51,12 @@ export default function Employers() {
                 Calculate Your Savings
               </a>
               <a
+                href="#demo"
+                className="bg-white/90 text-primary hover:bg-white px-8 py-4 rounded-lg font-semibold text-lg transition-all inline-flex items-center justify-center gap-2 border border-white/70"
+              >
+                Request a Demo
+              </a>
+              <a
                 href="tel:+13179566288"
                 className="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all inline-flex items-center justify-center gap-2"
               >
@@ -57,6 +64,36 @@ export default function Employers() {
                 (317) 956-6288
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Demo / Consultation */}
+      <section id="demo" className="py-16 bg-background border-b border-border">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-start">
+            <div className="space-y-4">
+              <h3 className="text-3xl font-bold text-primary">Request a live demo for your business</h3>
+              <p className="text-lg text-gray-700">
+                See how Hint enrollment, employer billing, and our DPC stack work together for Indiana crews.
+                We will tailor the walkthrough to your industry and show real pricing scenarios.
+              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li className="flex items-start gap-2">
+                  <Shield className="w-5 h-5 text-primary mt-1" />
+                  <span>Live Hint enrollment and portal handoff.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <TrendingDown className="w-5 h-5 text-primary mt-1" />
+                  <span>Cost breakdowns for per-employee pricing and household caps.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Users className="w-5 h-5 text-primary mt-1" />
+                  <span>Answers on occupational health add-ons and DOT requirements.</span>
+                </li>
+              </ul>
+            </div>
+            <EmployerDemoForm />
           </div>
         </div>
       </section>
@@ -83,7 +120,7 @@ export default function Employers() {
                 </div>
               </div>
               <p className="text-lg text-gray-200 mt-6 text-center">
-                <strong className="text-primary">The Bottom Line:</strong> Prevent one ER visit and your DPC membership pays for itself—plus you get unlimited primary care, same-day appointments, and wholesale labs.
+                <strong className="text-primary">The Bottom Line:</strong> Prevent one ER visit and your DPC membership pays for itself-plus you get unlimited primary care, same-day appointments, and wholesale labs.
               </p>
             </div>
           </div>
@@ -115,7 +152,7 @@ export default function Employers() {
                 <h3 className="text-3xl font-bold text-primary">Occupational Health Services</h3>
               </div>
               <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                Single-service options for DOT Physicals, Drug Screens, and more—perfect for businesses that need occasional occupational health services
+                Single-service options for DOT Physicals, Drug Screens, and more-perfect for businesses that need occasional occupational health services
               </p>
             </div>
             <OccHealthPrices />

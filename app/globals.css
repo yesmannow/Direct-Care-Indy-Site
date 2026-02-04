@@ -19,6 +19,8 @@
     /* Pure Light Mode - High Contrast */
     --background: #F8FAFC;
     --foreground: #0F172A; /* Slate 900 */
+    --font-heading: var(--font-display), var(--font-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-body: var(--font-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
 
     /* Semantic Surfaces */
     --card: #FFFFFF;
@@ -62,8 +64,35 @@
     background-color: var(--background);
     color: var(--foreground);
     /* Modern font stack for clinical readability */
-    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-family: var(--font-body);
     line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    padding: 0.75rem 1rem;
+    background: #0d9488;
+    color: #ffffff;
+    border-radius: 9999px;
+    font-weight: 700;
+    text-decoration: none;
+    z-index: 60;
+    box-shadow: 0 10px 30px rgba(13, 148, 136, 0.35);
+    transition: transform 150ms ease, top 150ms ease;
+  }
+
+  .skip-link:focus-visible {
+    top: 1rem;
+    transform: translateY(0);
+    outline: 3px solid #f8fafc;
+    outline-offset: 2px;
   }
 }
 
@@ -86,18 +115,22 @@
   /* Typography Scale - Consistent heading hierarchy */
   .heading-1 {
     @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight;
+    font-family: var(--font-heading);
   }
 
   .heading-2 {
     @apply text-3xl md:text-4xl font-bold tracking-tight leading-tight;
+    font-family: var(--font-heading);
   }
 
   .heading-3 {
     @apply text-2xl md:text-3xl font-semibold tracking-tight leading-tight;
+    font-family: var(--font-heading);
   }
 
   .heading-4 {
     @apply text-xl md:text-2xl font-semibold tracking-tight leading-tight;
+    font-family: var(--font-heading);
   }
 
   /* Body Text Scale */

@@ -17,6 +17,9 @@ import {
   ChevronDown,
   Menu,
   X,
+  Home,
+  PhoneCall,
+  Shield,
 } from 'lucide-react';
 
 // Icon map for dynamic rendering
@@ -31,9 +34,14 @@ const icons = {
   Handshake,
   HelpCircle,
   BookOpen,
+  Home,
+  PhoneCall,
+  Shield,
 } as const;
 
-type NavLink = { name: string; href: string; icon: keyof typeof icons };
+const PATIENT_PORTAL_URL = "https://directcareindy.hint.com/login";
+
+type NavLink = { name: string; href: string; icon: keyof typeof icons; external?: boolean };
 type FeatureCardItem = { label: string; price: string };
 type FeatureCard = {
   title: string;
@@ -61,7 +69,7 @@ const navData: NavItem[] = [
     links: [
       { name: 'Services (Primary & Urgent)', href: '/services', icon: 'Stethoscope' },
       { name: 'Seniors (Medicare)', href: '/seniors', icon: 'Activity' },
-      { name: 'The 90/10 Model', href: '/#model', icon: 'FileText' },
+      { name: 'The 90/10 Model', href: '/#how-it-works', icon: 'FileText' },
     ],
     featureCard: {
       title: 'Wholesale Member Pricing',
@@ -88,28 +96,46 @@ const navData: NavItem[] = [
       title: 'Calculate Your Savings',
       description: 'The average family saves $4,560/year with our model vs. traditional insurance.',
       imageSrc: '/images/clinical/healthcare-chart-1.webp',
-      buttonText: 'Compare My Costs →',
-      buttonHref: '/pricing',
+      buttonText: 'Compare My Costs',
+      buttonHref: '/pricing#pricing-calculator',
     },
   },
   {
-    title: 'Resources',
+    title: 'Our Practice',
     path: '/about',
     links: [
       { name: 'Our Team', href: '/providers', icon: 'Users' },
+      { name: 'The DPC Story', href: '/about', icon: 'Home' },
       { name: 'FAQ', href: '/faq', icon: 'HelpCircle' },
-      { name: 'Blog', href: '/blog', icon: 'BookOpen' },
     ],
     featureCard: {
       title: 'Meet Dr. James Pike',
       subtitle: 'D.O., FCCP, FACP',
-      description: 'Double board‑certified in Internal Medicine and Pulmonary Medicine.',
+      description: 'Double board-certified in Internal Medicine and Pulmonary Medicine.',
       imageSrc: '/images/providers/james-pike.webp',
-      buttonText: 'Read Bio →',
+      buttonText: 'Read Bio',
       buttonHref: '/providers',
     },
   },
-] ;
+  {
+    title: 'Resources',
+    path: '/blog',
+    links: [
+      { name: 'Blog', href: '/blog', icon: 'BookOpen' },
+      { name: 'Patient Portal', href: PATIENT_PORTAL_URL, icon: 'Shield', external: true },
+      { name: 'Contact Us', href: 'mailto:info@directcareindy.com', icon: 'PhoneCall', external: true },
+      { name: 'Hint Integration Demo', href: '/resources/hint-health-demo', icon: 'Calculator' },
+    ],
+    featureCard: {
+      title: 'Member Access',
+      subtitle: 'Patient portal and enrollment powered by Hint Health.',
+      description: 'Log in to your portal or explore how Hint connects to Direct Care Indy.',
+      imageSrc: '/images/clinical/pulmonary-clinic.webp',
+      buttonText: 'Portal Login',
+      buttonHref: PATIENT_PORTAL_URL,
+    },
+  },
+];
 
 export default function Navbar() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -135,7 +161,7 @@ export default function Navbar() {
       {/* Sticky top bar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
+          <div className="flex h-16 items-center justify-between gap-4">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2" aria-label="Direct Care Indy">
               <Image
@@ -171,12 +197,23 @@ export default function Navbar() {
                           <div className="space-y-2">
                             {item.links.map((link) => {
                               const IconComponent = icons[link.icon as keyof typeof icons];
+                              const linkClasses = "flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-50 text-slate-900 hover:text-teal-600 transition-colors";
+                              if (link.external) {
+                                return (
+                                  <a
+                                    key={link.href}
+                                    href={link.href}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className={linkClasses}
+                                  >
+                                    {IconComponent && <IconComponent className="h-5 w-5 text-teal-600" />}
+                                    <span className="font-medium">{link.name}</span>
+                                  </a>
+                                );
+                              }
                               return (
-                                <Link
-                                  key={link.href}
-                                  href={link.href}
-                                  className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-50 text-slate-900 hover:text-teal-600 transition-colors"
-                                >
+                                <Link key={link.href} href={link.href} className={linkClasses}>
                                   {IconComponent && <IconComponent className="h-5 w-5 text-teal-600" />}
                                   <span className="font-medium">{link.name}</span>
                                 </Link>
@@ -238,12 +275,21 @@ export default function Navbar() {
                   )}
                 </div>
               ))}
-              {/* CTA */}
+            </div>
+            <div className="hidden md:flex items-center space-x-3">
+              <a
+                href={PATIENT_PORTAL_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm font-semibold text-slate-900 hover:text-teal-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 rounded-full px-3 py-2"
+              >
+                Patient Login
+              </a>
               <Link
                 href="/join"
-                className="inline-flex items-center bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-full font-semibold shadow"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-secondary via-secondary to-primary text-white px-5 py-2 rounded-full font-semibold shadow-lg hover:-translate-y-0.5 hover:shadow-xl transition-all"
               >
-                Join
+                Join Now
               </Link>
             </div>
             {/* Mobile Hamburger */}
@@ -283,12 +329,28 @@ export default function Navbar() {
                       <div className="mt-2 space-y-2 pl-4">
                         {item.links.map((link) => {
                           const IconComponent = icons[link.icon as keyof typeof icons];
+                          const classes = "flex items-center gap-2 py-2 text-slate-900 hover:text-teal-600";
+                          if (link.external) {
+                            return (
+                              <a
+                                key={link.href}
+                                href={link.href}
+                                target="_blank"
+                                rel="noreferrer"
+                                onClick={toggleDrawer}
+                                className={classes}
+                              >
+                                {IconComponent && <IconComponent className="h-4 w-4 text-teal-600" />}
+                                <span>{link.name}</span>
+                              </a>
+                            );
+                          }
                           return (
                             <Link
                               key={link.href}
                               href={link.href}
                               onClick={toggleDrawer}
-                              className="flex items-center gap-2 py-2 text-slate-900 hover:text-teal-600"
+                              className={classes}
                             >
                               {IconComponent && <IconComponent className="h-4 w-4 text-teal-600" />}
                               <span>{link.name}</span>
@@ -300,13 +362,22 @@ export default function Navbar() {
                   </div>
                 );
               })}
-              <div className="pt-4">
+              <div className="pt-4 space-y-3">
+                <a
+                  href={PATIENT_PORTAL_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={toggleDrawer}
+                  className="block text-center border border-gray-200 text-slate-900 hover:border-teal-600 hover:text-teal-700 px-4 py-3 rounded-full font-semibold"
+                >
+                  Patient Login
+                </a>
                 <Link
                   href="/join"
                   onClick={toggleDrawer}
-                  className="block text-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-3 rounded-full font-semibold"
+                  className="block text-center bg-gradient-to-r from-secondary via-secondary to-primary hover:opacity-95 text-white px-4 py-3 rounded-full font-semibold shadow"
                 >
-                  Join
+                  Join Now
                 </Link>
               </div>
             </nav>
