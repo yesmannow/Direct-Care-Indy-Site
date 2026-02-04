@@ -15,14 +15,11 @@ import {
   HelpCircle,
   BookOpen,
   ChevronDown,
-  Menu,
-  X,
   Home,
   PhoneCall,
   Shield,
 } from 'lucide-react';
 
-// Icon map for dynamic rendering
 const icons = {
   Stethoscope,
   Users,
@@ -61,7 +58,6 @@ type NavItem = {
   featureCard: FeatureCard;
 };
 
-// Navigation data (links and feature cards)
 const navData: NavItem[] = [
   {
     title: 'Care & Services',
@@ -139,7 +135,6 @@ const navData: NavItem[] = [
 
 export default function Navbar() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleMouseEnter = (index: number) => {
@@ -151,239 +146,114 @@ export default function Navbar() {
     timeoutRef.current = setTimeout(() => setOpenIndex(null), 150);
   };
 
-  const toggleDrawer = () => {
-    setDrawerOpen(!drawerOpen);
-    setOpenIndex(null);
-  };
-
   return (
-    <>
-      {/* Sticky top bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between gap-4">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-2" aria-label="Direct Care Indy">
-              <Image
-                src="/images/logos/dci-logo-primary.svg"
-                alt="Direct Care Indy logo"
-                width={160}
-                height={40}
-                priority
-                className="h-auto w-auto object-contain"
-              />
-            </Link>
-            {/* Desktop navigation */}
-            <div className="hidden md:flex items-center space-x-6">
-              {navData.map((item, index) => (
-                <div
-                  key={item.title}
-                  className="relative"
-                  onMouseEnter={() => handleMouseEnter(index)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <button className="flex items-center gap-1 text-slate-900 hover:text-teal-600 font-medium focus:outline-none">
-                    {item.title}
-                    <ChevronDown className="h-4 w-4 mt-px" />
-                  </button>
-                  {/* Mega menu dropdown */}
-                  {openIndex === index && (
-                    <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-3 w-screen max-w-4xl z-40">
-                      {/* Backdrop */}
-                      <div className="absolute inset-0" onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={handleMouseLeave}>
-                        <div className="absolute inset-0 bg-black/5 backdrop-blur-sm" />
-                        <div className="relative mx-auto max-w-4xl bg-white shadow-xl rounded-2xl p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-                          {/* Links */}
-                          <div className="space-y-2">
-                            {item.links.map((link) => {
-                              const IconComponent = icons[link.icon as keyof typeof icons];
-                              const linkClasses = "flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-50 text-slate-900 hover:text-teal-600 transition-colors";
-                              if (link.external) {
-                                return (
-                                  <a
-                                    key={link.href}
-                                    href={link.href}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className={linkClasses}
-                                  >
-                                    {IconComponent && <IconComponent className="h-5 w-5 text-teal-600" />}
-                                    <span className="font-medium">{link.name}</span>
-                                  </a>
-                                );
-                              }
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg shadow-sm border-b border-gray-100">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between gap-4">
+          <Link href="/" className="flex items-center gap-2" aria-label="Direct Care Indy">
+            <Image
+              src="/images/logos/dci-logo-primary.svg"
+              alt="Direct Care Indy logo"
+              width={160}
+              height={40}
+              priority
+              className="h-auto w-auto object-contain"
+            />
+          </Link>
+
+          <div className="hidden md:flex items-center space-x-6">
+            {navData.map((item, index) => (
+              <div
+                key={item.title}
+                className="relative"
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <button className="flex items-center gap-1 text-slate-900 hover:text-teal-600 font-medium focus:outline-none">
+                  {item.title}
+                  <ChevronDown className="h-4 w-4 mt-px" />
+                </button>
+                {openIndex === index && (
+                  <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-3 w-screen max-w-4xl z-40">
+                    <div className="absolute inset-0" onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={handleMouseLeave}>
+                      <div className="absolute inset-0 bg-black/5 backdrop-blur-sm" />
+                      <div className="relative mx-auto max-w-4xl bg-white shadow-xl rounded-2xl p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className="space-y-2">
+                          {item.links.map((link) => {
+                            const IconComponent = icons[link.icon];
+                            const linkClasses = "flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-gray-50 text-slate-900 hover:text-teal-600 transition-colors";
+                            if (link.external) {
                               return (
-                                <Link key={link.href} href={link.href} className={linkClasses}>
+                                <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className={linkClasses}>
                                   {IconComponent && <IconComponent className="h-5 w-5 text-teal-600" />}
                                   <span className="font-medium">{link.name}</span>
-                                </Link>
+                                </a>
                               );
-                            })}
-                          </div>
-                          {/* Feature Card */}
-                          <div className="relative overflow-hidden rounded-2xl bg-slate-50 p-6 flex flex-col justify-between">
-                            {item.featureCard.imageSrc && (
-                              <div className="absolute inset-0 opacity-30">
-                                <Image
-                                  src={item.featureCard.imageSrc}
-                                  alt="Feature image"
-                                  fill
-                                  sizes="(max-width: 768px) 100vw, 50vw"
-                                  className="object-cover"
-                                />
-                              </div>
-                            )}
-                            <div className="relative z-10 space-y-2">
-                              <h3 className="text-lg font-bold text-slate-900">{item.featureCard.title}</h3>
-                              {item.featureCard.subtitle && (
-                                <p className="text-sm font-semibold text-teal-600">{item.featureCard.subtitle}</p>
-                              )}
-                              {item.featureCard.description && (
-                                <p className="text-sm text-slate-700">{item.featureCard.description}</p>
-                              )}
-                              {item.featureCard.items && (
-                                <ul className="mt-2 space-y-1">
-                                  {item.featureCard.items.map(({ label, price }) => (
-                                    <li key={label} className="flex justify-between text-sm font-medium text-slate-900">
-                                      <span>{label}</span>
-                                      <span className="text-teal-600">{price}</span>
-                                    </li>
-                                  ))}
-                                </ul>
-                              )}
+                            }
+                            return (
+                              <Link key={link.href} href={link.href} className={linkClasses}>
+                                {IconComponent && <IconComponent className="h-5 w-5 text-teal-600" />}
+                                <span className="font-medium">{link.name}</span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                        <div className="relative overflow-hidden rounded-2xl bg-slate-50 p-6 flex flex-col justify-between">
+                          {item.featureCard.imageSrc && (
+                            <div className="absolute inset-0 opacity-30">
+                              <Image src={item.featureCard.imageSrc} alt="Feature image" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
                             </div>
-                            {item.featureCard.linkText && item.featureCard.linkHref && (
-                              <Link
-                                href={item.featureCard.linkHref}
-                                className="relative z-10 inline-flex items-center mt-4 text-teal-600 hover:text-teal-700 font-semibold"
-                              >
-                                {item.featureCard.linkText}
-                              </Link>
-                            )}
-                            {item.featureCard.buttonText && item.featureCard.buttonHref && (
-                              <Link
-                                href={item.featureCard.buttonHref}
-                                className="relative z-10 mt-4 inline-block text-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-full font-semibold"
-                              >
-                                {item.featureCard.buttonText}
-                              </Link>
+                          )}
+                          <div className="relative z-10 space-y-2">
+                            <h3 className="text-lg font-bold text-slate-900">{item.featureCard.title}</h3>
+                            {item.featureCard.subtitle && <p className="text-sm font-semibold text-teal-600">{item.featureCard.subtitle}</p>}
+                            {item.featureCard.description && <p className="text-sm text-slate-700">{item.featureCard.description}</p>}
+                            {item.featureCard.items && (
+                              <ul className="mt-2 space-y-1">
+                                {item.featureCard.items.map(({ label, price }) => (
+                                  <li key={label} className="flex justify-between text-sm font-medium text-slate-900">
+                                    <span>{label}</span>
+                                    <span className="text-teal-600">{price}</span>
+                                  </li>
+                                ))}
+                              </ul>
                             )}
                           </div>
+                          {item.featureCard.linkText && item.featureCard.linkHref && (
+                            <Link href={item.featureCard.linkHref} className="relative z-10 inline-flex items-center mt-4 text-teal-600 hover:text-teal-700 font-semibold">
+                              {item.featureCard.linkText}
+                            </Link>
+                          )}
+                          {item.featureCard.buttonText && item.featureCard.buttonHref && (
+                            <Link href={item.featureCard.buttonHref} className="relative z-10 mt-4 inline-block text-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-full font-semibold">
+                              {item.featureCard.buttonText}
+                            </Link>
+                          )}
                         </div>
                       </div>
                     </div>
-                  )}
-                </div>
-              ))}
-            </div>
-            <div className="hidden md:flex items-center space-x-3">
-              <a
-                href={PATIENT_PORTAL_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="text-sm font-semibold text-slate-900 hover:text-teal-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 rounded-full px-3 py-2"
-              >
-                Patient Login
-              </a>
-              <Link
-                href="/join"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-secondary via-secondary to-primary text-white px-5 py-2 rounded-full font-semibold shadow-lg hover:-translate-y-0.5 hover:shadow-xl transition-all"
-              >
-                Join Now
-              </Link>
-            </div>
-            {/* Mobile Hamburger */}
-            <button
-              onClick={toggleDrawer}
-              className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-slate-900 hover:text-teal-600 focus:outline-none"
-              aria-label={drawerOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            >
-              {drawerOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-      </nav>
-      {/* Mobile Drawer */}
-      {drawerOpen && (
-        <div className="md:hidden">
-          <div className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm" onClick={toggleDrawer} aria-hidden="true" />
-          <div className="fixed top-0 right-0 z-50 h-full w-80 max-w-full bg-white shadow-2xl overflow-y-auto">
-            <div className="flex justify-end p-4 border-b border-gray-200">
-              <button onClick={toggleDrawer} aria-label="Close navigation menu" className="text-slate-900 hover:text-teal-600">
-                <X className="h-6 w-6" />
-              </button>
-            </div>
-            <nav className="p-4 space-y-4">
-              {navData.map((item, index) => {
-                const isAccordionOpen = openIndex === index;
-                return (
-                  <div key={item.title} className="border-b border-gray-200 pb-2">
-                    <button
-                      onClick={() => setOpenIndex(isAccordionOpen ? null : index)}
-                      className="w-full flex items-center justify-between py-3 text-slate-900 font-medium hover:text-teal-600"
-                    >
-                      <span>{item.title}</span>
-                      <ChevronDown className={`h-4 w-4 transform transition-transform ${isAccordionOpen ? 'rotate-180' : ''}`} />
-                    </button>
-                    {isAccordionOpen && (
-                      <div className="mt-2 space-y-2 pl-4">
-                        {item.links.map((link) => {
-                          const IconComponent = icons[link.icon as keyof typeof icons];
-                          const classes = "flex items-center gap-2 py-2 text-slate-900 hover:text-teal-600";
-                          if (link.external) {
-                            return (
-                              <a
-                                key={link.href}
-                                href={link.href}
-                                target="_blank"
-                                rel="noreferrer"
-                                onClick={toggleDrawer}
-                                className={classes}
-                              >
-                                {IconComponent && <IconComponent className="h-4 w-4 text-teal-600" />}
-                                <span>{link.name}</span>
-                              </a>
-                            );
-                          }
-                          return (
-                            <Link
-                              key={link.href}
-                              href={link.href}
-                              onClick={toggleDrawer}
-                              className={classes}
-                            >
-                              {IconComponent && <IconComponent className="h-4 w-4 text-teal-600" />}
-                              <span>{link.name}</span>
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    )}
                   </div>
-                );
-              })}
-              <div className="pt-4 space-y-3">
-                <a
-                  href={PATIENT_PORTAL_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={toggleDrawer}
-                  className="block text-center border border-gray-200 text-slate-900 hover:border-teal-600 hover:text-teal-700 px-4 py-3 rounded-full font-semibold"
-                >
-                  Patient Login
-                </a>
-                <Link
-                  href="/join"
-                  onClick={toggleDrawer}
-                  className="block text-center bg-gradient-to-r from-secondary via-secondary to-primary hover:opacity-95 text-white px-4 py-3 rounded-full font-semibold shadow"
-                >
-                  Join Now
-                </Link>
+                )}
               </div>
-            </nav>
+            ))}
+          </div>
+
+          <div className="hidden md:flex items-center space-x-3">
+            <a href={PATIENT_PORTAL_URL} target="_blank" rel="noreferrer" className="text-sm font-semibold text-slate-900 hover:text-teal-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 rounded-full px-3 py-2 transition-colors">
+              Patient Login
+            </a>
+            <Link href="/join" className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-full font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+              Join Now
+            </Link>
+          </div>
+
+          <div className="md:hidden flex items-center">
+            <Link href="/join" className="text-sm bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-full font-semibold shadow-md transition-colors">
+              Join
+            </Link>
           </div>
         </div>
-      )}
-    </>
+      </div>
+    </nav>
   );
 }

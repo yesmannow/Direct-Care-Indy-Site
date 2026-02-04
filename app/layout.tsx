@@ -4,6 +4,8 @@ import { Manrope, Playfair_Display } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { baseMetadata } from "@/lib/metadata";
 import Navbar from "@/components/Navbar";
+import MobileAppBar from "@/components/MobileAppBar";
+import PWAInstallPrompt from "@/components/PWAInstallPrompt";
 import { StickySavingsBar } from "@/components/StickySavingsBar";
 import { ScrollTransition } from "@/components/ScrollTransition";
 import { FaqSchema } from "@/components/FaqSchema";
@@ -31,11 +33,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#0D9488" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="DPC Indy" />
+        <link rel="apple-touch-icon" href="/images/logos/dci-icon-192.png" />
+      </head>
       <body className={`${sans.variable} ${display.variable} antialiased`}>
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           {/* SEO & Structured Data */}
           <FaqSchema />
           <OrganizationSchema />
@@ -46,7 +57,7 @@ export default function RootLayout({
           <Navbar />
 
           {/* Main Content with Scroll Transitions */}
-          <div className="pt-20">
+          <div className="pt-20 pb-20 md:pb-0">
             <ScrollTransition id="main-content">
               {children}
             </ScrollTransition>
@@ -55,9 +66,28 @@ export default function RootLayout({
           {/* Footer */}
           <SharedFooter />
 
+          {/* Mobile App Bar (Bottom Navigation) */}
+          <MobileAppBar />
+
+          {/* PWA Install Prompt */}
+          <PWAInstallPrompt />
+
           {/* Sticky Value Hook */}
           <StickySavingsBar />
         </ThemeProvider>
+
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            if ('serviceWorker' in navigator) {
+              window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then(
+                  (registration) => console.log('SW registered:', registration.scope),
+                  (err) => console.log('SW registration failed:', err)
+                );
+              });
+            }
+          `
+        }} />
       </body>
     </html>
   );
