@@ -75,49 +75,71 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <div className="relative bg-white/85 dark:bg-card p-4 rounded-3xl shadow-2xl border border-border/60">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
-                  <Image
-                    src="/images/providers/james-pike.webp"
-                    alt="Dr. James Pike at the Indianapolis clinic"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-                <div className="mt-4 flex items-center justify-between">
-                  <div>
-                    <p className="font-semibold text-foreground">James D. Pike, D.O., FCCP, FACP</p>
-                    <p className="text-sm text-muted-foreground">Hospital-trained specialist overseeing every case.</p>
+            <div className="relative space-y-4">
+              {/* Calm, welcoming features grid */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white/90 dark:bg-card p-6 rounded-2xl shadow-lg border border-border/60 hover:shadow-xl transition-shadow">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="bg-teal-50 dark:bg-teal-950 p-3 rounded-xl">
+                      <HeartPulse className="h-6 w-6 text-teal-600" />
+                    </div>
                   </div>
-                  <div className="rounded-full bg-secondary text-secondary-foreground px-3 py-1 text-xs font-bold">
-                    Indy Clinic Lead
+                  <p className="font-semibold text-foreground mb-2">Same-Week Onboarding</p>
+                  <p className="text-sm text-muted-foreground">
+                    Join today, see your provider this week
+                  </p>
+                </div>
+
+                <div className="bg-white/90 dark:bg-card p-6 rounded-2xl shadow-lg border border-border/60 hover:shadow-xl transition-shadow">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="bg-teal-50 dark:bg-teal-950 p-3 rounded-xl">
+                      <CheckCircle2 className="h-6 w-6 text-teal-600" />
+                    </div>
                   </div>
+                  <p className="font-semibold text-foreground mb-2">No Insurance Needed</p>
+                  <p className="text-sm text-muted-foreground">
+                    Direct pricing, zero claim forms
+                  </p>
                 </div>
-                <div className="mt-3 text-sm text-muted-foreground">
-                  Real photos from our Michigan Rd. clinic-no stock models, just the team you will meet in person.
-                </div>
-              </div>
-              <div className="absolute -left-6 -bottom-6 hidden lg:block">
-                <div className="bg-card border border-border shadow-lg rounded-2xl p-4 flex items-center gap-3 max-w-md">
-                  <div className="relative h-16 w-24 overflow-hidden rounded-xl">
+
+                <div className="bg-white/90 dark:bg-card p-6 rounded-2xl shadow-lg border border-border/60 hover:shadow-xl transition-shadow">
+                  <div className="relative h-32 overflow-hidden rounded-xl mb-3">
                     <Image
                       src="/images/clinical/doctor-consultation.webp"
-                      alt="Calming exam room interior"
+                      alt="Calming exam room"
                       fill
                       className="object-cover"
-                      sizes="150px"
+                      sizes="250px"
                     />
                   </div>
-                  <div className="text-sm">
-                    <p className="font-semibold text-foreground">Designed to lower anxiety</p>
-                    <p className="text-muted-foreground">
-                      Soft-focus rooms, warm lighting, and visits that average 20 minutes door-to-door.
-                    </p>
-                  </div>
+                  <p className="font-semibold text-foreground mb-1">Designed for Comfort</p>
+                  <p className="text-sm text-muted-foreground">
+                    Warm lighting, calm environment
+                  </p>
                 </div>
+
+                <div className="bg-white/90 dark:bg-card p-6 rounded-2xl shadow-lg border border-border/60 hover:shadow-xl transition-shadow">
+                  <div className="relative h-32 overflow-hidden rounded-xl mb-3">
+                    <Image
+                      src="/images/clinical/pulmonary-clinic.webp"
+                      alt="Modern clinic space"
+                      fill
+                      className="object-cover"
+                      sizes="250px"
+                    />
+                  </div>
+                  <p className="font-semibold text-foreground mb-1">Specialist-Led Care</p>
+                  <p className="text-sm text-muted-foreground">
+                    Board-certified oversight on every visit
+                  </p>
+                </div>
+              </div>
+
+              {/* Subtle team mention */}
+              <div className="bg-teal-50/50 dark:bg-teal-950/30 p-4 rounded-xl border border-teal-200/50 dark:border-teal-800/50">
+                <p className="text-sm text-muted-foreground text-center">
+                  <span className="font-semibold text-foreground">Led by Dr. James Pike, D.O., FCCP, FACP</span> — Board-certified in Pulmonary & Internal Medicine
+                </p>
               </div>
             </div>
           </div>
