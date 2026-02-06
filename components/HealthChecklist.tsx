@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import Image from "next/image";
 import { CheckCircle2, ExternalLink, Loader2 } from "lucide-react";
 import { getSeniorScreenings } from "@/lib/api/healthfinder";
 
@@ -59,10 +60,12 @@ async function HealthChecklistContent({ age, sex }: HealthChecklistProps) {
       </div>
 
       <div className="mt-6 pt-6 border-t border-gray-700 flex items-center justify-center gap-2">
-        <img
+        <Image
           src="https://health.gov/sites/default/files/2020-12/myhealthfinder-logo.png"
           alt="MyHealthfinder"
-          className="h-8"
+          width={120}
+          height={32}
+          className="h-8 w-auto"
         />
         <a
           href="https://health.gov/myhealthfinder"
