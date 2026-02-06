@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2, HeartPulse, Play, ShieldCheck, Sparkles, Stethoscope } from "lucide-react";
-import { PricingCalculator } from "@/components/PricingCalculator";
+import { MembershipConfigurator } from "@/components/MembershipConfigurator";
 import { NinetyTenSwitcher } from "@/components/NinetyTenSwitcher";
 import PortalPreview from "@/components/PortalPreview";
 import { SavingsPersonas } from "@/components/SavingsPersonas";
@@ -148,7 +148,7 @@ export default function Home() {
       {/* Pricing Calculator */}
       <section className="section-padding bg-muted/30">
         <div className="content-container">
-          <PricingCalculator />
+          <MembershipConfigurator />
         </div>
       </section>
 
