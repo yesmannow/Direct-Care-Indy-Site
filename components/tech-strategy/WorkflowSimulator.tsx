@@ -9,6 +9,7 @@ interface SimStep {
   tool: string;
   description: string;
   icon: React.ElementType;
+  security?: string;
 }
 
 const steps: SimStep[] = [
@@ -27,6 +28,7 @@ const steps: SimStep[] = [
     description:
       "Appointment booked in Cal.com. n8n fires a webhook that creates the patient chart in Elation automatically.",
     icon: CalendarCheck,
+    security: "🛡️ n8n transfers demographics to Elation (End-to-End Encrypted).",
   },
   {
     time: "8:00 AM",
@@ -43,6 +45,7 @@ const steps: SimStep[] = [
     description:
       "Visit happens. Elation AI Scribe documents notes. Hint handles copay and membership billing automatically.",
     icon: CreditCard,
+    security: "🔒 Hint encrypts credit card (PCI Compliant).",
   },
 ];
 
@@ -129,6 +132,11 @@ export default function WorkflowSimulator() {
             <p className="text-sm text-muted-foreground leading-relaxed">
               {steps[activeStep].description}
             </p>
+            {steps[activeStep].security && (
+              <p className="text-xs font-semibold text-green-700 bg-green-50 border border-green-200 rounded-lg px-3 py-2 mt-2">
+                {steps[activeStep].security}
+              </p>
+            )}
           </div>
         </div>
 
