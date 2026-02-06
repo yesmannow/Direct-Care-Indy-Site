@@ -10,6 +10,10 @@ import {
   MessageCircle,
   Bell,
   RefreshCw,
+  Activity,
+  Send,
+  Bot,
+  ClipboardList,
 } from "lucide-react";
 import WorkflowTimeline, { type TimelineStep } from "./WorkflowTimeline";
 
@@ -155,6 +159,50 @@ const scenarios: Scenario[] = [
       },
     ],
   },
+  {
+    id: "chronic-care",
+    title: "The Chronic Care Loop (Diabetes)",
+    description: "From overdue recall to pre-visit prep.",
+    timelineTitle: "Workflow: The Chronic Care Loop (Diabetes)",
+    timelineDescription:
+      "Follow an automated chronic care cycle from recall to pre-visit preparation.",
+    steps: [
+      {
+        time: "Step 1",
+        title: "Automated Recall",
+        tool: "Analytics + n8n",
+        description:
+          'Analytics module identifies "Overdue A1C" patients. n8n triggers the outreach workflow automatically.',
+        icon: Activity,
+      },
+      {
+        time: "Step 2",
+        title: "Personalized Outreach",
+        tool: "Mautic",
+        description:
+          'Mautic sends personalized SMS: "Time for your check-in, John." Segmented by care gap and last visit date.',
+        icon: Send,
+      },
+      {
+        time: "Step 3",
+        title: "AI Booking",
+        tool: "Cal.ai",
+        description:
+          'Patient replies "Tuesday?"; Cal.ai parses intent and books the next available slot — no staff needed.',
+        icon: Bot,
+      },
+      {
+        time: "Step 4",
+        title: "Pre-Visit Prep",
+        tool: "Hint + Elation",
+        description:
+          'Hint Health verifies active membership status. Elation opens the "Diabetes Template" with pre-populated lab orders.',
+        icon: ClipboardList,
+        security:
+          "🛡️ Membership & chart data synced via encrypted n8n pipeline.",
+      },
+    ],
+  },
 ];
 
 export default function WorkflowSimulator() {
@@ -165,7 +213,7 @@ export default function WorkflowSimulator() {
   return (
     <div className="space-y-8">
       {/* Scenario Selector */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {scenarios.map((scenario, index) => (
           <button
             key={scenario.id}
