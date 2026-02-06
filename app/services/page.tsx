@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Heart, Syringe, Microscope, Pill, Scissors, Activi
 import { WellnessLab } from "@/components/WellnessLab";
 import { PersonalizedHealthChecklist } from "@/components/PersonalizedHealthChecklist";
 import WholesaleLabSearch from "@/components/WholesaleLabSearch";
+import { WellnessSection } from "@/components/WellnessWidgets";
 
 export default function Services() {
   const services = [
@@ -87,6 +88,9 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      {/* Patient Wellness Suite */}
+      <WellnessSection />
 
       {/* Wellness Lab Section */}
       <section className="py-16 bg-background border-b border-border">
