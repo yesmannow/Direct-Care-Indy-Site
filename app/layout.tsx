@@ -13,6 +13,7 @@ import { OrganizationSchema, PhysicianSchema, ServiceSchema } from "@/components
 import { SharedFooter } from "@/components/SharedFooter";
 import BackToTop from "@/components/BackToTop";
 import GoogleTagManager from "@/components/GoogleTagManager";
+import { Toaster } from "sonner";
 
 const sans = Manrope({
   subsets: ["latin"],
@@ -81,6 +82,8 @@ export default function RootLayout({
           {/* Back to Top Button */}
           <BackToTop />
         </ThemeProvider>
+
+        <Toaster position="top-right" richColors closeButton />
 
         <script dangerouslySetInnerHTML={{
           __html: `
