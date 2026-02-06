@@ -292,7 +292,7 @@ export default function Home() {
               </p>
             </div>
             <Link
-              href="/blog"
+              href="/how-it-works"
               className="inline-flex items-center gap-2 text-secondary font-semibold underline underline-offset-4"
             >
               Read more

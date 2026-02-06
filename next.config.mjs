@@ -9,6 +9,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'health.gov',
+      },
     ],
   },
   // Adding an empty turbopack config tells Next.js 16 you've acknowledged

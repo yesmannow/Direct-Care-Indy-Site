@@ -15,6 +15,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   :root {
     /* Pure Light Mode - High Contrast */
     --background: #F8FAFC;
@@ -52,20 +56,20 @@
     --secondary-foreground: #042F2E;
 
     --muted: #1E293B;
-    --muted-foreground: #94A3B8;
+    --muted-foreground: #cbd5e1; /* Slate-300 for readability against dark cards */
   }
-}
 
-@layer base {
   * {
     border-color: var(--border);
   }
+
   body {
     background-color: var(--background);
     color: var(--foreground);
     /* Modern font stack for clinical readability */
     font-family: var(--font-body);
     line-height: 1.6;
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -198,22 +202,6 @@ a.text-link {
 /* Enhanced dark mode contrast for better readability */
 .dark {
   color-scheme: dark;
-}
-
-/* Glassmorphism support */
-.backdrop-blur-sm {
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
-.backdrop-blur-md {
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.backdrop-blur-lg {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 }
 
 

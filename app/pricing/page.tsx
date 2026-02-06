@@ -95,7 +95,7 @@ export default function Pricing() {
             </p>
             <Link
               href="/partnerships"
-              className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-secondary/90 transition-colors"
+              className="inline-flex items-center gap-2 bg-teal-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-teal-800 transition-colors"
             >
               Learn About Partnerships
               <ArrowRight className="h-4 w-4" />
