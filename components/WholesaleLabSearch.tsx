@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from 'react';
-import { Search, TrendingDown } from 'lucide-react';
+import { Search, TrendingDown, Check } from 'lucide-react';
 import Image from 'next/image';
 import { SITE_ASSETS } from '@/lib/images';
-import { LAB_DATA, calculateSavings } from '@/lib/labData';
+import { LAB_DATA, calculateSavings, LabTest } from '@/lib/labData';
 
 interface LabSearchProps {
   variant?: 'full' | 'compact';
@@ -13,10 +13,31 @@ interface LabSearchProps {
 export default function WholesaleLabSearch({ variant = 'full' }: LabSearchProps) {
   const isCompact = variant === 'compact';
   const [query, setQuery] = useState('');
+  const [selectedLabs, setSelectedLabs] = useState<LabTest[]>([]);
 
   const filteredLabs = LAB_DATA.filter(lab =>
     lab.name.toLowerCase().includes(query.toLowerCase())
   );
+
+  const toggleLabSelection = (lab: LabTest) => {
+    setSelectedLabs(prev => {
+      const isSelected = prev.some(l => l.name === lab.name);
+      if (isSelected) {
+        return prev.filter(l => l.name !== lab.name);
+      } else {
+        return [...prev, lab];
+      }
+    });
+  };
+
+  const isLabSelected = (lab: LabTest) => {
+    return selectedLabs.some(l => l.name === lab.name);
+  };
+
+  // Calculate totals for selected labs
+  const retailTotal = selectedLabs.reduce((sum, lab) => sum + lab.hospital, 0);
+  const memberTotal = selectedLabs.reduce((sum, lab) => sum + lab.dpc, 0);
+  const savingsTotal = retailTotal - memberTotal;
 
   // Compact version - simplified for mega menu
   if (isCompact) {
@@ -105,10 +126,15 @@ export default function WholesaleLabSearch({ variant = 'full' }: LabSearchProps)
           ) : (
             filteredLabs.map((lab, i) => {
               const savings = calculateSavings(lab.hospital, lab.dpc);
+              const selected = isLabSelected(lab);
               return (
                 <div
                   key={i}
-                  className="flex items-center justify-between bg-white/5 p-4 rounded-xl border border-white/10 hover:border-teal-500/50 transition-all"
+                  className={`flex items-center justify-between bg-white/5 p-4 rounded-xl border transition-all ${
+                    selected 
+                      ? 'border-teal-500 bg-teal-500/10' 
+                      : 'border-white/10 hover:border-teal-500/50'
+                  }`}
                 >
                   <div className="flex-1">
                     <h4 className="font-bold text-lg mb-1">{lab.name}</h4>
@@ -121,13 +147,31 @@ export default function WholesaleLabSearch({ variant = 'full' }: LabSearchProps)
                       )}
                     </p>
                   </div>
-                  <div className="text-right ml-4">
-                    <span className="text-xs uppercase text-teal-400 font-bold block mb-1">
-                      Your Price
-                    </span>
-                    <span className="text-2xl font-black text-teal-400">
-                      {lab.dpc === 0 ? 'FREE' : `$${lab.dpc}`}
-                    </span>
+                  <div className="text-right ml-4 flex items-center gap-3">
+                    <div>
+                      <span className="text-xs uppercase text-teal-400 font-bold block mb-1">
+                        Your Price
+                      </span>
+                      <span className="text-2xl font-black text-teal-400">
+                        {lab.dpc === 0 ? 'FREE' : `$${lab.dpc}`}
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => toggleLabSelection(lab)}
+                      className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all ${
+                        selected
+                          ? 'bg-teal-500 text-white hover:bg-teal-600'
+                          : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+                      }`}
+                    >
+                      {selected ? (
+                        <span className="flex items-center gap-1">
+                          <Check className="w-4 h-4" /> Added
+                        </span>
+                      ) : (
+                        'Select'
+                      )}
+                    </button>
                   </div>
                 </div>
               );
@@ -139,6 +183,32 @@ export default function WholesaleLabSearch({ variant = 'full' }: LabSearchProps)
           *Hospital rates based on Indianapolis market median 2026. DPC prices reflect Direct Care Indy wholesale rates for members.
         </p>
       </div>
+
+      {/* Sticky Calculator Footer */}
+      {selectedLabs.length > 0 && (
+        <div className="fixed bottom-0 left-0 right-0 bg-white border-t-4 border-teal-500 shadow-2xl z-50 py-4 px-4">
+          <div className="container mx-auto max-w-4xl">
+            <div className="flex flex-wrap items-center justify-between gap-2 text-slate-900">
+              <div className="flex items-center gap-4 flex-wrap">
+                <span className="font-bold text-sm md:text-base">
+                  Selected Tests: <span className="text-teal-600">{selectedLabs.length}</span>
+                </span>
+                <span className="text-xs md:text-sm">
+                  Retail Cost: <span className="line-through text-gray-500">${retailTotal}</span>
+                </span>
+                <span className="font-bold text-green-600 text-sm md:text-base">
+                  Member Price: ${memberTotal}
+                </span>
+              </div>
+              <div className="text-right">
+                <span className="text-xl md:text-2xl font-black text-teal-600">
+                  YOU SAVE: ${savingsTotal}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
