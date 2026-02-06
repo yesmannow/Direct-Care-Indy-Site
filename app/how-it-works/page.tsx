@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Phone, MessageCircle, Video, Clock, Shield, Users, UserCheck, Stethoscope, CheckCircle2, ArrowRight } from "lucide-react";
 import { DPC_CONTENT } from "@/lib/content/dpc";
+import OnboardingTimeline from "@/components/OnboardingTimeline";
 
 export default function HowItWorksPage() {
   const faqEntries: any[] = []; // TODO: Add proper FAQ data structure
@@ -15,6 +16,21 @@ export default function HowItWorksPage() {
             Simple, transparent healthcare without the insurance hassle.
             Here&apos;s exactly what you can expect from your membership.
           </p>
+        </div>
+      </section>
+
+      {/* Your Path to Better Healthcare */}
+      <section className="section-padding">
+        <div className="content-container">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="heading-2 mb-4">Your Path to Better Healthcare</h2>
+              <p className="body-large text-muted-foreground">
+                Getting started is simple &mdash; here&apos;s what to expect.
+              </p>
+            </div>
+            <OnboardingTimeline />
+          </div>
         </div>
       </section>
 

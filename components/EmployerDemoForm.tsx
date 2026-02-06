@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Send, CheckCircle2, AlertCircle, Building2, Phone } from "lucide-react";
+import { toast } from "sonner";
 
 interface FormState {
   name: string;
@@ -54,6 +55,7 @@ export function EmployerDemoForm() {
       }
 
       setStatus("success");
+      toast.success("Message sent! Our team will text you shortly.");
       setFormData({
         name: "",
         business: "",
@@ -65,6 +67,7 @@ export function EmployerDemoForm() {
     } catch (err) {
       console.error("Employer demo submit error", err);
       setStatus("error");
+      toast.error("Something went wrong. Please try again.");
       setError("Could not submit. Please try again or call (317) 956-6288.");
     }
   };

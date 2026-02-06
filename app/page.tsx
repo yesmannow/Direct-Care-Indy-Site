@@ -9,7 +9,7 @@ import { NinetyTenSwitcher } from "@/components/NinetyTenSwitcher";
 import PortalPreview from "@/components/PortalPreview";
 import { SavingsPersonas } from "@/components/SavingsPersonas";
 import { ScrollTransition } from "@/components/ScrollTransition";
-import { Testimonials } from "@/components/Testimonials";
+import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 
 const PATIENT_PORTAL_URL = "https://directcareindy.hint.com/login";
 
@@ -479,7 +479,7 @@ export default function Home() {
               Real stories from Indianapolis families who switched to Direct Care Indy.
             </p>
           </div>
-          <Testimonials limit={3} />
+          <TestimonialsCarousel />
         </div>
       </section>
 

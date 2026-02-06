@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FileText, Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { toast } from "sonner";
 
 export function OccHealthIntake() {
   const [formData, setFormData] = useState({
@@ -44,6 +45,7 @@ export function OccHealthIntake() {
       }
 
       setSubmitted(true);
+      toast.success("Message sent! Our team will text you shortly.");
       setFormData({
         name: '',
         businessName: '',
@@ -56,6 +58,7 @@ export function OccHealthIntake() {
       });
     } catch (err) {
       setError('Unable to submit your information. Please try again or call (317) 956-6288');
+      toast.error("Something went wrong. Please try again.");
       console.error('Lead submission error:', err);
     } finally {
       setLoading(false);

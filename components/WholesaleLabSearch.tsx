@@ -19,6 +19,13 @@ export default function WholesaleLabSearch({ variant = 'full' }: LabSearchProps)
     lab.name.toLowerCase().includes(query.toLowerCase())
   );
 
+  // Group filtered labs by category
+  const groupedLabs = filteredLabs.reduce<Record<string, LabTest[]>>((acc, lab) => {
+    if (!acc[lab.category]) acc[lab.category] = [];
+    acc[lab.category].push(lab);
+    return acc;
+  }, {});
+
   const toggleLabSelection = (lab: LabTest) => {
     setSelectedLabs(prev => {
       const isSelected = prev.some(l => l.name === lab.name);
@@ -124,59 +131,69 @@ export default function WholesaleLabSearch({ variant = 'full' }: LabSearchProps)
               No labs found matching &quot;{query}&quot;
             </div>
           ) : (
-            filteredLabs.map((lab, i) => {
-              const savings = calculateSavings(lab.hospital, lab.dpc);
-              const selected = isLabSelected(lab);
-              return (
-                <div
-                  key={i}
-                  className={`flex items-center justify-between bg-white/5 p-4 rounded-xl border transition-all ${
-                    selected 
-                      ? 'border-teal-500 bg-teal-500/10' 
-                      : 'border-white/10 hover:border-teal-500/50'
-                  }`}
-                >
-                  <div className="flex-1">
-                    <h4 className="font-bold text-lg mb-1">{lab.name}</h4>
-                    <p className="text-xs text-gray-400">
-                      Hospital Rate: <span className="line-through">${lab.hospital}</span>
-                      {savings > 0 && (
-                        <span className="ml-2 text-teal-400 font-semibold">
-                          Save {savings}%
-                        </span>
-                      )}
-                    </p>
-                  </div>
-                  <div className="text-right ml-4 flex items-center gap-3">
-                    <div>
-                      <span className="text-xs uppercase text-teal-400 font-bold block mb-1">
-                        Your Price
-                      </span>
-                      <span className="text-2xl font-black text-teal-400">
-                        {lab.dpc === 0 ? 'FREE' : `$${lab.dpc}`}
-                      </span>
-                    </div>
-                    <button
-                      onClick={() => toggleLabSelection(lab)}
-                      aria-label={selected ? `Remove ${lab.name} from selection` : `Add ${lab.name} to selection`}
-                      className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all ${
-                        selected
-                          ? 'bg-teal-500 text-white hover:bg-teal-600'
-                          : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+            Object.entries(groupedLabs).map(([category, labs]) => (
+              <div key={category}>
+                <div className="text-xs font-semibold uppercase tracking-wide text-teal-400 mt-4 mb-2 flex items-center gap-2">
+                  {category} <span className="text-gray-500">({labs.length})</span>
+                </div>
+                {labs.map((lab, i) => {
+                  const savings = calculateSavings(lab.hospital, lab.dpc);
+                  const selected = isLabSelected(lab);
+                  return (
+                    <div
+                      key={i}
+                      className={`flex items-center justify-between bg-white/5 p-4 rounded-xl border transition-all mb-3 ${
+                        selected 
+                          ? 'border-teal-500 bg-teal-500/10' 
+                          : 'border-white/10 hover:border-teal-500/50'
                       }`}
                     >
-                      {selected ? (
-                        <span className="flex items-center gap-1">
-                          <Check className="w-4 h-4" /> Added
-                        </span>
-                      ) : (
-                        'Select'
-                      )}
-                    </button>
-                  </div>
-                </div>
-              );
-            })
+                      <div className="flex-1">
+                        <h4 className="font-bold text-lg mb-1">{lab.name}</h4>
+                        <p className="text-xs text-gray-400">
+                          Hospital Rate: <span className="line-through">${lab.hospital}</span>
+                          {savings > 0 && (
+                            <span className="ml-2 text-teal-400 font-semibold">
+                              Save {savings}%
+                            </span>
+                          )}
+                        </p>
+                      </div>
+                      <div className="text-right ml-4 flex items-center gap-3">
+                        <div>
+                          <span className="text-xs uppercase text-teal-400 font-bold block mb-1">
+                            Your Price
+                          </span>
+                          <span className="text-2xl font-black text-teal-400">
+                            {lab.dpc === 0 ? 'FREE' : `$${lab.dpc}`}
+                          </span>
+                          {lab.hsaEligible && (
+                            <span className="text-[10px] font-bold bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded ml-2">HSA</span>
+                          )}
+                        </div>
+                        <button
+                          onClick={() => toggleLabSelection(lab)}
+                          aria-label={selected ? `Remove ${lab.name} from selection` : `Add ${lab.name} to selection`}
+                          className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all ${
+                            selected
+                              ? 'bg-teal-500 text-white hover:bg-teal-600'
+                              : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+                          }`}
+                        >
+                          {selected ? (
+                            <span className="flex items-center gap-1">
+                              <Check className="w-4 h-4" /> Added
+                            </span>
+                          ) : (
+                            'Select'
+                          )}
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ))
           )}
         </div>
 

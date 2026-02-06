@@ -7,12 +7,12 @@ import Navbar from "@/components/Navbar";
 import MobileAppBar from "@/components/MobileAppBar";
 import PWAInstallPrompt from "@/components/PWAInstallPrompt";
 import { StickySavingsBar } from "@/components/StickySavingsBar";
-import { ScrollTransition } from "@/components/ScrollTransition";
 import { FaqSchema } from "@/components/FaqSchema";
 import { OrganizationSchema, PhysicianSchema, ServiceSchema } from "@/components/StructuredData";
 import { SharedFooter } from "@/components/SharedFooter";
 import BackToTop from "@/components/BackToTop";
 import GoogleTagManager from "@/components/GoogleTagManager";
+import { Toaster } from "sonner";
 
 const sans = Manrope({
   subsets: ["latin"],
@@ -59,11 +59,9 @@ export default function RootLayout({
           {/* Navigation Layer */}
           <Navbar />
 
-          {/* Main Content with Scroll Transitions */}
-          <div className="pt-20 pb-20 md:pb-0">
-            <ScrollTransition id="main-content">
-              {children}
-            </ScrollTransition>
+          {/* Main Content */}
+          <div id="main-content" className="pt-20 pb-20 md:pb-0">
+            {children}
           </div>
 
           {/* Footer */}
@@ -81,6 +79,8 @@ export default function RootLayout({
           {/* Back to Top Button */}
           <BackToTop />
         </ThemeProvider>
+
+        <Toaster position="top-right" richColors closeButton />
 
         <script dangerouslySetInnerHTML={{
           __html: `
