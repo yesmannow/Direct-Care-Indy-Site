@@ -1,6 +1,41 @@
 import Link from "next/link";
-import { Phone, MessageCircle, Video, Clock, Shield, Users, UserCheck, Stethoscope, CheckCircle2, ArrowRight } from "lucide-react";
+import { Phone, MessageCircle, Video, Clock, Shield, Users, UserCheck, Stethoscope, CheckCircle2, ArrowRight, CreditCard, ShieldCheck, CalendarCheck, Heart } from "lucide-react";
 import { DPC_CONTENT } from "@/lib/content/dpc";
+import VerticalTimeline from "@/components/VerticalTimeline";
+import type { TimelineStep } from "@/components/VerticalTimeline";
+
+const timelineSteps: TimelineStep[] = [
+  {
+    title: "Choose Your Membership",
+    description: "Select the plan that fits your family on our website. Transparent pricing — no hidden fees or contracts.",
+    icon: CreditCard,
+    detail: "Individual plans start at $85/month. Family plans cover 2 adults + kids. HSA-eligible.",
+  },
+  {
+    title: "Enroll Online via Hint Health",
+    description: "Complete your secure enrollment in under 5 minutes through our HIPAA-compliant Hint Health portal.",
+    icon: ShieldCheck,
+    detail: "Hint Health handles all membership billing securely. No insurance forms required.",
+  },
+  {
+    title: "Download Spruce & Connect",
+    description: "Download the Spruce app for secure messaging, telehealth visits, and direct access to your care team.",
+    icon: MessageCircle,
+    detail: "Text your provider anytime. Messages are answered within 15 minutes during business hours.",
+  },
+  {
+    title: "Schedule Your First Visit",
+    description: "Book your first appointment — same-week availability is typical. Meet your care team and discuss your health goals.",
+    icon: CalendarCheck,
+    detail: "Most new members see their provider within the first week of enrollment.",
+  },
+  {
+    title: "Enjoy Ongoing Care",
+    description: "Unlimited visits, wholesale labs, secure messaging, and after-hours support — all included in your membership.",
+    icon: Heart,
+    detail: "No copays, no deductibles, no surprise bills. Just great care when you need it.",
+  },
+];
 
 export default function HowItWorksPage() {
   const faqEntries: any[] = []; // TODO: Add proper FAQ data structure
@@ -15,6 +50,21 @@ export default function HowItWorksPage() {
             Simple, transparent healthcare without the insurance hassle.
             Here&apos;s exactly what you can expect from your membership.
           </p>
+        </div>
+      </section>
+
+      {/* Your Path to Better Healthcare */}
+      <section className="section-padding">
+        <div className="content-container">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="heading-2 mb-4">Your Path to Better Healthcare</h2>
+              <p className="body-large text-muted-foreground">
+                Getting started is simple &mdash; here&apos;s what to expect.
+              </p>
+            </div>
+            <VerticalTimeline steps={timelineSteps} />
+          </div>
         </div>
       </section>
 
