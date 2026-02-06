@@ -56,12 +56,12 @@ const techStack: TechItem[] = [
     icon: MessageSquare,
   },
   {
-    name: "Call Sara",
+    name: "Cal.ai (Voice Agent)",
     subtitle: "The AI Front Desk",
     feature: "24/7 Booking",
     benefit: "Reschedules no-shows automatically.",
     detail:
-      "Call Sara is an AI receptionist that handles inbound calls around the clock. It books appointments, reschedules no-shows, and answers common questions without staff intervention.",
+      "Cal.ai is an AI-powered voice agent that handles inbound calls around the clock. It books appointments, reschedules no-shows, and answers common questions without staff intervention.",
     icon: Phone,
   },
   {

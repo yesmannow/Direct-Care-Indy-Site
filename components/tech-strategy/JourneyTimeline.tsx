@@ -25,9 +25,9 @@ const steps: Step[] = [
   },
   {
     title: "Booking",
-    tool: "Call Sara",
+    tool: "Cal.ai",
     description: "AI negotiates time",
-    underTheHood: "Call Sara checks availability → books Elation slot",
+    underTheHood: "Cal.ai checks availability → books Elation slot",
   },
   {
     title: "Visit",

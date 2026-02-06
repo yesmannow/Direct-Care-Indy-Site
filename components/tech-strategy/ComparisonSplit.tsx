@@ -13,7 +13,7 @@ const painPoints = [
 const solutions = [
   "Ambient Scribing (Note Assist)",
   "Magic Links (No Passwords)",
-  "AI Receptionist (Call Sara)",
+  "Cal.ai (Voice Agent)",
   "Real-Time Automation",
 ];
 

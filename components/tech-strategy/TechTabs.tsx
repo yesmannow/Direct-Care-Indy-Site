@@ -2,30 +2,34 @@
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import ComparisonSplit from "./ComparisonSplit";
-import TechGrid from "./TechGrid";
-import JourneyTimeline from "./JourneyTimeline";
-import StatsCards from "./StatsCards";
+import ROICalculator from "./ROICalculator";
+import StackMap from "./StackMap";
+import RoleImpact from "./RoleImpact";
+import WorkflowSimulator from "./WorkflowSimulator";
 
 export default function TechTabs() {
   return (
-    <Tabs defaultValue="pivot">
+    <Tabs defaultValue="strategy">
       <TabsList>
-        <TabsTrigger value="pivot">The Pivot</TabsTrigger>
+        <TabsTrigger value="strategy">The Strategy</TabsTrigger>
         <TabsTrigger value="stack">The Stack</TabsTrigger>
-        <TabsTrigger value="journey">The Journey</TabsTrigger>
-        <TabsTrigger value="roi">ROI</TabsTrigger>
+        <TabsTrigger value="staff">The Staff</TabsTrigger>
+        <TabsTrigger value="workflows">The Workflows</TabsTrigger>
       </TabsList>
-      <TabsContent value="pivot">
-        <ComparisonSplit />
+      <TabsContent value="strategy">
+        <div className="space-y-8">
+          <ComparisonSplit />
+          <ROICalculator />
+        </div>
       </TabsContent>
       <TabsContent value="stack">
-        <TechGrid />
+        <StackMap />
       </TabsContent>
-      <TabsContent value="journey">
-        <JourneyTimeline />
+      <TabsContent value="staff">
+        <RoleImpact />
       </TabsContent>
-      <TabsContent value="roi">
-        <StatsCards />
+      <TabsContent value="workflows">
+        <WorkflowSimulator />
       </TabsContent>
     </Tabs>
   );
