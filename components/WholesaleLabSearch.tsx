@@ -158,6 +158,7 @@ export default function WholesaleLabSearch({ variant = 'full' }: LabSearchProps)
                     </div>
                     <button
                       onClick={() => toggleLabSelection(lab)}
+                      aria-label={selected ? `Remove ${lab.name} from selection` : `Add ${lab.name} to selection`}
                       className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all ${
                         selected
                           ? 'bg-teal-500 text-white hover:bg-teal-600'
@@ -186,7 +187,12 @@ export default function WholesaleLabSearch({ variant = 'full' }: LabSearchProps)
 
       {/* Sticky Calculator Footer */}
       {selectedLabs.length > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 bg-white border-t-4 border-teal-500 shadow-2xl z-50 py-4 px-4">
+        <div 
+          className="fixed bottom-0 left-0 right-0 bg-white border-t-4 border-teal-500 shadow-2xl z-50 py-4 px-4"
+          role="region"
+          aria-label="Lab test savings calculator"
+          aria-live="polite"
+        >
           <div className="container mx-auto max-w-4xl">
             <div className="flex flex-wrap items-center justify-between gap-2 text-slate-900">
               <div className="flex items-center gap-4 flex-wrap">
@@ -194,15 +200,15 @@ export default function WholesaleLabSearch({ variant = 'full' }: LabSearchProps)
                   Selected Tests: <span className="text-teal-600">{selectedLabs.length}</span>
                 </span>
                 <span className="text-xs md:text-sm">
-                  Retail Cost: <span className="line-through text-gray-500">${retailTotal}</span>
+                  Retail Cost: <span className="line-through text-gray-500">${retailTotal.toLocaleString()}</span>
                 </span>
                 <span className="font-bold text-green-600 text-sm md:text-base">
-                  Member Price: ${memberTotal}
+                  Member Price: ${memberTotal.toLocaleString()}
                 </span>
               </div>
               <div className="text-right">
                 <span className="text-xl md:text-2xl font-black text-teal-600">
-                  YOU SAVE: ${savingsTotal}
+                  YOU SAVE: ${savingsTotal.toLocaleString()}
                 </span>
               </div>
             </div>
