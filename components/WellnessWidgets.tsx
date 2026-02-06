@@ -153,8 +153,15 @@ function PreventiveScreeningGuide() {
   const determineScreenings = () => {
     if (!selectedAge || !selectedSex) return [];
 
-    // Extract age number - handle "70+" case explicitly
-    const ageNumber = selectedAge === "70+" ? 70 : parseInt(selectedAge.split("-")[0]);
+    // Extract age number - handle "70+" case and validate format
+    let ageNumber = 0;
+    if (selectedAge === "70+") {
+      ageNumber = 70;
+    } else {
+      const parts = selectedAge.split("-");
+      ageNumber = parts.length > 0 ? parseInt(parts[0]) : 0;
+    }
+    
     const screeningList: string[] = [];
 
     // Universal screening for all members
