@@ -3,24 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Search as SearchIcon, TrendingDown } from 'lucide-react';
 import { motion } from 'framer-motion';
-
-const LAB_DATA = [
-  { name: "A1C (Diabetes Monitoring)", hospital: 173, dpc: 8 },
-  { name: "Lipid Panel (Cholesterol)", hospital: 176, dpc: 6 },
-  { name: "CBC (Complete Blood Count)", hospital: 115, dpc: 5 },
-  { name: "TSH (Thyroid Stimulating Hormone)", hospital: 195, dpc: 12 },
-  { name: "Vitamin D Deficiency", hospital: 240, dpc: 18 },
-  { name: "CMP (Comprehensive Metabolic)", hospital: 145, dpc: 7 },
-  { name: "PSA (Prostate Screening)", hospital: 185, dpc: 15 },
-  { name: "Strep Throat (Rapid)", hospital: 95, dpc: 0 },
-  { name: "Hemoglobin A1C", hospital: 173, dpc: 8 },
-  { name: "Basic Metabolic Panel (BMP)", hospital: 130, dpc: 6 },
-  { name: "Urinalysis", hospital: 80, dpc: 4 },
-  { name: "Liver Function Panel", hospital: 165, dpc: 9 },
-  { name: "Thyroid Panel (Complete)", hospital: 220, dpc: 15 },
-  { name: "Testosterone (Total)", hospital: 195, dpc: 12 },
-  { name: "B12 (Vitamin B12)", hospital: 150, dpc: 10 },
-];
+import { LAB_DATA, calculateSavings } from '@/lib/labData';
 
 export function CompactLabSearch() {
   const [query, setQuery] = useState('');
@@ -28,11 +11,6 @@ export function CompactLabSearch() {
   const filteredLabs = LAB_DATA.filter(lab =>
     lab.name.toLowerCase().includes(query.toLowerCase())
   ).slice(0, 5); // Show only top 5 results
-
-  const calculateSavings = (hospital: number, dpc: number) => {
-    if (dpc === 0) return 100;
-    return Math.round(((hospital - dpc) / hospital) * 100);
-  };
 
   return (
     <div className="bg-[#1B2B3A] text-white rounded-xl p-6 shadow-xl">
