@@ -12,6 +12,7 @@ import { FaqSchema } from "@/components/FaqSchema";
 import { OrganizationSchema, PhysicianSchema, ServiceSchema } from "@/components/StructuredData";
 import { SharedFooter } from "@/components/SharedFooter";
 import BackToTop from "@/components/BackToTop";
+import GoogleTagManager from "@/components/GoogleTagManager";
 
 const sans = Manrope({
   subsets: ["latin"],
@@ -44,6 +45,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/images/logos/dci-icon-192.png" />
       </head>
       <body className={`${sans.variable} ${display.variable} antialiased`}>
+        <GoogleTagManager gtmId="GTM-KKFRX4Z3" />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
