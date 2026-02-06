@@ -10,6 +10,14 @@ function BodyMassIndexCalculator() {
   const [weightPounds, setWeightPounds] = useState("");
   const [computedValue, setComputedValue] = useState<number | null>(null);
 
+  const isValidInput = () => {
+    const feet = parseFloat(heightFeet || "0");
+    const inches = parseFloat(heightInches || "0");
+    const pounds = parseFloat(weightPounds || "0");
+    const totalInches = (feet * 12) + inches;
+    return totalInches > 0 && pounds > 0;
+  };
+
   const processCalculation = () => {
     const feetToInches = parseFloat(heightFeet || "0") * 12;
     const totalInches = feetToInches + parseFloat(heightInches || "0");
@@ -44,7 +52,7 @@ function BodyMassIndexCalculator() {
         <div className="bg-secondary text-secondary-foreground rounded-full w-12 h-12 flex items-center justify-center">
           <Scale className="w-6 h-6" />
         </div>
-        <h3 className="text-2xl font-bold text-gray-900">The BMI Check</h3>
+        <h3 className="text-2xl font-bold text-gray-900">BMI Calculator</h3>
       </div>
 
       <div className="space-y-4 mb-6">
@@ -91,7 +99,7 @@ function BodyMassIndexCalculator() {
       <div className="flex gap-3">
         <button
           onClick={processCalculation}
-          disabled={!heightFeet || !weightPounds || parseFloat(heightFeet) <= 0 || parseFloat(weightPounds) <= 0}
+          disabled={!isValidInput()}
           className="flex-1 bg-secondary text-secondary-foreground py-3 px-6 rounded-lg font-semibold hover:bg-secondary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px]"
         >
           Calculate BMI
@@ -145,7 +153,8 @@ function PreventiveScreeningGuide() {
   const determineScreenings = () => {
     if (!selectedAge || !selectedSex) return [];
 
-    const ageNumber = parseInt(selectedAge.split("-")[0]);
+    // Extract age number - handle "70+" case explicitly
+    const ageNumber = selectedAge === "70+" ? 70 : parseInt(selectedAge.split("-")[0]);
     const screeningList: string[] = [];
 
     // Universal screening for all members
