@@ -73,6 +73,15 @@ const nodes: StackNode[] = [
 export default function StackMap() {
   const [selected, setSelected] = React.useState<StackNode | null>(null);
 
+  React.useEffect(() => {
+    if (!selected) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelected(null);
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [selected]);
+
   return (
     <div className="relative">
       {/* Network Diagram */}
@@ -133,7 +142,7 @@ export default function StackMap() {
           <div
             className="fixed inset-0 bg-black/50 backdrop-blur-sm"
             onClick={() => setSelected(null)}
-            aria-hidden="true"
+            role="presentation"
           />
           <div className="relative z-50 w-full max-w-sm bg-card border-l border-border shadow-xl p-6 overflow-y-auto animate-in slide-in-from-right">
             <button

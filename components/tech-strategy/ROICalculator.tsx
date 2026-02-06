@@ -4,16 +4,17 @@ import * as React from "react";
 import { DollarSign } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
+const PROVIDER_HOURLY_VALUE = 200;
+const STAFF_RATE = 25;
+const AUTOMATION_RATE = 0.7;
+
 export default function ROICalculator() {
   const [dailyCalls, setDailyCalls] = React.useState(40);
   const [avgDuration, setAvgDuration] = React.useState(5);
-  const providerHourlyValue = 200;
-  const staffRate = 25;
-  const automationRate = 0.7;
 
   const hoursSavedPerDay =
-    (dailyCalls * avgDuration * automationRate) / 60;
-  const moneySavedPerDay = hoursSavedPerDay * staffRate;
+    (dailyCalls * avgDuration * AUTOMATION_RATE) / 60;
+  const moneySavedPerDay = hoursSavedPerDay * STAFF_RATE;
   const annualSavings = Math.round(moneySavedPerDay * 260);
 
   return (
@@ -82,13 +83,13 @@ export default function ROICalculator() {
         {/* Fixed Values */}
         <div className="flex flex-wrap gap-4 text-xs text-muted-foreground">
           <span>
-            Provider Hourly Value: <strong>${providerHourlyValue}/hr</strong>
+            Provider Hourly Value: <strong>${PROVIDER_HOURLY_VALUE}/hr</strong>
           </span>
           <span>
-            Staff Rate: <strong>${staffRate}/hr</strong>
+            Staff Rate: <strong>${STAFF_RATE}/hr</strong>
           </span>
           <span>
-            Cal.ai Automation: <strong>{automationRate * 100}%</strong>
+            Cal.ai Automation: <strong>{AUTOMATION_RATE * 100}%</strong>
           </span>
         </div>
 

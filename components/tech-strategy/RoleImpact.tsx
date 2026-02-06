@@ -52,6 +52,7 @@ export default function RoleImpact() {
       <div
         className="flex gap-1 overflow-x-auto border-b border-border bg-muted/50 rounded-t-lg p-1"
         role="tablist"
+        aria-label="Role selection"
       >
         {roles.map((r) => (
           <button
