@@ -6,6 +6,7 @@ import ROICalculator from "./ROICalculator";
 import StackMap from "./StackMap";
 import RoleImpact from "./RoleImpact";
 import WorkflowSimulator from "./WorkflowSimulator";
+import DevArchitecture from "./DevArchitecture";
 
 export default function TechTabs() {
   return (
@@ -15,6 +16,7 @@ export default function TechTabs() {
         <TabsTrigger value="stack">The Stack</TabsTrigger>
         <TabsTrigger value="staff">The Staff</TabsTrigger>
         <TabsTrigger value="workflows">The Workflows</TabsTrigger>
+        <TabsTrigger value="development">Development</TabsTrigger>
       </TabsList>
       <TabsContent value="strategy">
         <div className="space-y-8">
@@ -30,6 +32,9 @@ export default function TechTabs() {
       </TabsContent>
       <TabsContent value="workflows">
         <WorkflowSimulator />
+      </TabsContent>
+      <TabsContent value="development">
+        <DevArchitecture />
       </TabsContent>
     </Tabs>
   );
