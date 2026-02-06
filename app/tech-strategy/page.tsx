@@ -12,7 +12,7 @@ export default function TechStrategyPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="bg-primary text-primary-foreground py-16 md:py-24">
+      <section className="bg-primary text-primary-foreground py-12 md:py-16">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h1 className="text-3xl md:text-5xl font-bold font-[family-name:var(--font-display)] mb-4">
             The 2026 Operational Strategy

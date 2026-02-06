@@ -7,7 +7,6 @@ import Navbar from "@/components/Navbar";
 import MobileAppBar from "@/components/MobileAppBar";
 import PWAInstallPrompt from "@/components/PWAInstallPrompt";
 import { StickySavingsBar } from "@/components/StickySavingsBar";
-import { ScrollTransition } from "@/components/ScrollTransition";
 import { FaqSchema } from "@/components/FaqSchema";
 import { OrganizationSchema, PhysicianSchema, ServiceSchema } from "@/components/StructuredData";
 import { SharedFooter } from "@/components/SharedFooter";
@@ -60,11 +59,9 @@ export default function RootLayout({
           {/* Navigation Layer */}
           <Navbar />
 
-          {/* Main Content with Scroll Transitions */}
-          <div className="pt-20 pb-20 md:pb-0">
-            <ScrollTransition id="main-content">
-              {children}
-            </ScrollTransition>
+          {/* Main Content */}
+          <div id="main-content" className="pt-20 pb-20 md:pb-0">
+            {children}
           </div>
 
           {/* Footer */}
