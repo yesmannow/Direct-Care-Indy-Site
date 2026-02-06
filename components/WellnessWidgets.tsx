@@ -29,10 +29,10 @@ function BodyMassIndexCalculator() {
   };
 
   const getCategoryDetails = (value: number) => {
-    if (value < 18.5) return { label: "Underweight", color: "bg-blue-500", textColor: "text-blue-700" };
-    if (value < 25) return { label: "Healthy Weight", color: "bg-green-500", textColor: "text-green-700" };
-    if (value < 30) return { label: "Overweight", color: "bg-orange-500", textColor: "text-orange-700" };
-    return { label: "Obesity", color: "bg-red-500", textColor: "text-red-700" };
+    if (value < 18.5) return { label: "Underweight", bgColor: "#3B82F6", textColor: "text-white" };
+    if (value < 25) return { label: "Healthy Weight", bgColor: "#10B981", textColor: "text-white" };
+    if (value < 30) return { label: "Overweight", bgColor: "#F97316", textColor: "text-white" };
+    return { label: "Obesity", bgColor: "#EF4444", textColor: "text-white" };
   };
 
   const category = computedValue ? getCategoryDetails(computedValue) : null;
@@ -91,7 +91,7 @@ function BodyMassIndexCalculator() {
       <div className="flex gap-3">
         <button
           onClick={processCalculation}
-          disabled={!heightFeet || !weightPounds}
+          disabled={!heightFeet || !weightPounds || parseFloat(heightFeet) <= 0 || parseFloat(weightPounds) <= 0}
           className="flex-1 bg-secondary text-secondary-foreground py-3 px-6 rounded-lg font-semibold hover:bg-secondary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px]"
         >
           Calculate BMI
@@ -111,7 +111,7 @@ function BodyMassIndexCalculator() {
           <div className="text-center mb-4">
             <p className="text-sm font-semibold text-gray-700 mb-2">Your BMI Score</p>
             <p className="text-5xl font-black text-gray-900 mb-3">{computedValue}</p>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: category.color.replace('bg-', '#').replace('500', '') }}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: category.bgColor }}>
               <span className={`font-bold ${category.textColor}`}>{category.label}</span>
             </div>
           </div>
