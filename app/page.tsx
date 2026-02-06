@@ -22,7 +22,7 @@ export default function Home() {
             src="/images/clinical/pulmonary-clinic.webp"
             alt="Direct Care Indy exam room"
             fill
-            className="object-cover opacity-60"
+            className="object-cover"
             priority
             sizes="100vw"
           />
@@ -35,10 +35,10 @@ export default function Home() {
                 <Sparkles className="h-4 w-4 text-secondary" />
                 <span className="text-sm font-semibold text-foreground">Hint-powered enrollment in one click</span>
               </div>
-              <h1 className="heading-1 text-left">
+              <h1 className="heading-1 text-left text-gray-900">
                 Specialist-led primary care for Indy without the insurance detour.
               </h1>
-              <p className="body-large text-muted-foreground max-w-2xl">
+              <p className="body-large text-gray-700 max-w-2xl">
                 Direct Care Indy bridges interest to enrollment in minutes. Transparent pricing, authentic clinical photos,
                 and a secure Hint Health flow that makes joining as easy as texting your provider.
               </p>
@@ -78,7 +78,7 @@ export default function Home() {
             <div className="relative space-y-4">
               {/* Calm, welcoming features grid */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/90 dark:bg-card p-6 rounded-2xl shadow-lg border border-border/60 hover:shadow-xl transition-shadow">
+                <div className="bg-white dark:bg-card p-6 rounded-2xl shadow-lg border border-border/60 hover:shadow-xl transition-shadow">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="bg-teal-50 dark:bg-teal-950 p-3 rounded-xl">
                       <HeartPulse className="h-6 w-6 text-teal-600" />
@@ -90,7 +90,7 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="bg-white/90 dark:bg-card p-6 rounded-2xl shadow-lg border border-border/60 hover:shadow-xl transition-shadow">
+                <div className="bg-white dark:bg-card p-6 rounded-2xl shadow-lg border border-border/60 hover:shadow-xl transition-shadow">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="bg-teal-50 dark:bg-teal-950 p-3 rounded-xl">
                       <CheckCircle2 className="h-6 w-6 text-teal-600" />
@@ -102,7 +102,7 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="bg-white/90 dark:bg-card p-6 rounded-2xl shadow-lg border border-border/60 hover:shadow-xl transition-shadow">
+                <div className="bg-white dark:bg-card p-6 rounded-2xl shadow-lg border border-border/60 hover:shadow-xl transition-shadow">
                   <div className="relative h-32 overflow-hidden rounded-xl mb-3">
                     <Image
                       src="/images/clinical/doctor-consultation.webp"
@@ -118,7 +118,7 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="bg-white/90 dark:bg-card p-6 rounded-2xl shadow-lg border border-border/60 hover:shadow-xl transition-shadow">
+                <div className="bg-white dark:bg-card p-6 rounded-2xl shadow-lg border border-border/60 hover:shadow-xl transition-shadow">
                   <div className="relative h-32 overflow-hidden rounded-xl mb-3">
                     <Image
                       src="/images/clinical/pulmonary-clinic.webp"
