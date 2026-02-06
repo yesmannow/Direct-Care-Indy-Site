@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 interface ScrollTransitionProps {
@@ -20,16 +20,14 @@ export function ScrollTransition({ children, id }: ScrollTransitionProps) {
   const scale = useTransform(scrollYProgress, [0, 0.15, 0.7, 1], [0.98, 1, 1, 0.95]);
 
   return (
-    <Suspense fallback={<div id={id}>{children}</div>}>
-      <motion.div
-        ref={ref}
-        id={id}
-        style={{ opacity, y, scale }}
-        transition={{ type: "spring", stiffness: 100, damping: 20 }}
-      >
-        {children}
-      </motion.div>
-    </Suspense>
+    <motion.div
+      ref={ref}
+      id={id}
+      style={{ opacity, y, scale }}
+      transition={{ type: "spring", stiffness: 100, damping: 20 }}
+    >
+      {children}
+    </motion.div>
   );
 }
 

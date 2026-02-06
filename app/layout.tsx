@@ -44,7 +44,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="DPC Indy" />
         <link rel="apple-touch-icon" href="/images/logos/dci-icon-192.png" />
       </head>
-      <body className={`${sans.variable} ${display.variable} antialiased`} style={{ opacity: 1, visibility: "visible" }}>
+      <body className={`${sans.variable} ${display.variable} antialiased`}>
         <GoogleTagManager gtmId="GTM-KKFRX4Z3" />
         <a href="#main-content" className="skip-link">
           Skip to main content
