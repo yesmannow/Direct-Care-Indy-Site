@@ -29,8 +29,8 @@ export default function Home() {
         </div>
         <div className="content-container relative section-padding">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 bg-white/95 dark:bg-card/95 p-8 rounded-3xl shadow-xl">
-              <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-card px-4 py-2 rounded-full border border-border shadow-sm w-fit">
+            <div className="space-y-6 bg-white/60 backdrop-blur-md dark:bg-card/95 p-8 rounded-3xl shadow-xl">
+              <div className="inline-flex items-center gap-2 bg-white dark:bg-card px-4 py-2 rounded-full border border-border shadow-sm w-fit">
                 <Sparkles className="h-4 w-4 text-secondary" />
                 <span className="text-sm font-semibold text-foreground">Hint-powered enrollment in one click</span>
               </div>
