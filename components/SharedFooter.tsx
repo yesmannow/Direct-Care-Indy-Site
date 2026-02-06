@@ -117,6 +117,14 @@ export function SharedFooter() {
                   Partnerships
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/tech-strategy"
+                  className="text-muted-foreground hover:text-secondary transition-colors text-xs opacity-70"
+                >
+                  Admin: Tech Strategy
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
