@@ -3,6 +3,7 @@
 import * as React from "react";
 import { ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import RoleDetailPanel from "./RoleDetailPanel";
 
 interface RoleData {
   role: string;
@@ -104,6 +105,9 @@ export default function RoleImpact() {
           </div>
         </CardContent>
       </Card>
+
+      {/* Role Detail Panel */}
+      <RoleDetailPanel role={current.role} />
     </div>
   );
 }
