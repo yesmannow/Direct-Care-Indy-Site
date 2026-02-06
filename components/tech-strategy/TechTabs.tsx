@@ -63,6 +63,9 @@ export default function TechTabs() {
       <TabsContent value="workflows">
         <WorkflowSimulator />
       </TabsContent>
+      <TabsContent value="development">
+        <DevArchitecture />
+      </TabsContent>
       <TabsContent value="compliance">
         <ComplianceMap />
       </TabsContent>
