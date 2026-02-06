@@ -110,12 +110,33 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team/Location */}
+      {/* Meet Dr. Pike */}
       <section className="py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1>About / Team / Location</h1>
-          <p>Combined placeholder for about information</p>
-          {/* TODO: Add team bios and location details */}
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl font-bold mb-6 text-center">Meet Dr. Pike</h2>
+            <div className="bg-card rounded-2xl p-8 border border-border">
+              <h3 className="text-2xl font-bold mb-3">James D. Pike, D.O., FCCP, FACP</h3>
+              <p className="text-muted-foreground mb-4">
+                Board-certified in Pulmonary and Internal Medicine, Dr. Pike brings hospital-grade expertise to everyday primary care. As a Fellow of both the American College of Chest Physicians and the American College of Physicians, he leads Direct Care Indy with a mission to dismantle the barriers between patients and quality healthcare.
+              </p>
+              <p className="text-muted-foreground">
+                Through the Round Table model, Dr. Pike provides specialist oversight on every complex case while ensuring members receive same-day access, transparent pricing, and the personal attention that traditional insurance-driven clinics cannot offer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Mission */}
+      <section className="py-20 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6">Our Mission</h2>
+            <p className="text-xl text-muted-foreground">
+              Capitalizing on critical 2026 federal changes to offer a vital alternative to the insurance death spiral.
+            </p>
+          </div>
         </div>
       </section>
 

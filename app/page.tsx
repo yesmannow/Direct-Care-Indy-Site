@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, HeartPulse, Play, ShieldCheck, Sparkles, Stethoscope } from "lucide-react";
+import { ArrowRight, CheckCircle2, HeartPulse, Play, ShieldCheck, Sparkles, Stethoscope, User, Users, Briefcase } from "lucide-react";
 import { MembershipConfigurator } from "@/components/MembershipConfigurator";
+import { MembershipValue } from "@/components/shared/MembershipValue";
 import { NinetyTenSwitcher } from "@/components/NinetyTenSwitcher";
 import PortalPreview from "@/components/PortalPreview";
 import { SavingsPersonas } from "@/components/SavingsPersonas";
@@ -142,6 +143,67 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 3-Lane Entry */}
+      <section className="section-padding bg-muted/30">
+        <div className="content-container">
+          <h2 className="heading-2 text-center mb-10">Choose Your Path</h2>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="bg-card border border-border rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition-shadow">
+              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-teal-50 dark:bg-teal-950">
+                <User className="h-7 w-7 text-teal-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Individuals</h3>
+              <p className="text-2xl font-bold text-secondary mb-2">$85 – $110/mo</p>
+              <p className="text-sm text-muted-foreground mb-6">Unlimited primary care &amp; 24/7 text access.</p>
+              <Link
+                href="/pricing"
+                className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 rounded-full font-semibold hover:bg-secondary/90 transition-colors"
+              >
+                View Pricing
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+            <div className="bg-card border border-border rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition-shadow">
+              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-teal-50 dark:bg-teal-950">
+                <Users className="h-7 w-7 text-teal-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Families</h3>
+              <p className="text-2xl font-bold text-secondary mb-2">$250 – $300/mo</p>
+              <p className="text-sm text-muted-foreground mb-6">Comprehensive care for 2 Adults + 2 Kids.</p>
+              <Link
+                href="/pricing"
+                className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 rounded-full font-semibold hover:bg-secondary/90 transition-colors"
+              >
+                Build Your Plan
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+            <div className="bg-card border border-border rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition-shadow">
+              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-teal-50 dark:bg-teal-950">
+                <Briefcase className="h-7 w-7 text-teal-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Small Businesses</h3>
+              <p className="text-2xl font-bold text-secondary mb-2">$80/emp</p>
+              <p className="text-sm text-muted-foreground mb-6">Occupational health &amp; acute care.</p>
+              <Link
+                href="/partnerships"
+                className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 rounded-full font-semibold hover:bg-secondary/90 transition-colors"
+              >
+                Partner with Us
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Membership Value */}
+      <section className="section-padding">
+        <div className="content-container max-w-5xl mx-auto">
+          <MembershipValue />
         </div>
       </section>
 

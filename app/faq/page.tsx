@@ -17,6 +17,14 @@ export default function FAQ() {
       category: "Membership & Billing",
       questions: [
         {
+          question: "What is included?",
+          answer: (
+            <div className="space-y-3">
+              <p>Unlimited primary/preventive visits, 24/7 text/email access, and same-day scheduling.</p>
+            </div>
+          ),
+        },
+        {
           question: "How does billing work?",
           answer: (
             <div className="space-y-3">
@@ -47,6 +55,15 @@ export default function FAQ() {
                   <li>You&apos;re welcome to rejoin at any time in the future</li>
                 </ul>
               </div>
+            </div>
+          ),
+        },
+        {
+          question: "Can I use my HSA?",
+          answer: (
+            <div className="space-y-3">
+              <p className="font-semibold text-lg">Yes.</p>
+              <p>Our pricing is engineered to remain strictly within the 2026 Federal HSA limits (&lt;$150/mo for individuals, &lt;$300/mo for families).</p>
             </div>
           ),
         },
@@ -85,6 +102,14 @@ export default function FAQ() {
                 </ul>
               </div>
               <p>Individual tiers range from $30-$109 based on age, but families always cap at $250 total.</p>
+            </div>
+          ),
+        },
+        {
+          question: "How does the Family Plan work?",
+          answer: (
+            <div className="space-y-3">
+              <p>It covers comprehensive household care (typically 2 Adults + 2 Kids) for a capped rate between $250–$300/mo.</p>
             </div>
           ),
         },
