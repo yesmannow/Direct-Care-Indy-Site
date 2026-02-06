@@ -22,7 +22,7 @@ export default function Home() {
             src="/images/clinical/pulmonary-clinic.webp"
             alt="Direct Care Indy exam room"
             fill
-            className="object-cover opacity-60 blur-[1px]"
+            className="object-cover opacity-60"
             priority
             sizes="100vw"
           />

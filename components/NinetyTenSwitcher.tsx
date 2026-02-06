@@ -29,7 +29,7 @@ export function NinetyTenSwitcher() {
   return (
     <div className="max-w-2xl mx-auto section-card relative overflow-hidden">
       {/* Animated 90/10 Model SVG Background */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-[0.02] hidden md:block">
         <motion.div
           animate={{
             scale: view === 'dpc' ? [1, 1.1, 1] : [1, 0.9, 1],
