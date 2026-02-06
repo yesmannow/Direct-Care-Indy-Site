@@ -20,6 +20,7 @@ interface StackNode {
   phi: boolean;
   icon: React.ElementType;
   color: string;
+  metric: string;
 }
 
 const nodes: StackNode[] = [
@@ -31,6 +32,8 @@ const nodes: StackNode[] = [
     phi: true,
     icon: Stethoscope,
     color: "bg-blue-100 text-blue-700 border-blue-300",
+    metric:
+      "AI Note Assist reduces charting time by 80–90% via ambient transcription.",
   },
   {
     id: "hint",
@@ -40,6 +43,8 @@ const nodes: StackNode[] = [
     phi: true,
     icon: Briefcase,
     color: "bg-emerald-100 text-emerald-700 border-emerald-300",
+    metric:
+      "Automated Membership Billing & Dunning. Eliminates manual collections and syncs directly to QuickBooks.",
   },
   {
     id: "calai",
@@ -49,6 +54,8 @@ const nodes: StackNode[] = [
     phi: false,
     icon: Phone,
     color: "bg-violet-100 text-violet-700 border-violet-300",
+    metric:
+      "24/7 Autonomous Scheduling. Handles confirmations, rescheduling, and triage without staff intervention.",
   },
   {
     id: "spruce",
@@ -58,6 +65,8 @@ const nodes: StackNode[] = [
     phi: true,
     icon: MessageSquare,
     color: "bg-amber-100 text-amber-700 border-amber-300",
+    metric:
+      "Asynchronous Clinical Triage. Acts as a 'Digital Exam Room' for 40% of standard visits.",
   },
   {
     id: "mautic",
@@ -67,6 +76,8 @@ const nodes: StackNode[] = [
     phi: false,
     icon: TrendingUp,
     color: "bg-rose-100 text-rose-700 border-rose-300",
+    metric:
+      "Self-hosted marketing automation with full data sovereignty for HIPAA-compliant lead nurturing.",
   },
 ];
 
@@ -178,6 +189,15 @@ export default function StackMap() {
                     Replaces
                   </h4>
                   <p className="text-sm text-foreground">{selected.replaces}</p>
+                </div>
+
+                <div>
+                  <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1">
+                    Key Metric
+                  </h4>
+                  <p className="text-sm text-foreground font-medium">
+                    {selected.metric}
+                  </p>
                 </div>
 
                 <div>

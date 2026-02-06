@@ -233,7 +233,124 @@ function PropagationFlow() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Section 4 – My Role (The Architect)                               */
+/*  Section 4 – The AI Automation Loop                                */
+/* ------------------------------------------------------------------ */
+
+interface LoopStep {
+  stage: string;
+  node: string;
+  action: string;
+}
+
+const loopSteps: LoopStep[] = [
+  { stage: "Input", node: "Trigger Node", action: "Web Form / SMS" },
+  {
+    stage: "Process",
+    node: "AI Node (OpenAI/Claude)",
+    action: "Classifies Intent (Hot/Warm/Cold)",
+  },
+  {
+    stage: "Action",
+    node: "Mautic Node",
+    action: "Tags Contact & Triggers Drip",
+  },
+  {
+    stage: "Result",
+    node: "Cal.com Node",
+    action: "Generates Dynamic Booking Link",
+  },
+];
+
+function AIAutomationLoop() {
+  return (
+    <section className="space-y-6">
+      <h3 className="text-xl font-bold text-foreground text-center">
+        The AI Automation Loop
+      </h3>
+      <p className="text-sm text-muted-foreground text-center max-w-2xl mx-auto">
+        Every inbound lead is processed through a four-stage n8n workflow that
+        classifies intent and routes to the correct action — with zero human
+        intervention.
+      </p>
+
+      {/* Code-block style visualization */}
+      <div className="rounded-lg overflow-hidden border border-gray-700 max-w-2xl mx-auto">
+        <div className="flex items-center gap-1.5 bg-gray-800 px-4 py-2">
+          <span className="w-3 h-3 rounded-full bg-red-500" />
+          <span className="w-3 h-3 rounded-full bg-yellow-500" />
+          <span className="w-3 h-3 rounded-full bg-green-500" />
+          <span className="ml-2 text-xs text-gray-400 font-mono">
+            ai_automation_loop.json
+          </span>
+        </div>
+        <div className="bg-gray-950 p-4 font-mono text-sm leading-relaxed overflow-x-auto">
+          <p className="text-gray-500">{"{"}</p>
+          <p className="text-gray-500 ml-2">
+            {'"workflow"'}: {'"ai_lead_router"'},
+          </p>
+          <p className="text-gray-500 ml-2">
+            {'"nodes"'}: {"["}
+          </p>
+          {loopSteps.map((step, idx) => (
+            <div key={step.stage} className="ml-4 my-1">
+              <p className="text-gray-500">{"{"}</p>
+              <p className="ml-2">
+                <span className="text-violet-400">{`"stage"`}</span>
+                <span className="text-gray-500">: </span>
+                <span className="text-amber-300">{`"${step.stage}"`}</span>
+                <span className="text-gray-500">,</span>
+              </p>
+              <p className="ml-2">
+                <span className="text-violet-400">{`"node"`}</span>
+                <span className="text-gray-500">: </span>
+                <span className="text-green-400">{`"${step.node}"`}</span>
+                <span className="text-gray-500">,</span>
+              </p>
+              <p className="ml-2">
+                <span className="text-violet-400">{`"action"`}</span>
+                <span className="text-gray-500">: </span>
+                <span className="text-cyan-300">{`"${step.action}"`}</span>
+              </p>
+              <p className="text-gray-500">
+                {"}"}{idx < loopSteps.length - 1 ? "," : ""}
+              </p>
+            </div>
+          ))}
+          <p className="text-gray-500 ml-2">{"]"}</p>
+          <p className="text-gray-500">{"}"}</p>
+        </div>
+      </div>
+
+      {/* Visual flow (horizontal) */}
+      <div className="hidden md:flex items-center justify-center gap-2 py-4 max-w-3xl mx-auto">
+        {loopSteps.map((step, idx) => (
+          <React.Fragment key={step.stage}>
+            <div className="flex flex-col items-center text-center min-w-[150px]">
+              <span className="flex items-center justify-center w-9 h-9 rounded-full bg-secondary text-secondary-foreground text-sm font-bold mb-2">
+                {idx + 1}
+              </span>
+              <span className="text-xs font-bold text-foreground uppercase tracking-wide">
+                {step.stage}
+              </span>
+              <span className="text-xs text-muted-foreground mt-0.5">
+                {step.node}
+              </span>
+              <code className="text-xs bg-gray-950 text-green-400 rounded px-2 py-1 mt-1 block">
+                {step.action}
+              </code>
+            </div>
+            {idx < loopSteps.length - 1 && (
+              <ArrowRight className="w-5 h-5 text-muted-foreground shrink-0" />
+            )}
+          </React.Fragment>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Section 5 – My Role (The Architect)                               */
 /* ------------------------------------------------------------------ */
 
 function ArchitectRole() {
@@ -270,6 +387,7 @@ export default function DevArchitecture() {
       <HeroSection />
       <IntegrationGrid />
       <PropagationFlow />
+      <AIAutomationLoop />
       <ArchitectRole />
     </div>
   );
