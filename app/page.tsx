@@ -26,11 +26,10 @@ export default function Home() {
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/50" />
         </div>
         <div className="content-container relative section-padding">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+            <div className="space-y-6 bg-white/95 dark:bg-card/95 p-8 rounded-3xl shadow-xl backdrop-blur-sm">
               <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-card px-4 py-2 rounded-full border border-border shadow-sm w-fit">
                 <Sparkles className="h-4 w-4 text-secondary" />
                 <span className="text-sm font-semibold text-foreground">Hint-powered enrollment in one click</span>

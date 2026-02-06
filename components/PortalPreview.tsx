@@ -132,7 +132,7 @@ export default function PortalPreview() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="bg-white dark:bg-gray-800 backdrop-blur-md rounded-xl p-6 shadow-md border border-gray-200/50 dark:border-gray-700/50"
+          className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border border-gray-200/50 dark:border-gray-700/50"
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="bg-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center">
@@ -178,7 +178,7 @@ export default function PortalPreview() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="bg-white dark:bg-gray-800 backdrop-blur-md rounded-xl p-6 shadow-md border border-gray-200/50 dark:border-gray-700/50"
+          className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border border-gray-200/50 dark:border-gray-700/50"
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="bg-green-600 text-white rounded-full w-12 h-12 flex items-center justify-center">
