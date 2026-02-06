@@ -65,7 +65,7 @@ export default function Partnerships() {
               Small Business Healthcare Partnerships
             </h2>
             <p className="text-2xl mb-4">
-              Offer a real benefit to your crew for less than $3/day
+              $80/mo per employee — real healthcare for your crew
             </p>
             <p className="text-xl">
               Healthcare that works for trades, small businesses, and the people who keep Indianapolis running.
@@ -115,6 +115,53 @@ export default function Partnerships() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Value Split */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h3 className="text-3xl font-bold text-primary mb-10 text-center">
+              Everyone Wins at $80/mo per Employee
+            </h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-green-50 border-2 border-green-200 rounded-xl p-8">
+                <h4 className="text-xl font-bold text-green-900 mb-4">Employees Get</h4>
+                <ul className="space-y-3 text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold mt-0.5">✓</span>
+                    <span>0 Copays</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold mt-0.5">✓</span>
+                    <span>Same-day access</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold mt-0.5">✓</span>
+                    <span>Wholesale meds</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-8">
+                <h4 className="text-xl font-bold text-blue-900 mb-4">Business Gets</h4>
+                <ul className="space-y-3 text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 font-bold mt-0.5">✓</span>
+                    <span>Fixed monthly cost ($80/emp)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 font-bold mt-0.5">✓</span>
+                    <span>Reduced absenteeism</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 font-bold mt-0.5">✓</span>
+                    <span>5-minute enrollment</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>

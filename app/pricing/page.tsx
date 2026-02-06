@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import PricingTiers from "@/components/PricingTiers";
 import ComparisonTable from "@/components/ComparisonTable";
 import PortalPreview from "@/components/PortalPreview";
@@ -8,6 +8,7 @@ import { ValueBanner } from "@/components/ValueBanner";
 import { MarketCostComparison } from "@/components/MarketCostComparison";
 import WholesaleLabSearch from "@/components/WholesaleLabSearch";
 import { PricingCalculator } from "@/components/PricingCalculator";
+import { MembershipValue } from "@/components/shared/MembershipValue";
 
 export default function Pricing() {
 
@@ -39,6 +40,74 @@ export default function Pricing() {
           <div className="max-w-7xl mx-auto">
             <PricingTiers />
           </div>
+        </div>
+      </section>
+
+      {/* 2026 Pricing Tiers */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-10">2026 Membership Tiers</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-card border border-border rounded-2xl p-8 text-center shadow-sm">
+                <h3 className="text-xl font-bold mb-2">Individual Adult</h3>
+                <p className="text-3xl font-bold text-secondary mb-4">$85 – $110/mo</p>
+                <ul className="text-sm text-muted-foreground space-y-2 text-left">
+                  <li className="flex items-start gap-2"><span className="text-secondary font-bold">✓</span> Unlimited visits</li>
+                  <li className="flex items-start gap-2"><span className="text-secondary font-bold">✓</span> Same-day scheduling</li>
+                </ul>
+              </div>
+              <div className="bg-card border-2 border-secondary rounded-2xl p-8 text-center shadow-md ring-2 ring-secondary/20">
+                <h3 className="text-xl font-bold mb-2">Family Plan</h3>
+                <p className="text-3xl font-bold text-secondary mb-2">$250 – $300/mo</p>
+                <p className="text-xs text-muted-foreground mb-4">Includes 2 Adults + 2 Kids (Kids &lt;18 approx $45/mo)</p>
+                <ul className="text-sm text-muted-foreground space-y-2 text-left">
+                  <li className="flex items-start gap-2"><span className="text-secondary font-bold">✓</span> Comprehensive household care</li>
+                  <li className="flex items-start gap-2"><span className="text-secondary font-bold">✓</span> All individual features included</li>
+                </ul>
+              </div>
+              <div className="bg-card border border-border rounded-2xl p-8 text-center shadow-sm">
+                <h3 className="text-xl font-bold mb-2">Small Business</h3>
+                <p className="text-3xl font-bold text-secondary mb-4">$80/mo per employee</p>
+                <ul className="text-sm text-muted-foreground space-y-2 text-left">
+                  <li className="flex items-start gap-2"><span className="text-secondary font-bold">✓</span> Absenteeism reduction strategies</li>
+                  <li className="flex items-start gap-2"><span className="text-secondary font-bold">✓</span> Consolidated invoicing</li>
+                </ul>
+              </div>
+            </div>
+            {/* Compliance Footnote */}
+            <div className="mt-8 bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-200 dark:border-yellow-800 rounded-xl p-4 text-center">
+              <p className="text-sm text-yellow-900 dark:text-yellow-200">
+                ⚠️ <strong>Critical 2026 Compliance Note:</strong> To maintain HSA eligibility for patients, our individual fees do not exceed $150/month and family fees do not exceed $300/month.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Business Bridge */}
+      <section className="py-12 bg-card">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h3 className="text-2xl font-bold mb-3">Buying for your team?</h3>
+            <p className="text-muted-foreground mb-6">
+              Simple $80/mo/employee pricing. Consolidated invoicing.
+            </p>
+            <Link
+              href="/partnerships"
+              className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-secondary/90 transition-colors"
+            >
+              Learn About Partnerships
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Membership Value */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <MembershipValue />
         </div>
       </section>
 
