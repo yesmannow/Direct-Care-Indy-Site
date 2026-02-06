@@ -7,8 +7,6 @@ interface TagManagerProps {
 }
 
 export default function GoogleTagManager({ gtmId }: TagManagerProps) {
-  const tagManagerUrl = `https://www.googletagmanager.com/gtm.js?id=${gtmId}`;
-  
   return (
     <>
       <Script
@@ -35,6 +33,7 @@ export default function GoogleTagManager({ gtmId }: TagManagerProps) {
           width="0"
           style={{ display: 'none', visibility: 'hidden' }}
           title="Google Tag Manager"
+          sandbox="allow-scripts allow-same-origin"
         />
       </noscript>
     </>
