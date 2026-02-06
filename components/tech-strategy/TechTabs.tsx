@@ -6,6 +6,7 @@ import ROICalculator from "./ROICalculator";
 import StackMap from "./StackMap";
 import RoleImpact from "./RoleImpact";
 import WorkflowSimulator from "./WorkflowSimulator";
+import PatientJourneys from "./PatientJourneys";
 import DevArchitecture from "./DevArchitecture";
 import ComplianceMap from "./ComplianceMap";
 import { ShieldCheck, CheckCircle2 } from "lucide-react";
@@ -26,6 +27,7 @@ export default function TechTabs() {
         <TabsTrigger value="stack">The Stack</TabsTrigger>
         <TabsTrigger value="staff">The Staff</TabsTrigger>
         <TabsTrigger value="workflows">The Workflows</TabsTrigger>
+        <TabsTrigger value="journeys">Patient Experience</TabsTrigger>
         <TabsTrigger value="development">Development</TabsTrigger>
         <TabsTrigger value="compliance">Compliance</TabsTrigger>
       </TabsList>
@@ -62,6 +64,9 @@ export default function TechTabs() {
       </TabsContent>
       <TabsContent value="workflows">
         <WorkflowSimulator />
+      </TabsContent>
+      <TabsContent value="journeys">
+        <PatientJourneys />
       </TabsContent>
       <TabsContent value="development">
         <DevArchitecture />
