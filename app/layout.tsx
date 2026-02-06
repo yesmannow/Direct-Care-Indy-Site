@@ -11,6 +11,7 @@ import { ScrollTransition } from "@/components/ScrollTransition";
 import { FaqSchema } from "@/components/FaqSchema";
 import { OrganizationSchema, PhysicianSchema, ServiceSchema } from "@/components/StructuredData";
 import { SharedFooter } from "@/components/SharedFooter";
+import BackToTop from "@/components/BackToTop";
 
 const sans = Manrope({
   subsets: ["latin"],
@@ -74,6 +75,9 @@ export default function RootLayout({
 
           {/* Sticky Value Hook */}
           <StickySavingsBar />
+
+          {/* Back to Top Button */}
+          <BackToTop />
         </ThemeProvider>
 
         <script dangerouslySetInnerHTML={{

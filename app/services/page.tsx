@@ -60,7 +60,7 @@ export default function Services() {
       <section className="bg-background py-16 border-b border-border">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-black mb-4 text-foreground text-glow">Comprehensive Primary Care Services</h2>
-          <p className="text-xl max-w-2xl mx-auto text-muted-foreground">
+          <p className="text-xl max-w-2xl mx-auto text-foreground/70">
             Everything you need for the 90% of healthcare that keeps you healthy and active.
           </p>
         </div>
@@ -94,7 +94,7 @@ export default function Services() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
               <h3 className="text-3xl font-bold text-foreground mb-4">Personal Wellness Lab</h3>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-foreground/70">
                 Calculate your BMI, ideal weight, and metabolic health metrics
               </p>
             </div>
@@ -109,7 +109,7 @@ export default function Services() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
               <h3 className="text-3xl font-bold text-foreground mb-4">Personalized Health Recommendations</h3>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-foreground/70">
                 Get evidence-based screening recommendations based on your age and sex
               </p>
             </div>
@@ -125,7 +125,7 @@ export default function Services() {
             <h3 className="text-3xl font-bold text-foreground mb-4 text-center">
               Wholesale Diagnostics
             </h3>
-            <p className="text-muted-foreground text-center text-lg mb-8">
+            <p className="text-foreground/70 text-center text-lg mb-8">
               Search our complete directory of lab tests. See exactly how much you&apos;ll save compared to Indianapolis hospital rates.
             </p>
             <WholesaleLabSearch />
@@ -166,53 +166,58 @@ export default function Services() {
           <h3 className="text-3xl font-bold text-foreground mb-8 text-center">
             Traditional Insurance vs. The DPC Stack
           </h3>
-          <div className="max-w-5xl mx-auto overflow-x-auto">
-            <table className="w-full bg-card shadow-lg rounded-lg border border-border">
-              <thead className="bg-secondary text-secondary-foreground">
-                <tr>
-                  <th className="px-6 py-4 text-left">Feature</th>
-                  <th className="px-6 py-4 text-left">Traditional Insurance</th>
-                  <th className="px-6 py-4 text-left">The DPC Stack</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b">
-                  <td className="px-6 py-4 font-semibold">Strategy</td>
-                  <td className="px-6 py-4">Relies on insurance for everything</td>
-                  <td className="px-6 py-4 text-green-700">
-                    Separates &quot;Day-to-day&quot; from &quot;Emergency&quot;
-                  </td>
-                </tr>
-                <tr className="border-b bg-gray-50">
-                  <td className="px-6 py-4 font-semibold">Out-of-pocket per visit</td>
-                  <td className="px-6 py-4">$150–$200 until deductible met</td>
-                  <td className="px-6 py-4 text-green-700 font-bold">
-                    $0 per visit. Flat membership.
-                  </td>
-                </tr>
-                <tr className="border-b">
-                  <td className="px-6 py-4 font-semibold">Wait Time</td>
-                  <td className="px-6 py-4">3-week wait; 4 hours total time</td>
-                  <td className="px-6 py-4 text-green-700 font-bold">
-                    Same-day text; 20 minutes total time
-                  </td>
-                </tr>
-                <tr className="border-b bg-gray-50">
-                  <td className="px-6 py-4 font-semibold">Communication</td>
-                  <td className="px-6 py-4">Through office staff only</td>
-                  <td className="px-6 py-4 text-green-700">
-                    Direct access to Dr. Pike via text, call, or email
-                  </td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 font-semibold">Annual Cost</td>
-                  <td className="px-6 py-4">~$7,800 (premium + deductible)</td>
-                  <td className="px-6 py-4 text-green-700 font-bold">
-                    ~$4,068 (catastrophic + DPC)
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="max-w-5xl mx-auto">
+            <div className="overflow-auto rounded-lg shadow-lg border border-border" style={{ WebkitOverflowScrolling: 'touch' }}>
+              <table className="w-full bg-card" style={{ minWidth: '640px' }}>
+                <thead className="bg-secondary text-secondary-foreground">
+                  <tr>
+                    <th className="px-3 md:px-6 py-4 text-left font-semibold whitespace-nowrap">Feature</th>
+                    <th className="px-3 md:px-6 py-4 text-left font-semibold whitespace-nowrap">Traditional Insurance</th>
+                    <th className="px-3 md:px-6 py-4 text-left font-semibold whitespace-nowrap">The DPC Stack</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  <tr>
+                    <td className="px-3 md:px-6 py-4 font-semibold whitespace-nowrap">Strategy</td>
+                    <td className="px-3 md:px-6 py-4">Relies on insurance for everything</td>
+                    <td className="px-3 md:px-6 py-4 text-secondary font-medium">
+                      Separates &quot;Day-to-day&quot; from &quot;Emergency&quot;
+                    </td>
+                  </tr>
+                  <tr className="bg-muted/30">
+                    <td className="px-3 md:px-6 py-4 font-semibold whitespace-nowrap">Out-of-pocket per visit</td>
+                    <td className="px-3 md:px-6 py-4">$150–$200 until deductible met</td>
+                    <td className="px-3 md:px-6 py-4 text-secondary font-bold">
+                      $0 per visit. Flat membership.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="px-3 md:px-6 py-4 font-semibold whitespace-nowrap">Wait Time</td>
+                    <td className="px-3 md:px-6 py-4">3-week wait; 4 hours total time</td>
+                    <td className="px-3 md:px-6 py-4 text-secondary font-bold">
+                      Same-day text; 20 minutes total time
+                    </td>
+                  </tr>
+                  <tr className="bg-muted/30">
+                    <td className="px-3 md:px-6 py-4 font-semibold whitespace-nowrap">Communication</td>
+                    <td className="px-3 md:px-6 py-4">Through office staff only</td>
+                    <td className="px-3 md:px-6 py-4 text-secondary font-medium">
+                      Direct access to Dr. Pike via text, call, or email
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="px-3 md:px-6 py-4 font-semibold whitespace-nowrap">Annual Cost</td>
+                    <td className="px-3 md:px-6 py-4">~$7,800 (premium + deductible)</td>
+                    <td className="px-3 md:px-6 py-4 text-secondary font-bold">
+                      ~$4,068 (catastrophic + DPC)
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm text-foreground/60 text-center mt-3 md:hidden">
+              ← Swipe to see full comparison →
+            </p>
           </div>
           <div className="text-center mt-8">
             <p className="text-2xl font-bold text-foreground">
